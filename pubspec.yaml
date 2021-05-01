@@ -53,6 +53,7 @@ flutter:
     - assets/img/onboard-background-free.jpg
     - assets/img/logo-android.png
     - assets/img/logo-ios.png
+    - assets/img/logo.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
