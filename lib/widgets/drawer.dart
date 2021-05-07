@@ -133,11 +133,11 @@ class MaterialDrawer extends StatelessWidget {
                 icon: Icons.account_circle,
                 onTap: () {
                   if (currentPage != "Profile")
-                    Navigator.pushReplacementNamed(context, '/profile');
+                    Navigator.pushReplacementNamed(context, '/Perfil');
                 },
                 iconColor: Colors.black,
-                title: "Profile",
-                isSelected: currentPage == "Profile" ? true : false),
+                title: "Perfil",
+                isSelected: currentPage == "/Perfil" ? true : false),
             DrawerTile(
                 icon: Icons.settings,
                 onTap: () {
