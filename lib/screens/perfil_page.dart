@@ -32,8 +32,8 @@ class _PerfilPageState extends State<PerfilPage> {
     return StreamBuilder(
       builder: (BuildContext context, AsyncSnapshot snapshot){
         return Container(
-          child: TextField(
-             
+          child: Text(
+             'hola',
           ),
         );
       });
