@@ -129,6 +129,7 @@ class MaterialDrawer extends StatelessWidget {
                 iconColor: Colors.black,
                 title: "Components",
                 isSelected: currentPage == "Components" ? true : false),
+            
             DrawerTile(
                 icon: Icons.account_circle,
                 onTap: () {
@@ -136,8 +137,18 @@ class MaterialDrawer extends StatelessWidget {
                     Navigator.pushReplacementNamed(context, '/profile');
                 },
                 iconColor: Colors.black,
-                title: "Perfil",
+                title: "Profile",
                 isSelected: currentPage == "/profile" ? true : false),
+            
+            DrawerTile(
+                icon: Icons.account_circle,
+                onTap: () {
+                  if (currentPage != "Perfil")
+                    Navigator.pushReplacementNamed(context, '/Perfil');
+                },
+                iconColor: Colors.black,
+                title: "Perfil",
+                isSelected: currentPage == "/Perfil" ? true : false),
             DrawerTile(
                 icon: Icons.settings,
                 onTap: () {
