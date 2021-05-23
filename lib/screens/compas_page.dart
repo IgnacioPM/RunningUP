@@ -3,24 +3,24 @@ import 'package:material_kit_flutter/constants/Theme.dart';
 import 'package:material_kit_flutter/widgets/drawer.dart';
 
 import 'package:material_kit_flutter/widgets/navbar.dart';
-class PerfilPage extends StatefulWidget {
-  static String id = 'Perfil_Page';
+class CompasPage extends StatefulWidget {
+  static String id = 'Compas_Page';
 
   @override
-  _PerfilPageState createState() => _PerfilPageState();
+  _CompasPageState createState() => _CompasPageState();
 }
 
-class _PerfilPageState extends State<PerfilPage> {
+class _CompasPageState extends State<CompasPage> {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
         extendBodyBehindAppBar: true,
         appBar: Navbar(
-          title: "Perfil",
+          title: "Compas",
           transparent: true,
         ),
         backgroundColor: MaterialColors.bgColorScreen,
-        drawer: MaterialDrawer(currentPage:"Perfil_Page"),
+        drawer: MaterialDrawer(currentPage:"Compas_Page"),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -30,7 +30,7 @@ class _PerfilPageState extends State<PerfilPage> {
                 height: 15.0,
               ),
             Text(
-              'Hola este es tu perfil papu ^_~'
+              'Hola esta es tu lista de contactus papu ^_~'
             ),
             
             SizedBox(

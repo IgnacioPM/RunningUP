@@ -4,23 +4,23 @@ import 'package:material_kit_flutter/widgets/drawer.dart';
 
 import 'package:material_kit_flutter/widgets/navbar.dart';
 class PerfilPage extends StatefulWidget {
-  static String id = 'Perfil_Page';
+  static String id = 'Registro_Page';
 
   @override
-  _PerfilPageState createState() => _PerfilPageState();
+  RegistroPage createState() => RegistroPage();
 }
 
-class _PerfilPageState extends State<PerfilPage> {
+class RegistroPage extends State<PerfilPage> {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
         extendBodyBehindAppBar: true,
         appBar: Navbar(
-          title: "Perfil",
+          title: "Registro",
           transparent: true,
         ),
         backgroundColor: MaterialColors.bgColorScreen,
-        drawer: MaterialDrawer(currentPage:"Perfil_Page"),
+        drawer: MaterialDrawer(currentPage:"Registro_Page"),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -30,7 +30,7 @@ class _PerfilPageState extends State<PerfilPage> {
                 height: 15.0,
               ),
             Text(
-              'Hola este es tu perfil papu ^_~'
+              'Hola este es el formulario de resgitro de cuentas papu ^_~'
             ),
             
             SizedBox(

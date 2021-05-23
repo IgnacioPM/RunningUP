@@ -48,7 +48,7 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: Navbar(
-          title: "Home",
+          title: "RunningUp",
           searchBar: true,
           categoryOne: "Categories",
           categoryTwo: "Best Deals",
@@ -61,55 +61,55 @@ class Home extends StatelessWidget {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 16.0),
-                  child: CardHorizontal(
-                      cta: "View article",
-                      title: homeCards["Ice Cream"]['title'],
-                      img: homeCards["Ice Cream"]['image'],
-                      tap: () {
-                        Navigator.pushReplacementNamed(context, '/pro');
-                      }),
-                ),
+                // Padding(
+                //   padding: const EdgeInsets.only(top: 16.0),
+                //   child: CardHorizontal(
+                //       cta: "View article",
+                //       title: homeCards["Ice Cream"]['title'],
+                //       img: homeCards["Ice Cream"]['image'],
+                //       tap: () {
+                //         Navigator.pushReplacementNamed(context, '/pro');
+                //       }),
+                // ),
                 SizedBox(height: 8.0),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    CardSmall(
-                        cta: "View article",
-                        title: homeCards["Makeup"]['title'],
-                        img: homeCards["Makeup"]['image'],
-                        tap: () {
-                          Navigator.pushReplacementNamed(context, '/pro');
-                        }),
-                    CardSmall(
-                        cta: "View article",
-                        title: homeCards["Coffee"]['title'],
-                        img: homeCards["Coffee"]['image'],
-                        tap: () {
-                          Navigator.pushReplacementNamed(context, '/pro');
-                        })
-                  ],
-                ),
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //   children: [
+                //     CardSmall(
+                //         cta: "View article",
+                //         title: homeCards["Makeup"]['title'],
+                //         img: homeCards["Makeup"]['image'],
+                //         tap: () {
+                //           Navigator.pushReplacementNamed(context, '/pro');
+                //         }),
+                //     CardSmall(
+                //         cta: "View article",
+                //         title: homeCards["Coffee"]['title'],
+                //         img: homeCards["Coffee"]['image'],
+                //         tap: () {
+                //           Navigator.pushReplacementNamed(context, '/pro');
+                //         })
+                //   ],
+                // ),
                 SizedBox(height: 8.0),
-                CardHorizontal(
-                    cta: "View article",
-                    title: homeCards["Fashion"]['title'],
-                    img: homeCards["Fashion"]['image'],
-                    tap: () {
-                      Navigator.pushReplacementNamed(context, '/pro');
-                    }),
-                SizedBox(height: 8.0),
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 32.0),
-                  child: CardSquare(
-                      cta: "View article",
-                      title: homeCards["Argon"]['title'],
-                      img: homeCards["Argon"]['image'],
-                      tap: () {
-                        Navigator.pushReplacementNamed(context, '/pro');
-                      }),
-                )
+                // CardHorizontal(
+                //     cta: "View article",
+                //     title: homeCards["Fashion"]['title'],
+                //     img: homeCards["Fashion"]['image'],
+                //     tap: () {
+                //       Navigator.pushReplacementNamed(context, '/pro');
+                //     }),
+                // SizedBox(height: 8.0),
+                // Padding(
+                //   padding: const EdgeInsets.only(bottom: 32.0),
+                //   child: CardSquare(
+                //       cta: "View article",
+                //       title: homeCards["Argon"]['title'],
+                //       img: homeCards["Argon"]['image'],
+                //       tap: () {
+                //         Navigator.pushReplacementNamed(context, '/pro');
+                //       }),
+                // )
               ],
             ),
           ),

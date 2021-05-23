@@ -82,64 +82,8 @@ class MaterialDrawer extends StatelessWidget {
                     Navigator.pushReplacementNamed(context, '/home');
                 },
                 iconColor: Colors.black,
-                title: "Home",
+                title: "Inicio",
                 isSelected: currentPage == "Home" ? true : false),
-            DrawerTile(
-                icon: Icons.face,
-                onTap: () {
-                  if (currentPage != "Woman")
-                    Navigator.pushReplacementNamed(context, '/woman');
-                },
-                iconColor: Colors.black,
-                title: "Woman",
-                isSelected: currentPage == "Woman" ? true : false),
-            DrawerTile(
-                icon: Icons.tag_faces,
-                onTap: () {
-                  if (currentPage != "Man")
-                    Navigator.pushReplacementNamed(context, '/man');
-                },
-                iconColor: Colors.black,
-                title: "Man",
-                isSelected: currentPage == "Man" ? true : false),
-            DrawerTile(
-                icon: Icons.child_friendly,
-                onTap: () {
-                  if (currentPage != "Kids")
-                    Navigator.pushReplacementNamed(context, '/kids');
-                },
-                iconColor: Colors.black,
-                title: "Kids",
-                isSelected: currentPage == "Kids" ? true : false),
-            DrawerTile(
-                icon: Icons.grain,
-                onTap: () {
-                  if (currentPage != "New Collection")
-                    Navigator.pushReplacementNamed(context, '/newcollection');
-                },
-                iconColor: Colors.black,
-                title: "New Collection",
-                isSelected: currentPage == "New Collection" ? true : false),
-            DrawerTile(
-                icon: Icons.settings_input_component,
-                onTap: () {
-                  if (currentPage != "Components")
-                    Navigator.pushReplacementNamed(context, '/components');
-                },
-                iconColor: Colors.black,
-                title: "Components",
-                isSelected: currentPage == "Components" ? true : false),
-            
-            DrawerTile(
-                icon: Icons.account_circle,
-                onTap: () {
-                  if (currentPage != "Profile")
-                    Navigator.pushReplacementNamed(context, '/profile');
-                },
-                iconColor: Colors.black,
-                title: "Profile",
-                isSelected: currentPage == "/profile" ? true : false),
-            
             DrawerTile(
                 icon: Icons.account_circle,
                 onTap: () {
@@ -150,32 +94,59 @@ class MaterialDrawer extends StatelessWidget {
                 title: "Perfil",
                 isSelected: currentPage == "/Perfil" ? true : false),
             DrawerTile(
-                icon: Icons.settings,
+                icon: Icons.run_circle_outlined,
                 onTap: () {
-                  if (currentPage != "Settings")
-                    Navigator.pushReplacementNamed(context, '/settings');
+                  if (currentPage != "RegisActPage")
+                    Navigator.pushReplacementNamed(context, '/RegisAct');
                 },
                 iconColor: Colors.black,
-                title: "Settings",
-                isSelected: currentPage == "Settings" ? true : false),
+                title: "Registro de Actividades",
+                isSelected: currentPage == "RegisActPage" ? true : false),
             DrawerTile(
-                icon: Icons.exit_to_app,
+                icon: Icons.contact_page,
                 onTap: () {
-                  if (currentPage != "Sign In")
-                    Navigator.pushReplacementNamed(context, '/signin');
+                  if (currentPage != "CompasPage")
+                    Navigator.pushReplacementNamed(context, '/Compas');
                 },
                 iconColor: Colors.black,
-                title: "Sign In",
-                isSelected: currentPage == "Sign In" ? true : false),
+                title: "Compas",
+                isSelected: currentPage == "CompasPage" ? true : false),
             DrawerTile(
-                icon: Icons.open_in_browser,
+                icon: Icons.graphic_eq_outlined,
                 onTap: () {
-                  if (currentPage != "Sign Up")
-                    Navigator.pushReplacementNamed(context, '/signup');
+                  if (currentPage != "EstadisticaPage")
+                    Navigator.pushReplacementNamed(context, '/Estadisticas');
                 },
                 iconColor: Colors.black,
-                title: "Sign Up",
-                isSelected: currentPage == "Sign Up" ? true : false),
+                title: "Estadisticas",
+                isSelected: currentPage == "EstadisticaPage" ? true : false),
+            DrawerTile(
+                icon: Icons.logout,
+                onTap: () {
+                  if (currentPage != "")
+                    Navigator.pushReplacementNamed(context, '/Login');
+                },
+                iconColor: Colors.black,
+                title: "Cerrar Sesión",
+                isSelected: currentPage == "" ? true : false),
+            // DrawerTile(
+            //     icon: Icons.exit_to_app,
+            //     onTap: () {
+            //       if (currentPage != "Sign In")
+            //         Navigator.pushReplacementNamed(context, '/signin');
+            //     },
+            //     iconColor: Colors.black,
+            //     title: "Sign In",
+            //     isSelected: currentPage == "Sign In" ? true : false),
+            // DrawerTile(
+            //     icon: Icons.open_in_browser,
+            //     onTap: () {
+            //       if (currentPage != "Sign Up")
+            //         Navigator.pushReplacementNamed(context, '/signup');
+            //     },
+            //     iconColor: Colors.black,
+            //     title: "Sign Up",
+            //     isSelected: currentPage == "Sign Up" ? true : false),
           ],
         ))
       ])),
