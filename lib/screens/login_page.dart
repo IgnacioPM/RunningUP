@@ -27,6 +27,22 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+    return Scaffold(
+      body: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Column(
+          children: [
+            Text(
+              "Bienvenido!"
+            )
+          ],
+        ),
+      ),
+    );
+  }
+} /* 
+  @override
+  Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         body: Center(
@@ -120,3 +136,4 @@ class _LoginPageState extends State<LoginPage> {
     });
   }
 }
+ */
