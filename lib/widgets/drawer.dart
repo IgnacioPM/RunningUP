@@ -87,39 +87,39 @@ class MaterialDrawer extends StatelessWidget {
             DrawerTile(
                 icon: Icons.account_circle,
                 onTap: () {
-                  if (currentPage != "Perfil")
+                  if (currentPage != "Perfil_Page")
                     Navigator.pushReplacementNamed(context, '/Perfil');
                 },
                 iconColor: Colors.black,
                 title: "Perfil",
-                isSelected: currentPage == "/Perfil" ? true : false),
+                isSelected: currentPage == "Perfil_Page" ? true : false),
             DrawerTile(
                 icon: Icons.run_circle_outlined,
                 onTap: () {
-                  if (currentPage != "RegisActPage")
+                  if (currentPage != "RegisAct_Page")
                     Navigator.pushReplacementNamed(context, '/RegisAct');
                 },
                 iconColor: Colors.black,
                 title: "Registro de Actividades",
-                isSelected: currentPage == "RegisActPage" ? true : false),
+                isSelected: currentPage == "RegisAct_Page" ? true : false),
             DrawerTile(
                 icon: Icons.contact_page,
                 onTap: () {
-                  if (currentPage != "CompasPage")
+                  if (currentPage != "Compas_Page")
                     Navigator.pushReplacementNamed(context, '/Compas');
                 },
                 iconColor: Colors.black,
                 title: "Compas",
-                isSelected: currentPage == "CompasPage" ? true : false),
+                isSelected: currentPage == "Compas_Page" ? true : false),
             DrawerTile(
                 icon: Icons.graphic_eq_outlined,
                 onTap: () {
-                  if (currentPage != "EstadisticaPage")
+                  if (currentPage != "Estadistica_Page")
                     Navigator.pushReplacementNamed(context, '/Estadisticas');
                 },
                 iconColor: Colors.black,
                 title: "Estadisticas",
-                isSelected: currentPage == "EstadisticaPage" ? true : false),
+                isSelected: currentPage == "Estadistica_Page" ? true : false),
             DrawerTile(
                 icon: Icons.logout,
                 onTap: () {
