@@ -25,7 +25,7 @@ class _LoginPageState extends State<LoginPage> {
     super.dispose();
   }
 
-  @override
+/*   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
@@ -40,7 +40,7 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
   }
-} /* 
+}  */
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -136,4 +136,3 @@ class _LoginPageState extends State<LoginPage> {
     });
   }
 }
- */
