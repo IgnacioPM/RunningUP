@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "352589806958",
+    "project_id": "bdrunningup",
+    "storage_bucket": "bdrunningup.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:352589806958:android:da0fb53de1ed8b4b3a557f",
+        "android_client_info": {
+          "package_name": "com.example.material_kit_flutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "352589806958-o9i8e2qhautc8ts483qq7lcr3ae1077u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBonOWQJg3_lTC30SKfDWJlvc4cG5GaQgk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "352589806958-o9i8e2qhautc8ts483qq7lcr3ae1077u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

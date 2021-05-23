@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:material_kit_flutter/screens/RegistroAct_page.dart';
 import 'package:material_kit_flutter/screens/compas_page.dart';
@@ -19,26 +20,55 @@ void main() => runApp(MaterialKitPROFlutter());
 class MaterialKitPROFlutter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        title: "RunningUp",
-        debugShowCheckedModeBanner: false,
-        initialRoute: "/Login",
-        routes: <String, WidgetBuilder>{
-          "/home": (BuildContext context) => new Home(),
-          "/Perfil": (context)=> PerfilPage(),
-          "/RegisAct": (BuildContext context) => new RegisActPage(),
-          "/SalonFama": (context)=> SalonFamaPage(),
-          "/Compas": (BuildContext context) => new CompasPage(),
-          "/Estadisticas": (BuildContext context) => new EstadisticaPage(),
-          "/Logout": (BuildContext context) => new CompasPage(),
-          "/Registro": (BuildContext context) => new CompasPage(),
-          "/Login": (context)=> LoginPage(),
-          // "/onboarding": (BuildContext context) => new Onboarding(),
-          // "/pro": (BuildContext context) => new Pro(),
-          
-          // "/components": (BuildContext context) => new Components(),
-          // "/profile": (BuildContext context) => new Profile(),
-          // "/settings": (BuildContext context) => new Settings(),
-        });
+    final _init = Firebase.initializeApp();
+    return FutureBuilder(
+      future: _init,
+      builder: (context, snapshot) {
+        /* if (snapshot.hasError) {
+          return ErrorWidget();
+        } else if (snapshot.hasData) { */
+          return MaterialApp(
+              title: "RunningUP",
+              debugShowCheckedModeBanner: false,
+              initialRoute: "/Login",
+              routes: <String, WidgetBuilder>{
+                "/Perfil": (context) => PerfilPage(),
+                "/SalonFama": (context) => SalonFamaPage(),
+                "/Login": (context) => LoginPage(),
+                "/onboarding": (BuildContext context) => new Onboarding(),
+                "/pro": (BuildContext context) => new Pro(),
+                "/home": (BuildContext context) => new Home(),
+                "/components": (BuildContext context) => new Components(),
+                "/profile": (BuildContext context) => new Profile(),
+                "/settings": (BuildContext context) => new Settings(),
+              });
+        } /* else {
+          return Loading();
+        }
+      }, */
+    );
+  }
+}
+
+class ErrorWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        body: Center(
+      child: Column(
+        children: [Icon(Icons.error), Text("Algo salió mal!")],
+      ),
+    ));
+  }
+}
+
+class Loading extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: CircularProgressIndicator(),
+      ),
+    );
   }
 }
