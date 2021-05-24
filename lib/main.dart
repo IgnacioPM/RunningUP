@@ -7,12 +7,12 @@ import 'package:material_kit_flutter/screens/estadisticas_page.dart';
 import 'package:material_kit_flutter/screens/home.dart';
 import 'package:material_kit_flutter/screens/login_page.dart';
 import 'package:material_kit_flutter/screens/perfil_page.dart';
-import 'package:material_kit_flutter/screens/profile.dart';
+// import 'package:material_kit_flutter/screens/profile.dart';
 import 'package:material_kit_flutter/screens/salonfama_page.dart';
-import 'package:material_kit_flutter/screens/settings.dart';
-import 'package:material_kit_flutter/screens/components.dart';
-import 'package:material_kit_flutter/screens/onboarding.dart';
-import 'package:material_kit_flutter/screens/pro.dart';
+// import 'package:material_kit_flutter/screens/settings.dart';
+// import 'package:material_kit_flutter/screens/components.dart';
+// import 'package:material_kit_flutter/screens/onboarding.dart';
+// import 'package:material_kit_flutter/screens/pro.dart';
 
 void main() => runApp(MaterialKitPROFlutter());
 
