@@ -7,6 +7,7 @@ import 'package:material_kit_flutter/screens/estadisticas_page.dart';
 import 'package:material_kit_flutter/screens/home.dart';
 import 'package:material_kit_flutter/screens/login_page.dart';
 import 'package:material_kit_flutter/screens/perfil_page.dart';
+import 'package:material_kit_flutter/screens/registro_page.dart';
 // import 'package:material_kit_flutter/screens/profile.dart';
 import 'package:material_kit_flutter/screens/salonfama_page.dart';
 // import 'package:material_kit_flutter/screens/settings.dart';
@@ -31,7 +32,7 @@ class MaterialKitPROFlutter extends StatelessWidget {
           "/Compas": (BuildContext context) => new CompasPage(),
           "/Estadisticas": (BuildContext context) => new EstadisticaPage(),
           "/Logout": (BuildContext context) => new CompasPage(),
-          "/Registro": (BuildContext context) => new CompasPage(),
+          "/Registro": (BuildContext context) => new RegisterPage(),
           "/Login": (context)=> LoginPage(),
           // "/onboarding": (BuildContext context) => new Onboarding(),
           // "/pro": (BuildContext context) => new Pro(),

@@ -35,6 +35,10 @@ class _LoginPageState extends State<LoginPage> {
                 height: 20.0,
               ),
               _bottonLogin(),
+              SizedBox(
+                height: 15.0,
+              ),
+              _bottonRegister(),
             ],
           ),
         ),
@@ -103,4 +107,32 @@ class _LoginPageState extends State<LoginPage> {
           });
     });
   }
+
+Widget _bottonRegister() {
+    return StreamBuilder(
+        builder: (BuildContext context, AsyncSnapshot snapshot) {
+      // ignore: deprecated_member_use
+      return RaisedButton(
+          child: Container(
+            padding: EdgeInsets.symmetric(horizontal: 80.0, vertical: 15.0),
+            child: Text(
+              'Registrarse',
+              style: TextStyle(
+                fontSize: 16.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+          elevation: 10.0,
+          color: Colors.blueAccent,
+          onPressed: () {
+            Navigator.pushReplacementNamed(context, '/Registro');
+          });
+    });
+  }
+
 }
+
+ 

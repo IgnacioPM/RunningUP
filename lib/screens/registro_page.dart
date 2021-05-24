@@ -3,24 +3,25 @@ import 'package:material_kit_flutter/constants/Theme.dart';
 import 'package:material_kit_flutter/widgets/drawer.dart';
 
 import 'package:material_kit_flutter/widgets/navbar.dart';
-class PerfilPage extends StatefulWidget {
+class RegisterPage extends StatefulWidget {
   static String id = 'Registro_Page';
 
   @override
   RegistroPage createState() => RegistroPage();
 }
 
-class RegistroPage extends State<PerfilPage> {
+class RegistroPage extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
         extendBodyBehindAppBar: true,
-        appBar: Navbar(
-          title: "Registro",
-          transparent: true,
+        appBar: AppBar(
+          centerTitle: true,
+          title: Text('Registro'),
+          // transparent: true,
         ),
         backgroundColor: MaterialColors.bgColorScreen,
-        drawer: MaterialDrawer(currentPage:"Registro_Page"),
+        // drawer: MaterialDrawer(currentPage:"Registro_Page"),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
