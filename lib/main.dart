@@ -37,8 +37,7 @@ class MaterialKitPROFlutter extends StatelessWidget {
                 "/RegisAct": (BuildContext context) => new RegisActPage(),
                 "/SalonFama": (context) => SalonFamaPage(),
                 "/Compas": (BuildContext context) => new CompasPage(),
-                "/Estadisticas": (BuildContext context) =>
-                    new EstadisticaPage(),
+                "/Estadisticas": (BuildContext context) => new EstadisticaPage(),
                 "/Logout": (BuildContext context) => new CompasPage(),
                 "/Registro": (BuildContext context) => new CompasPage(),
                 "/Login": (context) => LoginPage(),
@@ -46,30 +45,30 @@ class MaterialKitPROFlutter extends StatelessWidget {
         } /* else {
           return Loading();
         }
-      }, 
+      }, */
         );
   }
 }
 
-class ErrorWidget extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        body: Center(
-      child: Column(
-        children: [Icon(Icons.error), Text("Algo salió mal!")],
-      ),
-    ));
-  }
-}
+// class ErrorWidget extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//         body: Center(
+//       child: Column(
+//         children: [Icon(Icons.error), Text("Algo salió mal!")],
+//       ),
+//     ));
+//   }
+// }
 
-class Loading extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: CircularProgressIndicator(),
-      ),
-    );
-  }
-}
+// class Loading extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       body: Center(
+//         child: CircularProgressIndicator(),
+//       ),
+//     );
+//   }*/
+// }
