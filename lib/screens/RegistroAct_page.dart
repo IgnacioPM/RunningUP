@@ -4,6 +4,7 @@ import 'package:material_kit_flutter/widgets/drawer.dart';
 
 import 'package:material_kit_flutter/widgets/navbar.dart';
 import 'package:qrscan/qrscan.dart' as scanner;
+import 'package:stop_watch_timer/stop_watch_timer.dart';
 class RegisActPage extends StatefulWidget {
   static String id = 'RegisAct_Page';
 
@@ -21,8 +22,14 @@ String qrValue = "COdigo Qr";
       
     });
   }
+final StopWatchTimer _stopWatchTimer = StopWatchTimer();
+final _isHours = true;
 
-
+@override
+  void dispose() {
+    super.dispose();
+    _stopWatchTimer.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -45,31 +52,6 @@ String qrValue = "COdigo Qr";
                 ),
             ),
           ),
-
-
-
-
-
-
-          // child: Column(
-          //   mainAxisAlignment: MainAxisAlignment.center,
-
-          //   children: [
-          //   SizedBox(
-          //       height: 15.0,
-          //     ),
-          //   Text(
-          //     'Hola este es tu registro de actividades papu ^_~',
-          //     overflow: TextOverflow.ellipsis,
-          //     style: const TextStyle(fontWeight: FontWeight.bold),
-          //   ),
-            
-          //   SizedBox(
-          //     height: 0.5,
-          //   ),
-          // ],
-
-          // ),
           
         ) ,
           floatingActionButton: FloatingActionButton(
@@ -79,6 +61,14 @@ String qrValue = "COdigo Qr";
               Icons.camera_alt_outlined,
             ),
           ),
+        // cronofloatingActionButton: FloatingActionButton(
+        //     backgroundColor: Colors.green[900],
+        //     onPressed: (),
+        //     child: Icon(
+        //       Icons.camera_alt_outlined,
+        //     ),
+        //   ),
+
         );
       
   
