@@ -15,9 +15,9 @@ class _PerfilPageState extends State<PerfilPage> {
   Widget build(BuildContext context) {
     return  Scaffold(
         extendBodyBehindAppBar: true,
-        appBar: Navbar(
-          title: "Perfil",
-          transparent: true,
+        appBar: AppBar(
+          centerTitle: true,
+          title: Text('Mi Perfil'),
         ),
         backgroundColor: MaterialColors.bgColorScreen,
         drawer: MaterialDrawer(currentPage:"Perfil_Page"),
