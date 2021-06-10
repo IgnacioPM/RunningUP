@@ -7,16 +7,20 @@ import 'dart:async';
 String email;
 
 class LoginPage extends StatefulWidget {
+  String registro;
+  LoginPage(this.registro);
   static String id = 'Login_page';
 
   @override
   _LoginPageState createState() => _LoginPageState();
+  
 }
 
 class _LoginPageState extends State<LoginPage> {
   TextEditingController controllerEmail = new TextEditingController();
   TextEditingController controllerPassword = new TextEditingController();
   String msg = '';
+
 
   // ignore: missing_return
   Future<List> _login() async {
@@ -44,6 +48,7 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+    
     return SafeArea(
       child: Scaffold(
         body: Center(
@@ -73,6 +78,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
               _bottonRegister(),
               Text(msg, style: TextStyle(fontSize: 25.0, color: Colors.red)),
+              Text(widget.registro, style: TextStyle(fontSize: 25.0, color: Colors.green)),
             ],
           ),
         ),
@@ -166,7 +172,7 @@ class _LoginPageState extends State<LoginPage> {
           elevation: 10.0,
           color: Colors.blueAccent,
           onPressed: () {
-            Navigator.pushReplacementNamed(context, '/Registro');
+             Navigator.pushReplacementNamed(context, '/Registro');
           });
     });
   }

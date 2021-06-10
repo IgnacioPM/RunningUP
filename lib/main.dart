@@ -9,7 +9,7 @@ import 'package:material_kit_flutter/screens/estadisticas_page.dart';
 import 'package:material_kit_flutter/screens/home.dart';
 import 'package:material_kit_flutter/screens/login_page.dart';
 import 'package:material_kit_flutter/screens/perfil_page.dart';
-import 'package:material_kit_flutter/screens/registro_page.dart';
+import 'package:material_kit_flutter/screens/register_page.dart';
 // import 'package:material_kit_flutter/screens/profile.dart';
 import 'package:material_kit_flutter/screens/salonfama_page.dart';
 // import 'package:material_kit_flutter/screens/settings.dart';
@@ -37,7 +37,7 @@ class MaterialKitPROFlutter extends StatelessWidget {
           "/Registro": (BuildContext context) => new RegisterPage(),
           "/Crono": (BuildContext context) => new CronoPage(),
 
-          "/Login": (context)=> LoginPage()
+          "/Login": (context)=> LoginPage('')
         });
   }
 }
