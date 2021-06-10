@@ -3,6 +3,9 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:async';
+
+String email;
+
 class LoginPage extends StatefulWidget {
   static String id = 'Login_page';
 
@@ -11,28 +14,32 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  TextEditingController email=new TextEditingController();
-  TextEditingController password=new TextEditingController();
-  String msg='';
+  TextEditingController controllerEmail = new TextEditingController();
+  TextEditingController controllerPassword = new TextEditingController();
+  String msg = '';
 
   // ignore: missing_return
   Future<List> _login() async {
-    final response = await http.post(Uri.parse('https://runningup.000webhostapp.com/login.php')  , body: {
-      "email": email.text,
-      "password": password.text,
-
-    });
+    final response = await http.post(
+        Uri.parse('https://runningup.000webhostapp.com/login.php'),
+        body: {
+          "email": controllerEmail.text,
+          "password": controllerPassword.text,
+        });
     var datauser = jsonDecode(response.body);
 
-    if(datauser.length == 0) {
+    if (datauser.length == 0) {
       setState(() {
-        msg="Datos erroneos";
+        msg = "Usuario o contrseña incorrectos";
       });
-    }else{
-          Navigator.pushReplacementNamed(context, '/home');
-    }
-    // print(response.body);
+    } else {
+      Navigator.pushReplacementNamed(context, '/home');
 
+      setState(() {
+        email = datauser[0]['email'];
+      });
+    }
+    return datauser;
   }
 
   @override
@@ -65,7 +72,7 @@ class _LoginPageState extends State<LoginPage> {
                 height: 15.0,
               ),
               _bottonRegister(),
-              Text(msg, style: TextStyle(fontSize: 20.0, color: Colors.red)),
+              Text(msg, style: TextStyle(fontSize: 25.0, color: Colors.red)),
             ],
           ),
         ),
@@ -79,7 +86,7 @@ class _LoginPageState extends State<LoginPage> {
       return Container(
         padding: EdgeInsets.symmetric(horizontal: 20.0),
         child: TextField(
-          controller: email,
+          controller: controllerEmail,
           keyboardType: TextInputType.emailAddress,
           decoration: InputDecoration(
             icon: Icon(Icons.email),
@@ -98,7 +105,7 @@ class _LoginPageState extends State<LoginPage> {
       return Container(
         padding: EdgeInsets.symmetric(horizontal: 20.0),
         child: TextField(
-          controller: password,
+          controller: controllerPassword,
           keyboardType: TextInputType.emailAddress,
           obscureText: true,
           decoration: InputDecoration(
@@ -134,13 +141,12 @@ class _LoginPageState extends State<LoginPage> {
           onPressed: () {
             // Navigator.pushReplacementNamed(context, '/home');
             _login();
+            
           });
-          
     });
-    
   }
 
-Widget _bottonRegister() {
+  Widget _bottonRegister() {
     return StreamBuilder(
         builder: (BuildContext context, AsyncSnapshot snapshot) {
       // ignore: deprecated_member_use
@@ -164,7 +170,4 @@ Widget _bottonRegister() {
           });
     });
   }
-
 }
-
- 

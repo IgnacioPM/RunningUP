@@ -17,6 +17,7 @@ class ProductCarousel extends StatefulWidget {
 }
 
 class _ProductCarouselState extends State<ProductCarousel> {
+  // ignore: unused_field
   int _current = 0;
 
   @override

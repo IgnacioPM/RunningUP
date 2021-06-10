@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:material_kit_flutter/screens/RegistroAct_page.dart';
 import 'package:material_kit_flutter/screens/compas_page.dart';
 import 'package:material_kit_flutter/screens/crono_page.dart';
+// import 'package:material_kit_flutter/screens/crono_page.dart';
 import 'package:material_kit_flutter/screens/estadisticas_page.dart';
 
 // screens
@@ -34,14 +35,9 @@ class MaterialKitPROFlutter extends StatelessWidget {
           "/Estadisticas": (BuildContext context) => new EstadisticaPage(),
           "/Logout": (BuildContext context) => new CompasPage(),
           "/Registro": (BuildContext context) => new RegisterPage(),
-          "/Login": (context)=> LoginPage(),
           "/Crono": (BuildContext context) => new CronoPage(),
-          // "/onboarding": (BuildContext context) => new Onboarding(),
-          // "/pro": (BuildContext context) => new Pro(),
-          
-          // "/components": (BuildContext context) => new Components(),
-          // "/profile": (BuildContext context) => new Profile(),
-          // "/settings": (BuildContext context) => new Settings(),
+
+          "/Login": (context)=> LoginPage()
         });
   }
 }

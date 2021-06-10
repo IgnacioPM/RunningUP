@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:material_kit_flutter/constants/Theme.dart';
-import 'package:material_kit_flutter/widgets/drawer.dart';
+// import 'package:material_kit_flutter/widgets/drawer.dart';
 
-import 'package:material_kit_flutter/widgets/navbar.dart';
+// import 'package:material_kit_flutter/widgets/navbar.dart';
 class RegisterPage extends StatefulWidget {
   static String id = 'Registro_Page';
 

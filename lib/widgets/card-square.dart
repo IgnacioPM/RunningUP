@@ -26,8 +26,7 @@ class CardSquare extends StatelessWidget {
         child: GestureDetector(
             onTap: tap,
             child: Stack(
-              overflow: Overflow.clip,
-              children: [
+              clipBehavior: Clip.hardEdge, children: [
                 Card(
                     elevation: 0.7,
                     shape: RoundedRectangleBorder(

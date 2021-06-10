@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:material_kit_flutter/constants/Theme.dart';
 import 'package:material_kit_flutter/widgets/drawer.dart';
 
-import 'package:material_kit_flutter/widgets/navbar.dart';
+// import 'package:material_kit_flutter/widgets/navbar.dart';
 import 'package:qrscan/qrscan.dart' as scanner;
-import 'package:stop_watch_timer/stop_watch_timer.dart';
+// import 'package:stop_watch_timer/stop_watch_timer.dart';
 class RegisActPage extends StatefulWidget {
   static String id = 'RegisAct_Page';
 
@@ -13,7 +13,7 @@ class RegisActPage extends StatefulWidget {
 }
 
 class _RegisActPageState extends State<RegisActPage> {
-String qrValue = "COdigo Qr";
+String qrValue = "Codigo Qr";
 
   void scanQr() async{
     String cameraScanResult = await scanner.scan();
@@ -22,14 +22,7 @@ String qrValue = "COdigo Qr";
       
     });
   }
-final StopWatchTimer _stopWatchTimer = StopWatchTimer();
-final _isHours = true;
 
-@override
-  void dispose() {
-    super.dispose();
-    _stopWatchTimer.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -54,18 +47,21 @@ final _isHours = true;
           ),
           
         ) ,
-          floatingActionButton: FloatingActionButton(
-            backgroundColor: Colors.green[900],
-            onPressed: () =>scanQr(),
-            child: Icon(
-              Icons.camera_alt_outlined,
-            ),
-          ),
-        // cronofloatingActionButton: FloatingActionButton(
+        floatingActionButton: _crearBotones()
+        //   floatingActionButton: FloatingActionButton(
         //     backgroundColor: Colors.green[900],
-        //     onPressed: (),
+        //     onPressed: () =>scanQr(),
         //     child: Icon(
         //       Icons.camera_alt_outlined,
+        //     ),
+        //   ),
+        // _cronofloatingActionButton: FloatingActionButton(
+        //     backgroundColor: Colors.red[400],
+        //     onPressed: () {
+        //       Navigator.pushReplacementNamed(context, '/');
+        //     },
+        //     child: Icon(
+        //       Icons.play_circle_fill
         //     ),
         //   ),
 
@@ -74,5 +70,33 @@ final _isHours = true;
   
   }
 
+Widget _crearBotones() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: <Widget>[
+        SizedBox(width: 30),
+        FloatingActionButton(
+            backgroundColor: Colors.green[900],
+            onPressed: () =>scanQr(),
+            child: Icon(
+              Icons.camera_alt_outlined,
+            ),
+          ),
+          SizedBox(width: 30),
+        FloatingActionButton(
+          backgroundColor: Colors.green[900],
+            onPressed: () {
+              Navigator.pushReplacementNamed(context, '/Crono');
+            },
+            child: Icon(
+              Icons.watch_later_rounded,
+            ),
+          ),
+        SizedBox(width: 5.0),
+        
+      ],
+    );
+  }
+  
 
 }
