@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 // import 'package:url_launcher/url_launcher.dart';
 
-import 'package:material_kit_flutter/constants/Theme.dart';
+import 'package:runningup/constants/Theme.dart';
 
-import 'package:material_kit_flutter/widgets/drawer-tile.dart';
+import 'package:runningup/widgets/drawer-tile.dart';
 
 class MaterialDrawer extends StatelessWidget {
   final String currentPage;
