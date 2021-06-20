@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:material_kit_flutter/screens/RegistroAct_page.dart';
-import 'package:material_kit_flutter/screens/compas_page.dart';
-import 'package:material_kit_flutter/screens/crono_page.dart';
-// import 'package:material_kit_flutter/screens/crono_page.dart';
-import 'package:material_kit_flutter/screens/estadisticas_page.dart';
+import 'package:runningup/screens/RegistroAct_page.dart';
+import 'package:runningup/screens/compas_page.dart';
+import 'package:runningup/screens/crono_page.dart';
+// import 'package:runningup/screens/crono_page.dart';
+import 'package:runningup/screens/estadisticas_page.dart';
 
 // screens
-import 'package:material_kit_flutter/screens/home.dart';
-import 'package:material_kit_flutter/screens/login_page.dart';
-import 'package:material_kit_flutter/screens/perfil_page.dart';
-import 'package:material_kit_flutter/screens/register_page.dart';
-// import 'package:material_kit_flutter/screens/profile.dart';
-import 'package:material_kit_flutter/screens/salonfama_page.dart';
-// import 'package:material_kit_flutter/screens/settings.dart';
-// import 'package:material_kit_flutter/screens/components.dart';
-// import 'package:material_kit_flutter/screens/onboarding.dart';
-// import 'package:material_kit_flutter/screens/pro.dart';
+import 'package:runningup/screens/home.dart';
+import 'package:runningup/screens/login_page.dart';
+import 'package:runningup/screens/perfil_page.dart';
+import 'package:runningup/screens/register_page.dart';
+// import 'package:runningup/screens/profile.dart';
+import 'package:runningup/screens/salonfama_page.dart';
+// import 'package:runningup/screens/settings.dart';
+// import 'package:runningup/screens/components.dart';
+// import 'package:runningup/screens/onboarding.dart';
+// import 'package:runningup/screens/pro.dart';
 
 void main() => runApp(MaterialKitPROFlutter());
 

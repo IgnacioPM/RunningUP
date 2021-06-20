@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-// import 'package:material_kit_flutter/constants/Theme.dart';
-// import 'package:material_kit_flutter/widgets/drawer.dart';
+// import 'package:runningup/constants/Theme.dart';
+// import 'package:runningup/widgets/drawer.dart';
 
 // ignore: must_be_immutable
 class CronoPage extends StatefulWidget {

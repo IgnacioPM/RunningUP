@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:material_kit_flutter/constants/Theme.dart';
-import 'package:material_kit_flutter/screens/login_page.dart';
-// import 'package:material_kit_flutter/widgets/drawer.dart';
+import 'package:runningup/constants/Theme.dart';
+import 'package:runningup/screens/login_page.dart';
+// import 'package:runningup/widgets/drawer.dart';
 
-import 'package:material_kit_flutter/widgets/navbar.dart';
+import 'package:runningup/widgets/navbar.dart';
 import 'package:http/http.dart' as http;
 class RegisterPage extends StatefulWidget {
   static String id = 'Registro_Page';
