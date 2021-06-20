@@ -21,11 +21,8 @@ String qrValue = "Codigo Qr";
     qrValue= cameraScanResult;
       
     });
-    if (cameraScanResult.length == 0) {
-
-          }else{
+    if (cameraScanResult.length > 0) {
             Navigator.pushReplacementNamed(context, '/Crono');
-
           }
   }
 
