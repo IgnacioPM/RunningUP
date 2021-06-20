@@ -21,6 +21,12 @@ String qrValue = "Codigo Qr";
     qrValue= cameraScanResult;
       
     });
+    if (cameraScanResult.length == 0) {
+
+          }else{
+            Navigator.pushReplacementNamed(context, '/Crono');
+
+          }
   }
 
 
@@ -37,14 +43,15 @@ String qrValue = "Codigo Qr";
         drawer: MaterialDrawer(currentPage:"RegisAct_Page"),
         body: Center(
           child: Container(
-            child: Text(
-              qrValue,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 18,
-                ),
-            ),
+            // child: Text(
+            //   qrValue,
+            //   textAlign: TextAlign.center,
+            //   style: TextStyle(
+            //     fontSize: 18,
+            //     ),
+            // ),
           ),
+          
           
         ) ,
         floatingActionButton: _crearBotones()
