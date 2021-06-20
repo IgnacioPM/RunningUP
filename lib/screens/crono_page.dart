@@ -18,9 +18,9 @@ class _CronoPageState extends State<CronoPage> {
   }
 
   bool _isStart = true;
-  String _stopwatchText = '00:00:00';
+  String _stopwatchText = '00:00:00:00';
   final _stopWatch = new Stopwatch();
-  final _timeout = const Duration(seconds: 1);
+  final _timeout = const Duration(milliseconds: 1);
 
   void _startTimeout() {
     new Timer(_timeout, _handleTimeout);
@@ -63,7 +63,9 @@ class _CronoPageState extends State<CronoPage> {
         ':' +
         (_stopWatch.elapsed.inMinutes % 60).toString().padLeft(2, '0') +
         ':' +
-        (_stopWatch.elapsed.inSeconds % 60).toString().padLeft(2, '0');
+        (_stopWatch.elapsed.inSeconds % 60).toString().padLeft(2, '0') +
+        ':' +
+        (_stopWatch.elapsed.inMilliseconds % 60).toString().padLeft(2, '0');
   }
 
   @override
