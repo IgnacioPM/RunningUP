@@ -47,11 +47,9 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: Navbar(
-          title: "RunningUp",
-          searchBar: true,
-          categoryOne: "Categories",
-          categoryTwo: "Best Deals",
+        appBar:  AppBar(
+          centerTitle: true,
+          title: Text('Inicio'),
         ),
         backgroundColor: MaterialColors.bgColorScreen,
         // key: _scaffoldKey,

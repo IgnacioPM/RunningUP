@@ -26,6 +26,7 @@ dependencies:
   scrollable_positioned_list: ^0.1.7
   carousel_slider: ^2.2.1
   font_awesome_flutter: ^8.8.1
+  # change_app_package_name: ^1.0.0
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -38,6 +39,8 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+flutter_launcher_icons: "^0.8.0"
   # http: <latest_version>
 
 # For information on the generic Dart part of this file, see the

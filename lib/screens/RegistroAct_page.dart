@@ -86,16 +86,6 @@ Widget _crearBotones() {
               Icons.camera_alt_outlined,
             ),
           ),
-          SizedBox(width: 30),
-        FloatingActionButton(
-          backgroundColor: Colors.green[900],
-            onPressed: () {
-              Navigator.pushReplacementNamed(context, '/Crono');
-            },
-            child: Icon(
-              Icons.watch_later_rounded,
-            ),
-          ),
         SizedBox(width: 5.0),
         
       ],
