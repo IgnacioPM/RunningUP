@@ -11,7 +11,6 @@ class CronoPage extends StatefulWidget {
 }
 
 class _CronoPageState extends State<CronoPage> {
-  
   void initState() {
     super.initState();
     WidgetsBinding.instance
