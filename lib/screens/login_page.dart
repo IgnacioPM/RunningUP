@@ -39,9 +39,6 @@ class _LoginPageState extends State<LoginPage> {
     } else {
       Navigator.pushReplacementNamed(context, '/home');
 
-      setState(() {
-        email = datauser[0]['email'];
-      });
     }
     return datauser;
   }
