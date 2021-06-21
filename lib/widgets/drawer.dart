@@ -23,49 +23,16 @@ class MaterialDrawer extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CircleAvatar(
-                  backgroundImage: NetworkImage(
-                      "https://images.unsplash.com/photo-1512529920731-e8abaea917a5?fit=crop&w=840&q=80"),
-                ),
                 Padding(
-                  padding: const EdgeInsets.only(bottom: 8.0, top: 16.0),
-                  child: Text("Rachel Brown",
+                  padding: const EdgeInsets.only(bottom: 90.0, top: 5.0),
+                  child: Text("Pedrito Rosales",
                       style: TextStyle(color: Colors.white, fontSize: 21)),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(bottom: 8.0),
+                  padding: const EdgeInsets.only(bottom: 2.0),
                   child: Row(
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.only(right: 8.0),
-                        child: Container(
-                            padding: EdgeInsets.symmetric(horizontal: 6),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(4),
-                                color: MaterialColors.label),
-                            child: Text("Pro",
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 16))),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(right: 16.0),
-                        child: Text("Seller",
-                            style: TextStyle(
-                                color: MaterialColors.muted, fontSize: 16)),
-                      ),
-                      Row(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(right: 8.0),
-                            child: Text("4.8",
-                                style: TextStyle(
-                                    color: MaterialColors.warning,
-                                    fontSize: 16)),
-                          ),
-                          Icon(Icons.star_border,
-                              color: MaterialColors.warning, size: 20)
-                        ],
-                      )
+                    
                     ],
                   ),
                 )
