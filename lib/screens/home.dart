@@ -79,35 +79,33 @@ class Home extends StatelessWidget {
   Widget _cardTipo1() {
     return StreamBuilder(
         builder: (BuildContext context, AsyncSnapshot snapshot) {
-
-return Card(
-      elevation: 10.0,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
-      child: Column(
-        children: <Widget>[
-          ListTile(
-            leading: Icon(Icons.accessibility_new, color: Colors.blue),
-            title: Text('Bienvenido a Running App'),
-            subtitle:
-                Text('El app que a revolucionado el control de tus rutinas'),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: <Widget>[
-              TextButton(
-                child: Text('Comenzar'),
-                onPressed: () {
-                  Navigator.pushReplacementNamed(context, '/RegisAct');
-                },
-              )
-            ],
-          )
-        ],
-      ),
-    );
-
+      return Card(
+        elevation: 10.0,
+        shape:
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+        child: Column(
+          children: <Widget>[
+            ListTile(
+              leading: Icon(Icons.accessibility_new, color: Colors.blue),
+              title: Text('Bienvenido a Running App'),
+              subtitle:
+                  Text('El app que a revolucionado el control de tus rutinas'),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: <Widget>[
+                TextButton(
+                  child: Text('Comenzar'),
+                  onPressed: () {
+                    Navigator.pushReplacementNamed(context, '/RegisAct');
+                  },
+                )
+              ],
+            )
+          ],
+        ),
+      );
     });
-    
   }
 
   Widget _cardTipo2() {
@@ -153,29 +151,35 @@ return Card(
   }
 
   Widget _cardTipo3() {
-    return Card(
-      elevation: 10.0,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
-      child: Column(
-        children: <Widget>[
-          ListTile(
-            leading: Icon(Icons.addchart_rounded, color: Colors.blue),
-            title: Text('Administra tus estadistica'),
-            subtitle:
-                Text('Mira lo mucho que as mejorado y presumele a tus amigos'),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: <Widget>[
-              TextButton(
-                child: Text('ir'),
-                onPressed: () {},
-              )
-            ],
-          )
-        ],
-      ),
-    );
+    return StreamBuilder(
+        builder: (BuildContext context, AsyncSnapshot snapshot) {
+      return Card(
+        elevation: 10.0,
+        shape:
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+        child: Column(
+          children: <Widget>[
+            ListTile(
+              leading: Icon(Icons.addchart_rounded, color: Colors.blue),
+              title: Text('Administra tus estadistica'),
+              subtitle: Text(
+                  'Mira lo mucho que as mejorado y presumele a tus amigos'),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: <Widget>[
+                TextButton(
+                  child: Text('ir'),
+                  onPressed: () {
+                    Navigator.pushReplacementNamed(context, '/Estadisticas');
+                  },
+                )
+              ],
+            )
+          ],
+        ),
+      );
+    });
   }
 
   Widget _cardTipo4() {
@@ -222,29 +226,35 @@ return Card(
   }
 
   Widget _cardTipo5() {
-    return Card(
-      elevation: 10.0,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
-      child: Column(
-        children: <Widget>[
-          ListTile(
-            leading: Icon(Icons.assistant_photo_rounded, color: Colors.blue),
-            title: Text('Salon de la fama'),
-            subtitle: Text(
-                'Mantente en la cima con el puntaje mas alto y se la envidia de los demás'),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: <Widget>[
-              TextButton(
-                child: Text('ir'),
-                onPressed: () {},
-              )
-            ],
-          )
-        ],
-      ),
-    );
+    return StreamBuilder(
+        builder: (BuildContext context, AsyncSnapshot snapshot) {
+      return Card(
+        elevation: 10.0,
+        shape:
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+        child: Column(
+          children: <Widget>[
+            ListTile(
+              leading: Icon(Icons.assistant_photo_rounded, color: Colors.blue),
+              title: Text('Salon de la fama'),
+              subtitle: Text(
+                  'Mantente en la cima con el puntaje mas alto y se la envidia de los demás'),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: <Widget>[
+                TextButton(
+                  child: Text('ir'),
+                  onPressed: () {
+                      Navigator.pushReplacementNamed(context, '/SalonFama');
+                  },
+                )
+              ],
+            )
+          ],
+        ),
+      );
+    });
   }
 
   Widget _cardTipo6() {
@@ -288,5 +298,4 @@ return Card(
       ),
     );
   }
-  
 }

@@ -112,7 +112,7 @@ class MaterialDrawer extends StatelessWidget {
                 title: "Compas",
                 isSelected: currentPage == "Compas_Page" ? true : false),
             DrawerTile(
-                icon: Icons.graphic_eq_outlined,
+                icon: Icons.assistant_photo,
                 onTap: () {
                   if (currentPage != "Estadistica_Page")
                     Navigator.pushReplacementNamed(context, '/Estadisticas');
@@ -120,6 +120,16 @@ class MaterialDrawer extends StatelessWidget {
                 iconColor: Colors.black,
                 title: "Estadisticas",
                 isSelected: currentPage == "Estadistica_Page" ? true : false),
+              DrawerTile(
+                icon: Icons.graphic_eq_outlined,
+                onTap: () {
+                  if (currentPage != "SalonFama_Page")
+                    Navigator.pushReplacementNamed(context, '/SalonFama');
+                },
+                iconColor: Colors.black,
+                title: "Salon de la Fama",
+                isSelected: currentPage == "SalonFama_Page" ? true : false),
+
             DrawerTile(
                 icon: Icons.logout,
                 onTap: () {
