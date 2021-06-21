@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:runningup/constants/Theme.dart';
 import 'package:runningup/widgets/drawer.dart';
+// import 'package:mysql_flutter/logic/models/mysql.dart';
 
 // import 'package:runningup/widgets/navbar.dart';
 class PerfilPage extends StatefulWidget {
@@ -11,6 +12,7 @@ class PerfilPage extends StatefulWidget {
 }
 
 class _PerfilPageState extends State<PerfilPage> {
+  
   @override
   Widget build(BuildContext context) {
     return  Scaffold(

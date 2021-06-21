@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:async';
 
-import 'home.dart';
 
 String email;
 
@@ -22,7 +21,7 @@ class _LoginPageState extends State<LoginPage> {
   TextEditingController controllerEmail = new TextEditingController();
   TextEditingController controllerPassword = new TextEditingController();
   String msg = '';
-  String correo = '';
+  
 
 
   // ignore: missing_return
@@ -43,9 +42,9 @@ class _LoginPageState extends State<LoginPage> {
       });
     } else {
 
-      correo = controllerEmail.text;
-      // Navigator.pushReplacementNamed(context, '/home');
-      Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage(correo)));
+      
+      Navigator.pushReplacementNamed(context, '/home');
+      // Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage(correo)));
 
     }
     return datauser;

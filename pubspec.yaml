@@ -36,6 +36,7 @@ dependencies:
   http: any
   qrscan: ^0.2.22
   stop_watch_timer: ^1.2.0+1
+  mysql1: ^0.17.1
 
 dev_dependencies:
   flutter_test:
@@ -69,6 +70,8 @@ flutter:
     - assets/img/logo-ios.png
     - assets/img/logo.png
     - assets/img/runninguplogo.jpeg
+    - assets/img/cargando.gif
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
