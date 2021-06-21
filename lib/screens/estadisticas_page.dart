@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:material_kit_flutter/constants/Theme.dart';
-import 'package:material_kit_flutter/widgets/drawer.dart';
+import 'package:runningup/constants/Theme.dart';
+import 'package:runningup/widgets/drawer.dart';
 
-import 'package:material_kit_flutter/widgets/navbar.dart';
+// import 'package:runningup/widgets/navbar.dart';
 class EstadisticaPage extends StatefulWidget {
   static String id = 'Estadistica_Page';
 
@@ -15,9 +15,9 @@ class _EstadisticaPageState extends State<EstadisticaPage> {
   Widget build(BuildContext context) {
     return  Scaffold(
         extendBodyBehindAppBar: true,
-        appBar: Navbar(
-          title: "Estadisticas",
-          transparent: true,
+        appBar: AppBar(
+          centerTitle: true,
+          title: Text('Estadisticas'),
         ),
         backgroundColor: MaterialColors.bgColorScreen,
         drawer: MaterialDrawer(currentPage:"Estadistica_Page"),

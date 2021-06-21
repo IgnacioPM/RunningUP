@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
-import 'package:material_kit_flutter/constants/Theme.dart';
+import 'package:runningup/constants/Theme.dart';
 
-// import 'package:material_kit_flutter/screens/categories.dart';
-// import 'package:material_kit_flutter/screens/best-deals.dart';
-// import 'package:material_kit_flutter/screens/search.dart';
-// import 'package:material_kit_flutter/screens/cart.dart';
-// import 'package:material_kit_flutter/screens/chat.dart';
+// import 'package:runningup/screens/categories.dart';
+// import 'package:runningup/screens/best-deals.dart';
+// import 'package:runningup/screens/search.dart';
+// import 'package:runningup/screens/cart.dart';
+// import 'package:runningup/screens/chat.dart';
 
-// import 'package:material_kit_flutter/widgets/input.dart'; 
+// import 'package:runningup/widgets/input.dart'; 
 
 class Navbar extends StatefulWidget implements PreferredSizeWidget {
   final String title;

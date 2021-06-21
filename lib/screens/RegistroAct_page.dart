@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:material_kit_flutter/constants/Theme.dart';
-import 'package:material_kit_flutter/widgets/drawer.dart';
+import 'package:runningup/constants/Theme.dart';
+import 'package:runningup/widgets/drawer.dart';
 
-// import 'package:material_kit_flutter/widgets/navbar.dart';
+// import 'package:runningup/widgets/navbar.dart';
 import 'package:qrscan/qrscan.dart' as scanner;
 // import 'package:stop_watch_timer/stop_watch_timer.dart';
 class RegisActPage extends StatefulWidget {
@@ -84,16 +84,6 @@ Widget _crearBotones() {
             onPressed: () =>scanQr(),
             child: Icon(
               Icons.camera_alt_outlined,
-            ),
-          ),
-          SizedBox(width: 30),
-        FloatingActionButton(
-          backgroundColor: Colors.green[900],
-            onPressed: () {
-              Navigator.pushReplacementNamed(context, '/Crono');
-            },
-            child: Icon(
-              Icons.watch_later_rounded,
             ),
           ),
         SizedBox(width: 5.0),

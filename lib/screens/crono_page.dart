@@ -1,25 +1,29 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-// import 'package:material_kit_flutter/constants/Theme.dart';
-// import 'package:material_kit_flutter/widgets/drawer.dart';
+// import 'package:runningup/constants/Theme.dart';
+// import 'package:runningup/widgets/drawer.dart';
 
-
+// ignore: must_be_immutable
 class CronoPage extends StatefulWidget {
   static String id = 'crono_page';
-
   @override
   _CronoPageState createState() => _CronoPageState();
 }
 
 class _CronoPageState extends State<CronoPage> {
+  
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance
+        .addPostFrameCallback((_) => _startStopButtonPressed());
+  }
 
-   bool _isStart = true;
+  bool _isStart = true;
   String _stopwatchText = '00:00:00';
   final _stopWatch = new Stopwatch();
   final _timeout = const Duration(seconds: 1);
-  
 
-void _startTimeout() {
+  void _startTimeout() {
     new Timer(_timeout, _handleTimeout);
   }
 
@@ -31,7 +35,7 @@ void _startTimeout() {
       _setStopwatchText();
     });
   }
-  
+
   void _startStopButtonPressed() {
     setState(() {
       if (_stopWatch.isRunning) {
@@ -45,20 +49,22 @@ void _startTimeout() {
     });
   }
 
-  void _resetButtonPressed(){
-    if(_stopWatch.isRunning){
+  void _resetButtonPressed() {
+    if (_stopWatch.isRunning) {
       _startStopButtonPressed();
     }
     setState(() {
-     _stopWatch.reset();
-     _setStopwatchText(); 
+      _stopWatch.reset();
+      _setStopwatchText();
     });
   }
 
-   void _setStopwatchText(){
-    _stopwatchText = _stopWatch.elapsed.inHours.toString().padLeft(2,'0') + ':'+
-                     (_stopWatch.elapsed.inMinutes%60).toString().padLeft(2,'0') + ':' +
-                     (_stopWatch.elapsed.inSeconds%60).toString().padLeft(2,'0');
+  void _setStopwatchText() {
+    _stopwatchText = _stopWatch.elapsed.inHours.toString().padLeft(2, '0') +
+        ':' +
+        (_stopWatch.elapsed.inMinutes % 60).toString().padLeft(2, '0') +
+        ':' +
+        (_stopWatch.elapsed.inSeconds % 60).toString().padLeft(2, '0');
   }
 
   @override
@@ -73,15 +79,14 @@ void _startTimeout() {
 
   Widget _buildBody() {
     return Column(
-      
       children: <Widget>[
         Flexible(
-                child: Image.asset(
-                  'assets/img/logo.png',
-                  height: 370.0,
-                ),
-              ),
-                Expanded(
+          child: Image.asset(
+            'assets/img/logo.png',
+            height: 370.0,
+          ),
+        ),
+        Expanded(
           child: FittedBox(
             fit: BoxFit.none,
             child: Text(
@@ -90,8 +95,8 @@ void _startTimeout() {
             ),
           ),
         ),
-        Center(          
-          child: Column(            
+        Center(
+          child: Column(
             children: <Widget>[
               ElevatedButton(
                 child: Icon(_isStart ? Icons.play_arrow : Icons.stop),
@@ -104,20 +109,16 @@ void _startTimeout() {
               ),
               ElevatedButton(
                 child: Icon(
-              Icons.arrow_back_sharp,
-            ),
+                  Icons.arrow_back_sharp,
+                ),
                 onPressed: () {
-              Navigator.pushReplacementNamed(context, '/RegisAct');
-            },
+                  Navigator.pushReplacementNamed(context, '/RegisAct');
+                },
               ),
             ],
           ),
         ),
-
       ],
     );
   }
-
-
-
 }

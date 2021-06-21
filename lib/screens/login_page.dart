@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:async';
 
+
 String email;
 
 class LoginPage extends StatefulWidget {
@@ -20,6 +21,7 @@ class _LoginPageState extends State<LoginPage> {
   TextEditingController controllerEmail = new TextEditingController();
   TextEditingController controllerPassword = new TextEditingController();
   String msg = '';
+  
 
 
   // ignore: missing_return
@@ -31,13 +33,18 @@ class _LoginPageState extends State<LoginPage> {
           "password": controllerPassword.text,
         });
     var datauser = jsonDecode(response.body);
+    // var correo = controllerEmail.text;
+    // var results = await jsonDecode('select name from users where email = ?', [correo]);
 
     if (datauser.length == 0) {
       setState(() {
         msg = "Usuario o contrseña incorrectos";
       });
     } else {
+
+      
       Navigator.pushReplacementNamed(context, '/home');
+      // Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage(correo)));
 
     }
     return datauser;

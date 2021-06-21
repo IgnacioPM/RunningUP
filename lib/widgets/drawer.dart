@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 // import 'package:url_launcher/url_launcher.dart';
 
-import 'package:material_kit_flutter/constants/Theme.dart';
+import 'package:runningup/constants/Theme.dart';
 
-import 'package:material_kit_flutter/widgets/drawer-tile.dart';
+import 'package:runningup/widgets/drawer-tile.dart';
 
 class MaterialDrawer extends StatelessWidget {
   final String currentPage;
@@ -23,49 +23,16 @@ class MaterialDrawer extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CircleAvatar(
-                  backgroundImage: NetworkImage(
-                      "https://images.unsplash.com/photo-1512529920731-e8abaea917a5?fit=crop&w=840&q=80"),
-                ),
                 Padding(
-                  padding: const EdgeInsets.only(bottom: 8.0, top: 16.0),
-                  child: Text("Rachel Brown",
+                  padding: const EdgeInsets.only(bottom: 90.0, top: 5.0),
+                  child: Text("Pedrito Rosales",
                       style: TextStyle(color: Colors.white, fontSize: 21)),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(bottom: 8.0),
+                  padding: const EdgeInsets.only(bottom: 2.0),
                   child: Row(
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.only(right: 8.0),
-                        child: Container(
-                            padding: EdgeInsets.symmetric(horizontal: 6),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(4),
-                                color: MaterialColors.label),
-                            child: Text("Pro",
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 16))),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(right: 16.0),
-                        child: Text("Seller",
-                            style: TextStyle(
-                                color: MaterialColors.muted, fontSize: 16)),
-                      ),
-                      Row(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(right: 8.0),
-                            child: Text("4.8",
-                                style: TextStyle(
-                                    color: MaterialColors.warning,
-                                    fontSize: 16)),
-                          ),
-                          Icon(Icons.star_border,
-                              color: MaterialColors.warning, size: 20)
-                        ],
-                      )
+                    
                     ],
                   ),
                 )
@@ -112,7 +79,7 @@ class MaterialDrawer extends StatelessWidget {
                 title: "Compas",
                 isSelected: currentPage == "Compas_Page" ? true : false),
             DrawerTile(
-                icon: Icons.graphic_eq_outlined,
+                icon: Icons.assistant_photo,
                 onTap: () {
                   if (currentPage != "Estadistica_Page")
                     Navigator.pushReplacementNamed(context, '/Estadisticas');
@@ -120,6 +87,16 @@ class MaterialDrawer extends StatelessWidget {
                 iconColor: Colors.black,
                 title: "Estadisticas",
                 isSelected: currentPage == "Estadistica_Page" ? true : false),
+              DrawerTile(
+                icon: Icons.graphic_eq_outlined,
+                onTap: () {
+                  if (currentPage != "SalonFama_Page")
+                    Navigator.pushReplacementNamed(context, '/SalonFama');
+                },
+                iconColor: Colors.black,
+                title: "Salon de la Fama",
+                isSelected: currentPage == "SalonFama_Page" ? true : false),
+
             DrawerTile(
                 icon: Icons.logout,
                 onTap: () {
