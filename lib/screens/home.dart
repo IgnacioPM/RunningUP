@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:runningup/constants/Theme.dart';
+import 'package:runningup/models/user.dart';
+import 'package:runningup/models/user-api.dart';
 
 //widgets
 // import 'package:runningup/widgets/card-horizontal.dart';
@@ -15,47 +17,42 @@ class HomePage extends StatefulWidget {
   static String id = 'Home_Page';
 
   @override
-  _HomePageState createState() => _HomePageState ();
+  _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState  extends State<HomePage> {
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-        extendBodyBehindAppBar: true,
-        appBar: AppBar(
-          centerTitle: true,
-          title: Text('Inicio'),
+    return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text('Inicio'),
+      ),
+      backgroundColor: MaterialColors.bgColorScreen,
+      drawer: MaterialDrawer(currentPage: "Home_Page"),
+      body: Container(
+        child: FutureBuilder(
+          future: fetchUsers(),
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              return ListView.builder(
+                itemCount: snapshot.data.length,
+                shrinkWrap: true,
+                itemBuilder: (BuildContext context, index) {
+                  Users users = snapshot.data[index];
+                  return Text('${users.name}');
+                },
+              );
+            }
+            return CircularProgressIndicator();
+          },
         ),
-        backgroundColor: MaterialColors.bgColorScreen,
-        drawer: MaterialDrawer(currentPage:"Home_Page"),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-
-            children: [
-            SizedBox(
-                height: 15.0,
-              ),
-            Text(
-              widget.correo,
-            ),
-            
-            SizedBox(
-              height: 0.5,
-            ),
-          ],
-
-          ),
-          
-        ) 
-        );
-      
-  
+      ),
+    );
   }
-
-
 }
+
 final Map<String, Map<String, String>> homeCards = {
   "Ice Cream": {
     "title": "Hardly Anything Takes More Coura...",
@@ -94,7 +91,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar:  AppBar(
+        appBar: AppBar(
           centerTitle: true,
           title: Text('Inicio'),
         ),
