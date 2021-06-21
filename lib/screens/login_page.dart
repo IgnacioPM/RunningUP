@@ -9,7 +9,7 @@ import 'home.dart';
 String email;
 
 class LoginPage extends StatefulWidget {
-  String registro;
+ final String registro;
   LoginPage(this.registro);
   static String id = 'Login_page';
 
