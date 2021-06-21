@@ -3,12 +3,59 @@ import 'package:flutter/material.dart';
 import 'package:runningup/constants/Theme.dart';
 
 //widgets
-import 'package:runningup/widgets/navbar.dart';
 // import 'package:runningup/widgets/card-horizontal.dart';
 // import 'package:runningup/widgets/card-small.dart';
 // import 'package:runningup/widgets/card-square.dart';
 import 'package:runningup/widgets/drawer.dart';
 
+// import 'package:runningup/widgets/navbar.dart';
+class HomePage extends StatefulWidget {
+  String correo = '';
+  HomePage(this.correo);
+  static String id = 'Home_Page';
+
+  @override
+  _HomePageState createState() => _HomePageState ();
+}
+
+class _HomePageState  extends State<HomePage> {
+  @override
+  Widget build(BuildContext context) {
+    return  Scaffold(
+        extendBodyBehindAppBar: true,
+        appBar: AppBar(
+          centerTitle: true,
+          title: Text('Inicio'),
+        ),
+        backgroundColor: MaterialColors.bgColorScreen,
+        drawer: MaterialDrawer(currentPage:"Home_Page"),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+
+            children: [
+            SizedBox(
+                height: 15.0,
+              ),
+            Text(
+              widget.correo,
+            ),
+            
+            SizedBox(
+              height: 0.5,
+            ),
+          ],
+
+          ),
+          
+        ) 
+        );
+      
+  
+  }
+
+
+}
 final Map<String, Map<String, String>> homeCards = {
   "Ice Cream": {
     "title": "Hardly Anything Takes More Coura...",

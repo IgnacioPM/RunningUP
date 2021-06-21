@@ -27,7 +27,7 @@ class MaterialKitPROFlutter extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         initialRoute: "/Login",
         routes: <String, WidgetBuilder>{
-          "/home": (BuildContext context) => new Home(),
+          "/home": (BuildContext context) => new HomePage(''),
           "/Perfil": (context)=> PerfilPage(),
           "/RegisAct": (BuildContext context) => new RegisActPage(),
           "/SalonFama": (context)=> SalonFamaPage(),
