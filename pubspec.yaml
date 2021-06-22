@@ -72,6 +72,10 @@ flutter:
     - assets/img/logo.png
     - assets/img/runninguplogo.jpeg
     - assets/img/cargando.gif
+    - assets/img/Portada-Blogpost.webp
+    - assets/img/ESTADISTICA.webp
+    - assets/img/EphnIa2XMAM8lLm.jpg large.webp
+
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
