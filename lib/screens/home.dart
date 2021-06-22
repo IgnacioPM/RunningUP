@@ -28,46 +28,29 @@ class _HomePageState extends State<HomePage> {
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         centerTitle: true,
-        title: Container(
-          child: FutureBuilder(
-            future: fetchUsers(),
-            builder: (context, snapshot) {
-              if (snapshot.hasData) {
-                return ListView.builder(
-                  itemCount: snapshot.data.length,
-                  shrinkWrap: true,
-                  itemBuilder: (BuildContext context, index) {
-                    Users users = snapshot.data[index];
-                    if (users.email == widget.correo) {
-                      return Text('${users.name}');
-                    } else {
-                      return Text('');
-                    }
-                  },
-                );
-              }
-              return CircularProgressIndicator();
-            },
-          ),
-        ),
+        title: Text("titulo"),
       ),
       backgroundColor: MaterialColors.bgColorScreen,
       drawer: MaterialDrawer(currentPage: "Home_Page"),
       body: Container(
         child: FutureBuilder(
           future: fetchUsers(),
-          builder: (context, snapshot) {
+          builder: (context, AsyncSnapshot<List<Users>> snapshot) {
             if (snapshot.hasData) {
               return ListView.builder(
                 itemCount: snapshot.data.length,
                 shrinkWrap: true,
                 itemBuilder: (BuildContext context, index) {
                   Users users = snapshot.data[index];
-                  if (users.email == widget.correo) {
-                    return Text('${users.name}' + ' - ' '${users.email}');
-                  } else {
-                    return Text('');
-                  }
+
+                  return ListTile(
+                    leading: CircleAvatar(
+                  backgroundImage: NetworkImage(
+                      "https://images.unsplash.com/photo-1512529920731-e8abaea917a5?fit=crop&w=840&q=80"),
+                ),
+                    title: Text('${users.name} ${users.ap1} ${users.ap2}'),
+                    subtitle: Text('${users.email}'),
+                  );
                 },
               );
             }
