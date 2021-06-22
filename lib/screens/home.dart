@@ -13,6 +13,7 @@ import 'package:runningup/widgets/drawer.dart';
 // import 'package:runningup/widgets/navbar.dart';
 class HomePage extends StatefulWidget {
   String correo = '';
+  String nombre = 'wtf';
   HomePage(this.correo);
   static String id = 'Home_Page';
 
@@ -27,7 +28,28 @@ class _HomePageState extends State<HomePage> {
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         centerTitle: true,
-        title: Text('Inicio'),
+        title: Container(
+          child: FutureBuilder(
+            future: fetchUsers(),
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                return ListView.builder(
+                  itemCount: snapshot.data.length,
+                  shrinkWrap: true,
+                  itemBuilder: (BuildContext context, index) {
+                    Users users = snapshot.data[index];
+                    if (users.email == widget.correo) {
+                      return Text('${users.name}');
+                    } else {
+                      return Text('');
+                    }
+                  },
+                );
+              }
+              return CircularProgressIndicator();
+            },
+          ),
+        ),
       ),
       backgroundColor: MaterialColors.bgColorScreen,
       drawer: MaterialDrawer(currentPage: "Home_Page"),
@@ -41,7 +63,11 @@ class _HomePageState extends State<HomePage> {
                 shrinkWrap: true,
                 itemBuilder: (BuildContext context, index) {
                   Users users = snapshot.data[index];
-                  return Text('${users.name}');
+                  if (users.email == widget.correo) {
+                    return Text('${users.name}' + ' - ' '${users.email}');
+                  } else {
+                    return Text('');
+                  }
                 },
               );
             }
