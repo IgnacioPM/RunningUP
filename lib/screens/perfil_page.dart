@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:runningup/constants/Theme.dart';
 import 'package:runningup/widgets/drawer.dart';
+import 'package:runningup/prefences/user_preference.dart';
+
 
 // import 'package:runningup/widgets/navbar.dart';
 class PerfilPage extends StatefulWidget {
