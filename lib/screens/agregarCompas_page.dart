@@ -11,10 +11,10 @@ class AgregarCompasPage extends StatefulWidget {
   static String id = 'AgregarCompa_Page';
 
   @override
-  AddCompaPage createState() => AddCompaPage();
+  AddCompaPageState createState() => AddCompaPageState();
 }
 
-class AddCompaPage extends State<AgregarCompasPage> {
+class AddCompaPageState extends State<AgregarCompasPage> {
   TextEditingController controllerNombre = new TextEditingController();
   TextEditingController controllerApellidoPaterno = new TextEditingController();
   TextEditingController controllerApellidoMaterno = new TextEditingController();
@@ -56,7 +56,6 @@ void addData(){
                       leading: const Icon(Icons.email_outlined, color: Colors.black,),
                       title: new TextFormField(
                         controller: controllerNombre,
-                        // ignore: missing_return
                         validator: (value) {
                           if(value.isEmpty) return "Ingrese un correo electronico";
                         },
@@ -70,7 +69,6 @@ void addData(){
                       leading: const Icon(Icons.lock_open_outlined, color: Colors.black,),
                       title: new TextFormField(
                         controller: controllerApellidoPaterno,
-                        // ignore: missing_return
                         validator: (value) {
                           if(value.isEmpty) return "Ingrese la contraseña";
                         },
@@ -84,7 +82,6 @@ void addData(){
                       leading: const Icon(Icons.person, color: Colors.black,),
                       title: new TextFormField(
                         controller: controllerApellidoMaterno,
-                        // ignore: missing_return
                         validator: (value) {
                           if(value.isEmpty) return "Campo nombre vacio";
                         },
@@ -98,7 +95,6 @@ void addData(){
                       leading: const Icon(Icons.person_outline, color: Colors.black,),
                       title: new TextFormField(
                         controller: controlleremailc,
-                        // ignore: missing_return
                         validator: (value) {
                           if(value.isEmpty) return "Campo Primer Apellido vacio";
                         },
