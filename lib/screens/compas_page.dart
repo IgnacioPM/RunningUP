@@ -15,9 +15,9 @@ class _CompasPageState extends State<CompasPage> {
   Widget build(BuildContext context) {
     return  Scaffold(
         extendBodyBehindAppBar: true,
-        appBar: Navbar(
-          title: "Compas",
-          transparent: true,
+        appBar: AppBar(
+          centerTitle: true,
+          title: Text('Compas'),
         ),
         backgroundColor: MaterialColors.bgColorScreen,
         drawer: MaterialDrawer(currentPage:"Compas_Page"),
