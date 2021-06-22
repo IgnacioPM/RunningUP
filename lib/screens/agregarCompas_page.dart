@@ -3,35 +3,34 @@ import 'package:runningup/constants/Theme.dart';
 import 'package:runningup/screens/login_page.dart';
 // import 'package:runningup/widgets/drawer.dart';
 
+import 'package:runningup/widgets/navbar.dart';
 import 'package:http/http.dart' as http;
-import 'package:runningup/widgets/drawer.dart';
-class RegisterPage extends StatefulWidget {
-  static String id = 'Registro_Page';
+
+import 'compas_page.dart';
+class AgregarCompasPage extends StatefulWidget {
+  static String id = 'AgregarCompa_Page';
 
   @override
-  RegistroPage createState() => RegistroPage();
+  AddCompaPage createState() => AddCompaPage();
 }
 
-class RegistroPage extends State<RegisterPage> {
-  TextEditingController controllerEmail = new TextEditingController();
-  TextEditingController controllerPassword = new TextEditingController();
-  TextEditingController controllerName = new TextEditingController();
-  TextEditingController controllerAp1 = new TextEditingController();
-  TextEditingController controllerAP2 = new TextEditingController();
+class AddCompaPage extends State<AgregarCompasPage> {
+  TextEditingController controllerNombre = new TextEditingController();
+  TextEditingController controllerApellidoPaterno = new TextEditingController();
+  TextEditingController controllerApellidoMaterno = new TextEditingController();
+  TextEditingController controlleremailc = new TextEditingController();
   String registro = "Su cuenta ha sido creada";
 
   var _formkey = GlobalKey<FormState>();
 
 void addData(){
-   var url = Uri.parse("https://runningup.000webhostapp.com/register.php");
+   var url = Uri.parse("https://runningup.000webhostapp.com/agregarUser.php");
 
    http.post(url, body:{
-     "email" : controllerEmail.text,
-     "password" : controllerPassword.text,
-     "name" : controllerName.text,
-     "ap1" : controllerAp1.text,
-     "ap2" : controllerAP2.text,
-
+     "Nombre" : controllerNombre.text,
+     "Apellido_Paterno" : controllerApellidoPaterno.text,
+     "Apellido_Materno" : controllerApellidoMaterno.text,
+     "email_c" : controlleremailc.text,
    });
 }
 
@@ -42,12 +41,9 @@ void addData(){
     return  Scaffold(
         // extendBodyBehindAppBar: true,
         appBar: AppBar(
-          centerTitle: true,
-          title: Text('Registro de Compas'),
-        ),
+        title: Text('Registro de Compas'),
+      ),
         backgroundColor: MaterialColors.bgColorScreen,
-        // key: _scaffoldKey,
-        drawer: MaterialDrawer(currentPage: "AgregarCompa_Page"),
         body: Form(
           key: _formkey,
           child: Padding(
@@ -59,12 +55,13 @@ void addData(){
                     new ListTile(
                       leading: const Icon(Icons.email_outlined, color: Colors.black,),
                       title: new TextFormField(
-                        controller: controllerEmail,
+                        controller: controllerNombre,
+                        // ignore: missing_return
                         validator: (value) {
                           if(value.isEmpty) return "Ingrese un correo electronico";
                         },
                         decoration: new InputDecoration(
-                          hintText: "email", labelText: "correo",
+                          hintText: "Nombre", labelText: "Nombre",
                         ),
                       ),  
                        ),
@@ -72,12 +69,13 @@ void addData(){
                     new ListTile(
                       leading: const Icon(Icons.lock_open_outlined, color: Colors.black,),
                       title: new TextFormField(
-                        controller: controllerPassword,
+                        controller: controllerApellidoPaterno,
+                        // ignore: missing_return
                         validator: (value) {
                           if(value.isEmpty) return "Ingrese la contraseña";
                         },
                         decoration: new InputDecoration(
-                          hintText: "password", labelText: "contraseña",
+                          hintText: "Apellido Paterno", labelText: "Apellido Paterno",
                         ),
                       ),  
                        ),
@@ -85,12 +83,13 @@ void addData(){
                     new ListTile(
                       leading: const Icon(Icons.person, color: Colors.black,),
                       title: new TextFormField(
-                        controller: controllerName,
+                        controller: controllerApellidoMaterno,
+                        // ignore: missing_return
                         validator: (value) {
                           if(value.isEmpty) return "Campo nombre vacio";
                         },
                         decoration: new InputDecoration(
-                          hintText: "name", labelText: "Nombre",
+                          hintText: "Apellido Materno", labelText: "Apellido Materno",
                         ),
                       ),  
                        ),
@@ -98,25 +97,13 @@ void addData(){
                       new ListTile(
                       leading: const Icon(Icons.person_outline, color: Colors.black,),
                       title: new TextFormField(
-                        controller: controllerAp1,
+                        controller: controlleremailc,
+                        // ignore: missing_return
                         validator: (value) {
                           if(value.isEmpty) return "Campo Primer Apellido vacio";
                         },
                         decoration: new InputDecoration(
-                          hintText: "ap1", labelText: "Primer Apellido",
-                        ),
-                      ),  
-                       ),
-
-                      new ListTile(
-                      leading: const Icon(Icons.person_outline, color: Colors.black,),
-                      title: new TextFormField(
-                        controller: controllerAP2,
-                        validator: (value) {
-                          if(value.isEmpty) return "Campo Segundo Apellido vacio";
-                        },
-                        decoration: new InputDecoration(
-                          hintText: "ap2", labelText: "Segundo Apellido",
+                          hintText: "Correo del Compa", labelText: "Correo del Compa",
                         ),
                       ),  
                        ),
@@ -136,7 +123,7 @@ void addData(){
                         if (_formkey.currentState.validate())
                         {
                           addData();
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage(registro)));
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => CompasPage()));
                           // Navigator.pop(context);
                         }
                       },
