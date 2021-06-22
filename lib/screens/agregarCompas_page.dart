@@ -24,7 +24,7 @@ class AddCompaPageState extends State<AgregarCompasPage> {
   var _formkey = GlobalKey<FormState>();
 
 void addData(){
-   var url = Uri.parse("https://runningup.000webhostapp.com/agregarUser.php");
+   var url = Uri.parse("https://runningup.000webhostapp.com/agregarCompa.php");
 
    http.post(url, body:{
      "Nombre" : controllerNombre.text,
