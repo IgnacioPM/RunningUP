@@ -2,6 +2,8 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:runningup/models/user.dart';
+import 'package:runningup/prefences/user_preference.dart';
 import 'dart:async';
 
 import 'home.dart';
@@ -19,21 +21,26 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+
   TextEditingController controllerEmail = new TextEditingController();
   TextEditingController controllerPassword = new TextEditingController();
+  UserPreference userPreference = UserPreference();
   String msg = '';
   String correo = '';
 
 
   // ignore: missing_return
   Future<List> _login() async {
+
+    await userPreference.initPrefs();
+
     final response = await http.post(
         Uri.parse('https://runningup.000webhostapp.com/login.php'),
         body: {
           "email": controllerEmail.text,
           "password": controllerPassword.text,
         });
-    var datauser = jsonDecode(response.body);
+    List<dynamic> datauser = jsonDecode(response.body);
     // var correo = controllerEmail.text;
     // var results = await jsonDecode('select name from users where email = ?', [correo]);
 
@@ -42,6 +49,10 @@ class _LoginPageState extends State<LoginPage> {
         msg = "Usuario o contrseña incorrectos";
       });
     } else {
+
+      Users user = Users.fromJson(datauser.first);
+      controllerEmail.text = user.name + " "  + user.ap1 + " " + user.ap2;
+      userPreference.userName = user.name;
 
       correo = controllerEmail.text;
       // Navigator.pushReplacementNamed(context, '/home');

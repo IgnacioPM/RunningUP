@@ -2,13 +2,35 @@ import 'package:flutter/material.dart';
 // import 'package:url_launcher/url_launcher.dart';
 
 import 'package:runningup/constants/Theme.dart';
+import 'package:runningup/prefences/user_preference.dart';
 
 import 'package:runningup/widgets/drawer-tile.dart';
 
-class MaterialDrawer extends StatelessWidget {
+class MaterialDrawer extends StatefulWidget {
   final String currentPage;
 
   MaterialDrawer({this.currentPage});
+
+  @override
+  _MaterialDrawerState createState() => _MaterialDrawerState();
+}
+
+class _MaterialDrawerState extends State<MaterialDrawer> {
+  
+  UserPreference userPreference = UserPreference();
+
+  //el primer metodo que se ejecuta al inicar el widget
+  @override
+  void initState() { 
+    super.initState();
+    // se ejecuta cuando el widget esta cargado
+    WidgetsBinding.instance.addPostFrameCallback((_) => _afterLayout());
+  }
+
+  void _afterLayout() async {
+
+    userPreference.initPrefs();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +51,8 @@ class MaterialDrawer extends StatelessWidget {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 8.0, top: 16.0),
-                  child: Text("Rachel Brown",
+                  child: Text(
+                    userPreference.userName,
                       style: TextStyle(color: Colors.white, fontSize: 21)),
                 ),
                 Padding(
@@ -78,57 +101,57 @@ class MaterialDrawer extends StatelessWidget {
             DrawerTile(
                 icon: Icons.home,
                 onTap: () {
-                  if (currentPage != "Home")
+                  if (widget.currentPage != "Home")
                     Navigator.pushReplacementNamed(context, '/home');
                 },
                 iconColor: Colors.black,
                 title: "Inicio",
-                isSelected: currentPage == "Home" ? true : false),
+                isSelected: widget.currentPage == "Home" ? true : false),
             DrawerTile(
                 icon: Icons.account_circle,
                 onTap: () {
-                  if (currentPage != "Perfil_Page")
+                  if (widget.currentPage != "Perfil_Page")
                     Navigator.pushReplacementNamed(context, '/Perfil');
                 },
                 iconColor: Colors.black,
                 title: "Perfil",
-                isSelected: currentPage == "Perfil_Page" ? true : false),
+                isSelected: widget.currentPage == "Perfil_Page" ? true : false),
             DrawerTile(
                 icon: Icons.run_circle_outlined,
                 onTap: () {
-                  if (currentPage != "RegisAct_Page")
+                  if (widget.currentPage != "RegisAct_Page")
                     Navigator.pushReplacementNamed(context, '/RegisAct');
                 },
                 iconColor: Colors.black,
                 title: "Registro de Actividades",
-                isSelected: currentPage == "RegisAct_Page" ? true : false),
+                isSelected: widget.currentPage == "RegisAct_Page" ? true : false),
             DrawerTile(
                 icon: Icons.contact_page,
                 onTap: () {
-                  if (currentPage != "Compas_Page")
+                  if (widget.currentPage != "Compas_Page")
                     Navigator.pushReplacementNamed(context, '/Compas');
                 },
                 iconColor: Colors.black,
                 title: "Compas",
-                isSelected: currentPage == "Compas_Page" ? true : false),
+                isSelected: widget.currentPage == "Compas_Page" ? true : false),
             DrawerTile(
                 icon: Icons.graphic_eq_outlined,
                 onTap: () {
-                  if (currentPage != "Estadistica_Page")
+                  if (widget.currentPage != "Estadistica_Page")
                     Navigator.pushReplacementNamed(context, '/Estadisticas');
                 },
                 iconColor: Colors.black,
                 title: "Estadisticas",
-                isSelected: currentPage == "Estadistica_Page" ? true : false),
+                isSelected: widget.currentPage == "Estadistica_Page" ? true : false),
             DrawerTile(
                 icon: Icons.logout,
                 onTap: () {
-                  if (currentPage != "")
+                  if (widget.currentPage != "")
                     Navigator.pushReplacementNamed(context, '/Login');
                 },
                 iconColor: Colors.black,
                 title: "Cerrar Sesión",
-                isSelected: currentPage == "" ? true : false),
+                isSelected: widget.currentPage == "" ? true : false),
             // DrawerTile(
             //     icon: Icons.exit_to_app,
             //     onTap: () {
