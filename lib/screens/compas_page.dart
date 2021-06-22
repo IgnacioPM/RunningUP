@@ -15,9 +15,9 @@ class _CompasPageState extends State<CompasPage> {
   Widget build(BuildContext context) {
     return  Scaffold(
         extendBodyBehindAppBar: true,
-        appBar: Navbar(
-          title: "Compas",
-          transparent: true,
+        appBar: AppBar(
+          centerTitle: true,
+          title: Text('Compas'),
         ),
         backgroundColor: MaterialColors.bgColorScreen,
         drawer: MaterialDrawer(currentPage:"Compas_Page"),
@@ -40,10 +40,28 @@ class _CompasPageState extends State<CompasPage> {
 
           ),
           
-        ) 
+        ) ,
+         floatingActionButton: _crearBotones()
         );
-      
-  
+  }
+
+   Widget _crearBotones() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: <Widget>[
+        SizedBox(width: 30),
+        FloatingActionButton(
+            backgroundColor: Colors.green[900],
+            onPressed: () {    Navigator.pushReplacementNamed(context, '/AddCompa');
+},
+            child: Icon(
+              Icons.camera_alt_outlined,
+            ),
+          ),
+        SizedBox(width: 5.0),
+        
+      ],
+    );
   }
 
 

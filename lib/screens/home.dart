@@ -1,13 +1,10 @@
 // import 'dart:js';
 
-import 'package:runningup/screens/crono_page.dart';
 
 import 'package:flutter/material.dart';
-import 'package:runningup/main.dart';
 
 import 'package:runningup/constants/Theme.dart';
 
-import 'package:runningup/widgets/navbar.dart';
 // import 'package:runningup/widgets/card-horizontal.dart';
 // import 'package:runningup/widgets/card-small.dart';
 // import 'package:runningup/widgets/card-square.dart';
@@ -113,8 +110,9 @@ class Home extends StatelessWidget {
       child: Column(
         children: <Widget>[
           FadeInImage(
-            image: NetworkImage(
-                'https://pbs.twimg.com/media/EphnIa2XMAM8lLm.jpg:large'),
+            image: AssetImage('assets/img/EphnIa2XMAM8lLm.jpg large.webp'),
+            // image: NetworkImage(
+            //     'https://pbs.twimg.com/media/EphnIa2XMAM8lLm.jpg:large'),
             placeholder: AssetImage('assets/img/cargando.gif'),
             fadeInDuration: Duration(milliseconds: 200),
             height: 250.0,
@@ -187,8 +185,9 @@ class Home extends StatelessWidget {
       child: Column(
         children: <Widget>[
           FadeInImage(
-            image: NetworkImage(
-                'http://www.eloriente.net/home/wp-content/uploads/2017/04/ESTADISTICA.jpg'),
+            image: AssetImage('assets/img/ESTADISTICA.webp'),
+            // image: NetworkImage(
+            //     'http://www.eloriente.net/home/wp-content/uploads/2017/04/ESTADISTICA.jpg'),
             placeholder: AssetImage('assets/img/cargando.gif'),
             fadeInDuration: Duration(milliseconds: 200),
             height: 250.0,
@@ -262,8 +261,9 @@ class Home extends StatelessWidget {
       child: Column(
         children: <Widget>[
           FadeInImage(
-            image: NetworkImage(
-                'https://www.eliteonlinemedia.com/hubfs/Portada-Blogpost.jpg'),
+            image: AssetImage('assets/img/Portada-Blogpost.webp'),
+            // image: NetworkImage(
+            //     'https://www.eliteonlinemedia.com/hubfs/Portada-Blogpost.jpg'),
             placeholder: AssetImage('assets/img/cargando.gif'),
             fadeInDuration: Duration(milliseconds: 200),
             height: 250.0,
