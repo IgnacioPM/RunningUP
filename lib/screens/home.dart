@@ -1,13 +1,10 @@
 // import 'dart:js';
 
-import 'package:runningup/screens/crono_page.dart';
 
 import 'package:flutter/material.dart';
-import 'package:runningup/main.dart';
 
 import 'package:runningup/constants/Theme.dart';
 
-import 'package:runningup/widgets/navbar.dart';
 // import 'package:runningup/widgets/card-horizontal.dart';
 // import 'package:runningup/widgets/card-small.dart';
 // import 'package:runningup/widgets/card-square.dart';

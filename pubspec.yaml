@@ -37,6 +37,7 @@ dependencies:
   qrscan: ^0.2.22
   stop_watch_timer: ^1.2.0+1
   mysql1: ^0.17.1
+  shared_preferences: ^2.0.6
 
 dev_dependencies:
   flutter_test:
