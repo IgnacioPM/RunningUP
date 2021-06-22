@@ -31,7 +31,11 @@ class _PerfilPageState extends State<PerfilPage> {
               SizedBox(
                 height: 15.0,
               ),
-              Text('Hola este es tu perfil papu ^_~'),
+              Text(userPreference.userName +
+                  ' ' +
+                  userPreference.userApe1 +
+                  ' ' +
+                  userPreference.userApe2),
               SizedBox(
                 height: 0.5,
               ),

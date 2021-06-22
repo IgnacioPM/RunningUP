@@ -8,31 +8,25 @@ import 'dart:async';
 
 import 'home.dart';
 
-
 String email;
 
 class LoginPage extends StatefulWidget {
- final String registro;
+  final String registro;
   LoginPage(this.registro);
   static String id = 'Login_page';
 
   @override
   _LoginPageState createState() => _LoginPageState();
-  
 }
 
 class _LoginPageState extends State<LoginPage> {
-
   TextEditingController controllerEmail = new TextEditingController();
   TextEditingController controllerPassword = new TextEditingController();
   UserPreference userPreference = UserPreference();
   String msg = '';
-  
-
 
   // ignore: missing_return
   Future<List> _login() async {
-
     await userPreference.initPrefs();
 
     final response = await http.post(
@@ -50,7 +44,6 @@ class _LoginPageState extends State<LoginPage> {
         msg = "Usuario o contrseña incorrectos";
       });
     } else {
-
       Users user = Users.fromJson(datauser.first);
       // controllerEmail.text = user.name + " "  + user.ap1 + " " + user.ap2;
       userPreference.userName = user.name;
@@ -59,14 +52,12 @@ class _LoginPageState extends State<LoginPage> {
 
       // Navigator.pushReplacementNamed(context, '/home');
       Navigator.push(context, MaterialPageRoute(builder: (context) => Home()));
-
     }
     return datauser;
   }
 
   @override
   Widget build(BuildContext context) {
-    
     return SafeArea(
       child: Scaffold(
         body: Center(
@@ -96,7 +87,8 @@ class _LoginPageState extends State<LoginPage> {
               ),
               _bottonRegister(),
               Text(msg, style: TextStyle(fontSize: 25.0, color: Colors.red)),
-              Text(widget.registro, style: TextStyle(fontSize: 25.0, color: Colors.green)),
+              Text(widget.registro,
+                  style: TextStyle(fontSize: 25.0, color: Colors.green)),
             ],
           ),
         ),
@@ -165,7 +157,6 @@ class _LoginPageState extends State<LoginPage> {
           onPressed: () {
             // Navigator.pushReplacementNamed(context, '/home');
             _login();
-            
           });
     });
   }
@@ -190,7 +181,7 @@ class _LoginPageState extends State<LoginPage> {
           elevation: 10.0,
           color: Colors.blueAccent,
           onPressed: () {
-             Navigator.pushReplacementNamed(context, '/Registro');
+            Navigator.pushReplacementNamed(context, '/Registro');
           });
     });
   }
