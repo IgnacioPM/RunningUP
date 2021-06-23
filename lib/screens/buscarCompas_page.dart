@@ -91,6 +91,10 @@ class _BuscarCompaPageState extends State<BuscarCompaPage> {
               SizedBox(
                 height: 15.0,
               ),
+              _mostrarBusqueda(),
+              SizedBox(
+                height: 15.0,
+              ),
               Text(msg, style: TextStyle(fontSize: 25.0, color: Colors.red)),
               // Text(widget.registro,
               //     style: TextStyle(fontSize: 25.0, color: Colors.green)),
@@ -143,6 +147,25 @@ class _BuscarCompaPageState extends State<BuscarCompaPage> {
             // Navigator.pushReplacementNamed(context, '/home');
             _compas();
           });
+    });
+  }
+
+  Widget _mostrarBusqueda() {
+    return StreamBuilder(
+        builder: (BuildContext context, AsyncSnapshot snapshot) {
+      return Container(
+        padding: EdgeInsets.symmetric(horizontal: 20.0),
+        child: TextField(
+          controller: controllerCorreo,
+          keyboardType: TextInputType.emailAddress,
+          decoration: InputDecoration(
+            icon: Icon(Icons.mail),
+            hintText: 'name@mail.com',
+            labelText: 'Correo',
+          ),
+          onChanged: (value) {},
+        ),
+      );
     });
   }
 }
