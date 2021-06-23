@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:runningup/constants/Theme.dart';
-import 'package:runningup/screens/login_page.dart';
 // import 'package:runningup/widgets/drawer.dart';
 
-import 'package:runningup/widgets/navbar.dart';
 import 'package:http/http.dart' as http;
 
 import 'compas_page.dart';

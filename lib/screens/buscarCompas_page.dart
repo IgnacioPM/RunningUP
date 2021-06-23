@@ -2,15 +2,17 @@ import 'package:flutter/material.dart';
 
 import 'dart:convert';
 
-import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:runningup/constants/Theme.dart';
 import 'package:runningup/models/compas-api.dart';
 import 'package:runningup/models/compas.dart';
 import 'package:runningup/models/user.dart';
 import 'package:runningup/prefences/user_preference.dart';
 import 'dart:async';
 
-import 'home.dart';
+import 'package:runningup/widgets/drawer.dart';
+
+// import 'home.dart';
 
 String email;
 
@@ -65,6 +67,13 @@ class _BuscarCompaPageState extends State<BuscarCompaPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        extendBodyBehindAppBar: true,
+        appBar: AppBar(
+          centerTitle: true,
+          title: Text('Buscar compa'),
+        ),
+        backgroundColor: MaterialColors.bgColorScreen,
+        drawer: MaterialDrawer(currentPage: "BuscarCompa_page"),
         body: Center(
           child: FutureBuilder(
             future: fetchCompas(),

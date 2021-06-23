@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 // import 'package:runningup/constants/Theme.dart';
 // import 'package:runningup/widgets/drawer.dart';
+import 'package:qrscan/qrscan.dart' as scanner;
 
 // ignore: must_be_immutable
 class CronoPage extends StatefulWidget {
@@ -21,6 +22,26 @@ class _CronoPageState extends State<CronoPage> {
   String _stopwatchText = '00:00:00:00';
   final _stopWatch = new Stopwatch();
   final _timeout = const Duration(milliseconds: 1);
+  String qrValue = "Codigo Qr";
+
+
+void scanQr() async {
+    String cameraScanResult = await scanner.scan();
+    setState(() {
+      qrValue = cameraScanResult;
+    });
+    // if (cameraScanResult.length > 0) {
+    //         Navigator.pushReplacementNamed(context, '/Crono');
+    //       }
+    if(qrValue == 'Finalizar'){
+
+      _stopWatch.stop();
+    //  Navigator.pushReplacementNamed(context, '/Estadisticas');
+
+    }
+    
+  }
+
 
   void _startTimeout() {
     new Timer(_timeout, _handleTimeout);
@@ -39,7 +60,7 @@ class _CronoPageState extends State<CronoPage> {
     setState(() {
       if (_stopWatch.isRunning) {
         _isStart = true;
-        _stopWatch.stop();
+        // _stopWatch.stop();
       } else {
         _isStart = false;
         _stopWatch.start();
@@ -100,13 +121,15 @@ class _CronoPageState extends State<CronoPage> {
           child: Column(
             children: <Widget>[
               ElevatedButton(
-                child: Icon(_isStart ? Icons.play_arrow : Icons.stop),
+                child: Icon( Icons.play_arrow),
                 onPressed: _startStopButtonPressed,
               ),
               // ignore: deprecated_member_use
-              ElevatedButton(
-                child: Text('Reset'),
-                onPressed: _resetButtonPressed,
+              ElevatedButton.icon(
+                label: Text('Detener actividad') ,
+                icon: Icon(Icons.stop_rounded) ,
+                onPressed: () => scanQr(),
+                
               ),
               ElevatedButton(
                 child: Icon(
