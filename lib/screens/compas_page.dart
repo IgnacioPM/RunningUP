@@ -36,14 +36,14 @@ class _CompasPageState extends State<CompasPage> {
                 shrinkWrap: true,
                 itemBuilder: (BuildContext context, index) {
                   Compas users = snapshot.data[index];
-
                   return ListTile(
                     leading: CircleAvatar(
                       backgroundImage: NetworkImage(
-                          "https://images.unsplash.com/photo-1512529920731-e8abaea917a5?fit=crop&w=840&q=80"),
+                          "https://images.unsplash.com/photo-1553544923-37efbe6ff816?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=368&q=80"),
                     ),
                     title: Text(
                         '${users.nombre} ${users.apellidoPaterno} ${users.apellidoMaterno}'),
+                    subtitle: Text('${users.emailC}'),
                   );
                 },
               );

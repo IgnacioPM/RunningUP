@@ -47,12 +47,13 @@ class _LoginPageState extends State<LoginPage> {
       Users user = Users.fromJson(datauser.first);
       // controllerEmail.text = user.name + " "  + user.ap1 + " " + user.ap2;
       userPreference.userNameDrawer = user.name;
+      userPreference.userAp1Drawer = user.ap1;
+      userPreference.userAp2Drawer = user.ap2;
 
       // Navigator.pushReplacementNamed(context, '/home');
       Navigator.push(context, MaterialPageRoute(builder: (context) => Home()));
     }
     return datauser;
-    
   }
 
   @override

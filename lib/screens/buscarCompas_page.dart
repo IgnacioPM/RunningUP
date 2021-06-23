@@ -26,6 +26,13 @@ class BuscarCompaPage extends StatefulWidget {
 }
 
 class _BuscarCompaPageState extends State<BuscarCompaPage> {
+  void setStateVacio() {
+    userPreference.userName = '';
+    userPreference.userApe1 = '';
+    userPreference.userApe2 = '';
+    userPreference.userEmail = '';
+  }
+
   TextEditingController controllerCorreo = new TextEditingController();
   UserPreference userPreference = UserPreference();
   String msg = '';
@@ -50,6 +57,7 @@ class _BuscarCompaPageState extends State<BuscarCompaPage> {
       userPreference.userApe2 = user.ap2;
       userPreference.userEmail = user.email;
     });
+
     if (datacompa.length == 0) {
       setState(() {
         msg = "Compa no encontrado, verifique los datos";
@@ -200,9 +208,8 @@ class _BuscarCompaPageState extends State<BuscarCompaPage> {
           color: Colors.blueAccent,
           onPressed: () {
             addData();
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => CompasPage()));
-            // Navigator.pop(context);
+            setStateVacio();
+            Navigator.pushReplacementNamed(context, '/Compas');
           });
     });
   }
