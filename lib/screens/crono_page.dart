@@ -23,6 +23,7 @@ class _CronoPageState extends State<CronoPage> {
   final _stopWatch = new Stopwatch();
   final _timeout = const Duration(milliseconds: 1);
   String qrValue = "Codigo Qr";
+  String xd ='';
 
 
 void scanQr() async {
@@ -36,6 +37,7 @@ void scanQr() async {
     if(qrValue == 'Finalizar'){
 
       _stopWatch.stop();
+      xd = _stopwatchText;
     //  Navigator.pushReplacementNamed(context, '/Estadisticas');
 
     }
@@ -113,13 +115,15 @@ void scanQr() async {
             fit: BoxFit.none,
             child: Text(
               _stopwatchText,
-              style: TextStyle(fontSize: 72),
-            ),
+              // style: TextStyle(fontSize: 72),
+            ), 
+            
           ),
         ),
         Center(
           child: Column(
             children: <Widget>[
+              Text(xd, style: TextStyle(fontSize: 25.0, color: Colors.red)),
               ElevatedButton(
                 child: Icon( Icons.play_arrow),
                 onPressed: _startStopButtonPressed,
