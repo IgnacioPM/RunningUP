@@ -41,7 +41,7 @@ class _LoginPageState extends State<LoginPage> {
 
     if (datauser.length == 0) {
       setState(() {
-        msg = "Usuario o contrseña incorrectos";
+        msg = "Usuario o contraseña incorrectos";
       });
     } else {
       Users user = Users.fromJson(datauser.first);

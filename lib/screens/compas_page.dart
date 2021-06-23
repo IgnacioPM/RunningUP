@@ -41,21 +41,40 @@ class _CompasPageState extends State<CompasPage> {
           ),
           
         ) ,
-         floatingActionButton: _crearBotones()
+         floatingActionButton: _buscarCompa(),
         );
   }
 
-   Widget _crearBotones() {
+//    Widget _crearBotones() {
+//     return Row(
+//       mainAxisAlignment: MainAxisAlignment.end,
+//       children: <Widget>[
+//         SizedBox(width: 30),
+//         FloatingActionButton(
+//             backgroundColor: Colors.green[900],
+//             onPressed: () {    Navigator.pushReplacementNamed(context, '/AddCompa');
+// },
+//             child: Icon(
+//               Icons.camera_alt_outlined,
+//             ),
+//           ),
+//         SizedBox(width: 5.0),
+        
+//       ],
+//     );
+//   }
+
+  Widget _buscarCompa() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.end,
       children: <Widget>[
         SizedBox(width: 30),
         FloatingActionButton(
             backgroundColor: Colors.green[900],
-            onPressed: () {    Navigator.pushReplacementNamed(context, '/AddCompa');
+            onPressed: () {    Navigator.pushReplacementNamed(context, '/SearchCompa');
 },
             child: Icon(
-              Icons.camera_alt_outlined,
+              Icons.search_rounded,
             ),
           ),
         SizedBox(width: 5.0),
