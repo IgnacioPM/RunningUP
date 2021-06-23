@@ -8,11 +8,11 @@ import 'package:runningup/models/compas-api.dart';
 import 'package:runningup/models/compas.dart';
 import 'package:runningup/models/user.dart';
 import 'package:runningup/prefences/user_preference.dart';
+import 'package:runningup/widgets/drawer.dart';
 import 'dart:async';
 
-import 'package:runningup/widgets/drawer.dart';
-
-// import 'home.dart';
+import 'compas_page.dart';
+import 'home.dart';
 
 String email;
 
@@ -26,26 +26,29 @@ class BuscarCompaPage extends StatefulWidget {
 }
 
 class _BuscarCompaPageState extends State<BuscarCompaPage> {
-  TextEditingController controllerNombre = new TextEditingController();
-  TextEditingController controllerApellido = new TextEditingController();
+  TextEditingController controllerCorreo = new TextEditingController();
   UserPreference userPreference = UserPreference();
   String msg = '';
-
   // ignore: missing_return
+
   Future<List> _compas() async {
     await userPreference.initPrefs();
 
     final response = await http.post(
         Uri.parse('https://runningup.000webhostapp.com/buscarCompa.php'),
         body: {
-          "Nombre": controllerNombre.text,
-          "Apellido_Paterno": controllerApellido.text,
+          "correo": controllerCorreo.text,
         });
     List<dynamic> datacompa = jsonDecode(response.body);
     // var correo = controllerNombre.text;
     // var results = await jsonDecode('select name from users where email = ?', [correo]);
     setState(() {
-      msg = datacompa.toString();
+      Users user = Users.fromJson(datacompa.first);
+      // controllerEmail.text = user.name + " "  + user.ap1 + " " + user.ap2;
+      userPreference.userName = user.name;
+      userPreference.userApe1 = user.ap1;
+      userPreference.userApe2 = user.ap2;
+      userPreference.userEmail = user.email;
     });
     if (datacompa.length == 0) {
       setState(() {
@@ -55,12 +58,20 @@ class _BuscarCompaPageState extends State<BuscarCompaPage> {
       // Compas compas = Compas.fromJson(datacompa.first);
       // controllerNombre.text = compas.nombre + " "  + compas.apellidoPaterno;
 
-      setState(() {
-        msg = "Say hola";
-      });
     }
     // print(datacompa);
     return datacompa;
+  }
+
+  void addData() {
+    var url = Uri.parse("https://runningup.000webhostapp.com/agregarCompa.php");
+
+    http.post(url, body: {
+      "Nombre": userPreference.userName,
+      "Apellido_Paterno": userPreference.userApe1,
+      "Apellido_Materno": userPreference.userApe2,
+      "email_c": userPreference.userEmail,
+    });
   }
 
   @override
@@ -75,87 +86,50 @@ class _BuscarCompaPageState extends State<BuscarCompaPage> {
         backgroundColor: MaterialColors.bgColorScreen,
         drawer: MaterialDrawer(currentPage: "BuscarCompa_page"),
         body: Center(
-          child: FutureBuilder(
-            future: fetchCompas(),
-            builder: (context, AsyncSnapshot<List<Compas>> snapshot) {
-              if (snapshot.hasData) {
-                return ListView.builder(
-                  itemCount: snapshot.data.length,
-                  shrinkWrap: true,
-                  itemBuilder: (BuildContext context, index) {
-                    Compas users = snapshot.data[index];
-
-                    return ListTile(
-                      leading: CircleAvatar(
-                        backgroundImage: NetworkImage(
-                            "https://images.unsplash.com/photo-1512529920731-e8abaea917a5?fit=crop&w=840&q=80"),
-                      ),
-                      title: Text('${users.nombre} ${users.apellidoPaterno}'),
-                    );
-                  },
-                );
-              }
-
-              return CircularProgressIndicator();
-            },
-            // children: [
-            //   SizedBox(
-            //     height: 15.0,
-            //   ),
-            //   _nameTextField(),
-            //   SizedBox(
-            //     height: 15.0,
-            //   ),
-            //   _apellido1TextField(),
-            //   SizedBox(
-            //     height: 20.0,
-            //   ),
-            //   _bottonBuscar(),
-            //   SizedBox(
-            //     height: 15.0,
-            //   ),
-            //   Text(msg, style: TextStyle(fontSize: 25.0, color: Colors.red)),
-            //   // Text(widget.registro,
-            //   //     style: TextStyle(fontSize: 25.0, color: Colors.green)),
-            // ],
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(
+                height: 15.0,
+              ),
+              _correoTextField(),
+              SizedBox(
+                height: 15.0,
+              ),
+              _bottonBuscar(),
+              SizedBox(
+                height: 15.0,
+              ),
+              _mostrarBusqueda(),
+              SizedBox(
+                height: 15.0,
+              ),
+              _bottonAgregarCompa(),
+              SizedBox(
+                height: 15.0,
+              ),
+              Text(msg, style: TextStyle(fontSize: 25.0, color: Colors.red)),
+              // Text(widget.registro,
+              //     style: TextStyle(fontSize: 25.0, color: Colors.green)),
+            ],
           ),
         ),
       ),
     );
   }
 
-  Widget _nameTextField() {
+  Widget _correoTextField() {
     return StreamBuilder(
         builder: (BuildContext context, AsyncSnapshot snapshot) {
       return Container(
         padding: EdgeInsets.symmetric(horizontal: 20.0),
         child: TextField(
-          controller: controllerNombre,
+          controller: controllerCorreo,
           keyboardType: TextInputType.emailAddress,
           decoration: InputDecoration(
-            icon: Icon(Icons.email),
-            hintText: 'Juan',
-            labelText: 'Nombre',
-          ),
-          onChanged: (value) {},
-        ),
-      );
-    });
-  }
-
-  Widget _apellido1TextField() {
-    return StreamBuilder(
-        builder: (BuildContext context, AsyncSnapshot snapshot) {
-      return Container(
-        padding: EdgeInsets.symmetric(horizontal: 20.0),
-        child: TextField(
-          controller: controllerApellido,
-          keyboardType: TextInputType.emailAddress,
-          obscureText: false,
-          decoration: InputDecoration(
-            icon: Icon(Icons.lock),
-            hintText: 'Pérez',
-            labelText: 'Primer apellido',
+            icon: Icon(Icons.mail),
+            hintText: 'name@mail.com',
+            labelText: 'Correo',
           ),
           onChanged: (value) {},
         ),
@@ -185,6 +159,50 @@ class _BuscarCompaPageState extends State<BuscarCompaPage> {
           onPressed: () {
             // Navigator.pushReplacementNamed(context, '/home');
             _compas();
+          });
+    });
+  }
+
+  Widget _mostrarBusqueda() {
+    return StreamBuilder(
+        builder: (BuildContext context, AsyncSnapshot snapshot) {
+      return Container(
+        padding: EdgeInsets.symmetric(horizontal: 20.0),
+        child: Text(
+            userPreference.userName +
+                ' ' +
+                userPreference.userApe1 +
+                ' ' +
+                userPreference.userApe2,
+            style: TextStyle(color: Colors.black87, fontSize: 21)),
+      );
+    });
+  }
+
+  Widget _bottonAgregarCompa() {
+    return StreamBuilder(
+        builder: (BuildContext context, AsyncSnapshot snapshot) {
+      // ignore: deprecated_member_use
+      return RaisedButton(
+          child: Container(
+            padding: EdgeInsets.symmetric(horizontal: 80.0, vertical: 15.0),
+            child: Text(
+              'Agregar compa',
+              style: TextStyle(
+                fontSize: 16.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+          elevation: 10.0,
+          color: Colors.blueAccent,
+          onPressed: () {
+            addData();
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => CompasPage()));
+            // Navigator.pop(context);
           });
     });
   }
