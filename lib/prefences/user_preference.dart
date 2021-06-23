@@ -47,4 +47,11 @@ class UserPreference {
   String get userApe2 {
     return _prefs.getString('user_ap2');
   }
+  set userEmail(String value) {
+    _prefs.setString('user_email', value);
+  }
+
+  String get userEmail {
+    return _prefs.getString('user_email');
+  }
 }

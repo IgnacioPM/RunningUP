@@ -12,6 +12,7 @@ import 'package:runningup/prefences/user_preference.dart';
 import 'package:runningup/widgets/drawer.dart';
 import 'dart:async';
 
+import 'compas_page.dart';
 import 'home.dart';
 
 String email;
@@ -29,8 +30,8 @@ class _BuscarCompaPageState extends State<BuscarCompaPage> {
   TextEditingController controllerCorreo = new TextEditingController();
   UserPreference userPreference = UserPreference();
   String msg = '';
-
   // ignore: missing_return
+
   Future<List> _compas() async {
     await userPreference.initPrefs();
 
@@ -43,7 +44,12 @@ class _BuscarCompaPageState extends State<BuscarCompaPage> {
     // var correo = controllerNombre.text;
     // var results = await jsonDecode('select name from users where email = ?', [correo]);
     setState(() {
-      msg = datacompa.toString();
+      Users user = Users.fromJson(datacompa.first);
+      // controllerEmail.text = user.name + " "  + user.ap1 + " " + user.ap2;
+      userPreference.userName = user.name;
+      userPreference.userApe1 = user.ap1;
+      userPreference.userApe2 = user.ap2;
+      userPreference.userEmail = user.email;
     });
     if (datacompa.length == 0) {
       setState(() {
@@ -52,17 +58,21 @@ class _BuscarCompaPageState extends State<BuscarCompaPage> {
     } else {
       // Compas compas = Compas.fromJson(datacompa.first);
       // controllerNombre.text = compas.nombre + " "  + compas.apellidoPaterno;
-      Users user = Users.fromJson(datacompa.first);
-      // controllerEmail.text = user.name + " "  + user.ap1 + " " + user.ap2;
-      userPreference.userName = user.name;
-      userPreference.userApe1 = user.ap1;
-      userPreference.userApe2 = user.ap2;
-      setState(() {
-        msg = "Say hola";
-      });
+
     }
     // print(datacompa);
     return datacompa;
+  }
+
+  void addData() {
+    var url = Uri.parse("https://runningup.000webhostapp.com/agregarCompa.php");
+
+    http.post(url, body: {
+      "Nombre": userPreference.userName,
+      "Apellido_Paterno": userPreference.userApe1,
+      "Apellido_Materno": userPreference.userApe2,
+      "email_c": userPreference.userEmail,
+    });
   }
 
   @override
@@ -92,6 +102,10 @@ class _BuscarCompaPageState extends State<BuscarCompaPage> {
                 height: 15.0,
               ),
               _mostrarBusqueda(),
+              SizedBox(
+                height: 15.0,
+              ),
+              _bottonAgregarCompa(),
               SizedBox(
                 height: 15.0,
               ),
@@ -155,17 +169,42 @@ class _BuscarCompaPageState extends State<BuscarCompaPage> {
         builder: (BuildContext context, AsyncSnapshot snapshot) {
       return Container(
         padding: EdgeInsets.symmetric(horizontal: 20.0),
-        child: TextField(
-          controller: controllerCorreo,
-          keyboardType: TextInputType.emailAddress,
-          decoration: InputDecoration(
-            icon: Icon(Icons.mail),
-            hintText: 'name@mail.com',
-            labelText: 'Correo',
-          ),
-          onChanged: (value) {},
-        ),
+        child: Text(
+            userPreference.userName +
+                ' ' +
+                userPreference.userApe1 +
+                ' ' +
+                userPreference.userApe2,
+            style: TextStyle(color: Colors.black87, fontSize: 21)),
       );
+    });
+  }
+
+  Widget _bottonAgregarCompa() {
+    return StreamBuilder(
+        builder: (BuildContext context, AsyncSnapshot snapshot) {
+      // ignore: deprecated_member_use
+      return RaisedButton(
+          child: Container(
+            padding: EdgeInsets.symmetric(horizontal: 80.0, vertical: 15.0),
+            child: Text(
+              'Agregar compa',
+              style: TextStyle(
+                fontSize: 16.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+          elevation: 10.0,
+          color: Colors.blueAccent,
+          onPressed: () {
+            addData();
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => CompasPage()));
+            // Navigator.pop(context);
+          });
     });
   }
 }

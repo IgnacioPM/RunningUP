@@ -28,21 +28,22 @@ class _CompasPageState extends State<CompasPage> {
       drawer: MaterialDrawer(currentPage: "Compas_Page"),
       body: Center(
         child: FutureBuilder(
-          future: fetchUsers(),
-          builder: (context, AsyncSnapshot<List<Users>> snapshot) {
+          future: fetchCompas(),
+          builder: (context, AsyncSnapshot<List<Compas>> snapshot) {
             if (snapshot.hasData) {
               return ListView.builder(
                 itemCount: snapshot.data.length,
                 shrinkWrap: true,
                 itemBuilder: (BuildContext context, index) {
-                  Users users = snapshot.data[index];
+                  Compas users = snapshot.data[index];
 
                   return ListTile(
                     leading: CircleAvatar(
                       backgroundImage: NetworkImage(
                           "https://images.unsplash.com/photo-1512529920731-e8abaea917a5?fit=crop&w=840&q=80"),
                     ),
-                    title: Text('${users.name} ${users.ap1} ${users.ap2}'),
+                    title: Text(
+                        '${users.nombre} ${users.apellidoPaterno} ${users.apellidoMaterno}'),
                   );
                 },
               );
