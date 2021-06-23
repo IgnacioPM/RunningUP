@@ -16,19 +16,17 @@ class MaterialDrawer extends StatefulWidget {
 }
 
 class _MaterialDrawerState extends State<MaterialDrawer> {
-  
   UserPreference userPreference = UserPreference();
 
   //el primer metodo que se ejecuta al inicar el widget
   @override
-  void initState() { 
+  void initState() {
     super.initState();
     // se ejecuta cuando el widget esta cargado
     WidgetsBinding.instance.addPostFrameCallback((_) => _afterLayout());
   }
 
   void _afterLayout() async {
-
     userPreference.initPrefs();
   }
 
@@ -47,16 +45,13 @@ class _MaterialDrawerState extends State<MaterialDrawer> {
               children: [
                 Padding(
                   padding: const EdgeInsets.only(bottom: 8.0, top: 16.0),
-                  child: Text(
-                    userPreference.userName,
+                  child: Text(userPreference.userNameDrawer,
                       style: TextStyle(color: Colors.white, fontSize: 21)),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 2.0),
                   child: Row(
-                    children: [
-                    
-                    ],
+                    children: [],
                   ),
                 )
               ],
@@ -91,7 +86,8 @@ class _MaterialDrawerState extends State<MaterialDrawer> {
                 },
                 iconColor: Colors.black,
                 title: "Registro de Actividades",
-                isSelected: widget.currentPage == "RegisAct_Page" ? true : false),
+                isSelected:
+                    widget.currentPage == "RegisAct_Page" ? true : false),
             DrawerTile(
                 icon: Icons.contact_page,
                 onTap: () {
@@ -109,7 +105,8 @@ class _MaterialDrawerState extends State<MaterialDrawer> {
                 },
                 iconColor: Colors.black,
                 title: "Estadisticas",
-                isSelected: widget.currentPage == "Estadistica_Page" ? true : false),
+                isSelected:
+                    widget.currentPage == "Estadistica_Page" ? true : false),
             DrawerTile(
                 icon: Icons.logout,
                 onTap: () {

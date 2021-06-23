@@ -4,10 +4,12 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:runningup/constants/Theme.dart';
 import 'package:runningup/models/compas-api.dart';
 import 'package:runningup/models/compas.dart';
 import 'package:runningup/models/user.dart';
 import 'package:runningup/prefences/user_preference.dart';
+import 'package:runningup/widgets/drawer.dart';
 import 'dart:async';
 
 import 'home.dart';
@@ -24,8 +26,7 @@ class BuscarCompaPage extends StatefulWidget {
 }
 
 class _BuscarCompaPageState extends State<BuscarCompaPage> {
-  TextEditingController controllerNombre = new TextEditingController();
-  TextEditingController controllerApellido = new TextEditingController();
+  TextEditingController controllerCorreo = new TextEditingController();
   UserPreference userPreference = UserPreference();
   String msg = '';
 
@@ -36,8 +37,7 @@ class _BuscarCompaPageState extends State<BuscarCompaPage> {
     final response = await http.post(
         Uri.parse('https://runningup.000webhostapp.com/buscarCompa.php'),
         body: {
-          "Nombre": controllerNombre.text,
-          "Apellido_Paterno": controllerApellido.text,
+          "correo": controllerCorreo.text,
         });
     List<dynamic> datacompa = jsonDecode(response.body);
     // var correo = controllerNombre.text;
@@ -52,7 +52,11 @@ class _BuscarCompaPageState extends State<BuscarCompaPage> {
     } else {
       // Compas compas = Compas.fromJson(datacompa.first);
       // controllerNombre.text = compas.nombre + " "  + compas.apellidoPaterno;
-
+      Users user = Users.fromJson(datacompa.first);
+      // controllerEmail.text = user.name + " "  + user.ap1 + " " + user.ap2;
+      userPreference.userName = user.name;
+      userPreference.userApe1 = user.ap1;
+      userPreference.userApe2 = user.ap2;
       setState(() {
         msg = "Say hola";
       });
@@ -65,88 +69,50 @@ class _BuscarCompaPageState extends State<BuscarCompaPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        extendBodyBehindAppBar: true,
+        appBar: AppBar(
+          centerTitle: true,
+          title: Text('Buscar compa'),
+        ),
+        backgroundColor: MaterialColors.bgColorScreen,
+        drawer: MaterialDrawer(currentPage: "BuscarCompa_page"),
         body: Center(
-          child: FutureBuilder(
-            future: fetchCompas(),
-            builder: (context, AsyncSnapshot<List<Compas>> snapshot) {
-              if (snapshot.hasData) {
-                return ListView.builder(
-                  itemCount: snapshot.data.length,
-                  shrinkWrap: true,
-                  itemBuilder: (BuildContext context, index) {
-                    Compas users = snapshot.data[index];
-
-                    return ListTile(
-                      leading: CircleAvatar(
-                        backgroundImage: NetworkImage(
-                            "https://images.unsplash.com/photo-1512529920731-e8abaea917a5?fit=crop&w=840&q=80"),
-                      ),
-                      title: Text('${users.nombre} ${users.apellidoPaterno}'),
-                    );
-                  },
-                );
-              }
-
-              return CircularProgressIndicator();
-            },
-            // children: [
-            //   SizedBox(
-            //     height: 15.0,
-            //   ),
-            //   _nameTextField(),
-            //   SizedBox(
-            //     height: 15.0,
-            //   ),
-            //   _apellido1TextField(),
-            //   SizedBox(
-            //     height: 20.0,
-            //   ),
-            //   _bottonBuscar(),
-            //   SizedBox(
-            //     height: 15.0,
-            //   ),
-            //   Text(msg, style: TextStyle(fontSize: 25.0, color: Colors.red)),
-            //   // Text(widget.registro,
-            //   //     style: TextStyle(fontSize: 25.0, color: Colors.green)),
-            // ],
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(
+                height: 15.0,
+              ),
+              _correoTextField(),
+              SizedBox(
+                height: 15.0,
+              ),
+              _bottonBuscar(),
+              SizedBox(
+                height: 15.0,
+              ),
+              Text(msg, style: TextStyle(fontSize: 25.0, color: Colors.red)),
+              // Text(widget.registro,
+              //     style: TextStyle(fontSize: 25.0, color: Colors.green)),
+            ],
           ),
         ),
       ),
     );
   }
 
-  Widget _nameTextField() {
+  Widget _correoTextField() {
     return StreamBuilder(
         builder: (BuildContext context, AsyncSnapshot snapshot) {
       return Container(
         padding: EdgeInsets.symmetric(horizontal: 20.0),
         child: TextField(
-          controller: controllerNombre,
+          controller: controllerCorreo,
           keyboardType: TextInputType.emailAddress,
           decoration: InputDecoration(
-            icon: Icon(Icons.email),
-            hintText: 'Juan',
-            labelText: 'Nombre',
-          ),
-          onChanged: (value) {},
-        ),
-      );
-    });
-  }
-
-  Widget _apellido1TextField() {
-    return StreamBuilder(
-        builder: (BuildContext context, AsyncSnapshot snapshot) {
-      return Container(
-        padding: EdgeInsets.symmetric(horizontal: 20.0),
-        child: TextField(
-          controller: controllerApellido,
-          keyboardType: TextInputType.emailAddress,
-          obscureText: false,
-          decoration: InputDecoration(
-            icon: Icon(Icons.lock),
-            hintText: 'Pérez',
-            labelText: 'Primer apellido',
+            icon: Icon(Icons.mail),
+            hintText: 'name@mail.com',
+            labelText: 'Correo',
           ),
           onChanged: (value) {},
         ),
