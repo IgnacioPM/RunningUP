@@ -19,6 +19,10 @@ class RegistroPage extends State<RegisterPage> {
   TextEditingController controllerName = new TextEditingController();
   TextEditingController controllerAp1 = new TextEditingController();
   TextEditingController controllerAP2 = new TextEditingController();
+  TextEditingController controllerPeso = new TextEditingController();
+  TextEditingController controllerAltura = new TextEditingController();
+  TextEditingController controllerSexo = new TextEditingController();
+
   String registro = "Su cuenta ha sido creada";
 
   var _formkey = GlobalKey<FormState>();
@@ -32,17 +36,15 @@ class RegistroPage extends State<RegisterPage> {
       "name": controllerName.text,
       "ap1": controllerAp1.text,
       "ap2": controllerAP2.text,
+      "Peso_Kilos": controllerPeso.text,
+      "Altura_Centimetros": controllerAltura.text,
+      "Sexo": controllerSexo.text,
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        // extendBodyBehindAppBar: true,
-        appBar: AppBar(
-          centerTitle: true,
-          title: Text('Registro de Compas'),
-        ),
         backgroundColor: MaterialColors.bgColorScreen,
         // key: _scaffoldKey,
         drawer: MaterialDrawer(currentPage: "AgregarCompa_Page"),
@@ -98,7 +100,7 @@ class RegistroPage extends State<RegisterPage> {
                           if (value.isEmpty) return "Campo nombre vacio";
                         },
                         decoration: new InputDecoration(
-                          hintText: "name",
+                          hintText: "Ejemplo: Juan",
                           labelText: "Nombre",
                         ),
                       ),
@@ -115,7 +117,7 @@ class RegistroPage extends State<RegisterPage> {
                             return "Campo Primer Apellido vacio";
                         },
                         decoration: new InputDecoration(
-                          hintText: "ap1",
+                          hintText: "Ejemplo: Perez",
                           labelText: "Primer Apellido",
                         ),
                       ),
@@ -132,8 +134,56 @@ class RegistroPage extends State<RegisterPage> {
                             return "Campo Segundo Apellido vacio";
                         },
                         decoration: new InputDecoration(
-                          hintText: "ap2",
+                          hintText: "Ejemplo: Martinez",
                           labelText: "Segundo Apellido",
+                        ),
+                      ),
+                    ),
+                    new ListTile(
+                      leading: const Icon(
+                        Icons.person_outline,
+                        color: Colors.black,
+                      ),
+                      title: new TextFormField(
+                        controller: controllerPeso,
+                        validator: (value) {
+                          if (value.isEmpty) return "Campo Peso vacio";
+                        },
+                        decoration: new InputDecoration(
+                          hintText: "Ejemplo: 70",
+                          labelText: "Peso en kilos",
+                        ),
+                      ),
+                    ),
+                    new ListTile(
+                      leading: const Icon(
+                        Icons.person_outline,
+                        color: Colors.black,
+                      ),
+                      title: new TextFormField(
+                        controller: controllerAltura,
+                        validator: (value) {
+                          if (value.isEmpty) return "Campo ALtura vacio";
+                        },
+                        decoration: new InputDecoration(
+                          hintText: "Ejemplo: 165",
+                          labelText: "ALtura en centimetros",
+                        ),
+                      ),
+                    ),
+                    new ListTile(
+                      leading: const Icon(
+                        Icons.person_outline,
+                        color: Colors.black,
+                      ),
+                      title: new TextFormField(
+                        controller: controllerSexo,
+                        validator: (value) {
+                          if (value.isEmpty) return "Campo Sexo vacio";
+                        },
+                        decoration: new InputDecoration(
+                          hintText: "Ejemplo: Hombre",
+                          labelText: "Sexo",
                         ),
                       ),
                     ),
