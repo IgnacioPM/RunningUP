@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:runningup/screens/RegistroAct_page.dart';
+import 'package:runningup/screens/agregarCompas_page.dart';
+import 'package:runningup/screens/buscarCompas_page.dart';
 import 'package:runningup/screens/compas_page.dart';
 import 'package:runningup/screens/crono_page.dart';
 // import 'package:runningup/screens/crono_page.dart';
@@ -32,10 +34,14 @@ class MaterialKitPROFlutter extends StatelessWidget {
           "/RegisAct": (BuildContext context) => new RegisActPage(),
           "/SalonFama": (context)=> SalonFamaPage(),
           "/Compas": (BuildContext context) => new CompasPage(),
-          "/Estadisticas": (BuildContext context) => new EstadisticaPage(),
+          "/Estadisticas": (BuildContext context) => new EstadisticaPage(''),
           "/Logout": (BuildContext context) => new CompasPage(),
           "/Registro": (BuildContext context) => new RegisterPage(),
           "/Crono": (BuildContext context) => new CronoPage(),
+          "/AddCompa": (BuildContext context) => new AgregarCompasPage(),
+          "/SearchCompa": (BuildContext context) => new BuscarCompaPage(),
+
+
 
           "/Login": (context)=> LoginPage('')
         });
