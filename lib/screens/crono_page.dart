@@ -2,8 +2,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 // import 'package:runningup/constants/Theme.dart';
 // import 'package:runningup/widgets/drawer.dart';
-import 'package:http/http.dart' as http;
-
 import 'package:qrscan/qrscan.dart' as scanner;
 
 import 'estadisticas_page.dart';
@@ -16,9 +14,6 @@ class CronoPage extends StatefulWidget {
 }
 
 class _CronoPageState extends State<CronoPage> {
-  TextEditingController controllerTiempo = new TextEditingController();
-  TextEditingController controllerFecha = new TextEditingController();
-
   void initState() {
     super.initState();
     WidgetsBinding.instance
@@ -32,45 +27,19 @@ class _CronoPageState extends State<CronoPage> {
   String qrValue = "Codigo Qr";
   String xd = '';
   String msj = '';
-  // DateTime fecha = DateTime.now();
-  String fecha='';
-  int id = 1;
-
-  void addData() {
-    controllerTiempo.text = xd;
-    // controllerFecha.text = fecha;
-
-    var url =
-        Uri.parse("https://runningup.000webhostapp.com/Addtiempo_reco.php");
-    http.post(url, body: {
-      "tiempo": controllerTiempo,
-    });
-  }
 
   void scanQr() async {
     String cameraScanResult = await scanner.scan();
-
     setState(() {
       qrValue = cameraScanResult;
     });
-
     // if (cameraScanResult.length > 0) {
     //         Navigator.pushReplacementNamed(context, '/Crono');
     //       }
     if (qrValue == 'Finalizar') {
       _stopWatch.stop();
       xd = _stopwatchText;
-      // fecha = DateTime.now().toString() ;
-      
-      // addData();
-      // controllerTiempo.text = xd;
-      // controllerFecha.text = fecha;
-      var url =
-          Uri.parse("https://runningup.000webhostapp.com/Addtiempo_reco.php");
-      http.post(url, body: {
-        "tiempo": xd,
-        "Fecha": xd,
-      });
+      // Navigator.pushReplacementNamed(context, '/Estadisticas');
       Navigator.push(context,
           MaterialPageRoute(builder: (context) => EstadisticaPage(xd)));
     } else {
@@ -106,15 +75,15 @@ class _CronoPageState extends State<CronoPage> {
     });
   }
 
-  // void _resetButtonPressed() {
-  //   if (_stopWatch.isRunning) {
-  //     _startStopButtonPressed();
-  //   }
-  //   setState(() {
-  //     _stopWatch.reset();
-  //     _setStopwatchText();
-  //   });
-  // }
+  void _resetButtonPressed() {
+    if (_stopWatch.isRunning) {
+      _startStopButtonPressed();
+    }
+    setState(() {
+      _stopWatch.reset();
+      _setStopwatchText();
+    });
+  }
 
   void _setStopwatchText() {
     _stopwatchText = _stopWatch.elapsed.inHours.toString().padLeft(2, '0') +
@@ -158,9 +127,7 @@ class _CronoPageState extends State<CronoPage> {
           child: Column(
             children: <Widget>[
               // Text(xd, style: TextStyle(fontSize: 25.0, color: Colors.red)),
-              Text(msj,
-                  style:
-                      TextStyle(fontSize: 25.0, color: Colors.redAccent[700])),
+              Text(msj, style: TextStyle(fontSize: 25.0, color: Colors.redAccent[700])),
               // ElevatedButton(
               //   child: Icon( Icons.play_arrow),
               //   onPressed: _startStopButtonPressed,
