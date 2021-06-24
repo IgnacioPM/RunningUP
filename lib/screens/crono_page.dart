@@ -8,6 +8,20 @@ class CronoPage extends StatefulWidget {
   static String id = 'crono_page';
   @override
   _CronoPageState createState() => _CronoPageState();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 
 class _CronoPageState extends State<CronoPage> {
@@ -68,6 +82,10 @@ class _CronoPageState extends State<CronoPage> {
         (_stopWatch.elapsed.inMilliseconds % 60).toString().padLeft(2, '0');
   }
 
+
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -83,7 +101,7 @@ class _CronoPageState extends State<CronoPage> {
       children: <Widget>[
         Flexible(
           child: Image.asset(
-            'assets/img/logo.png',
+            'assets/img/tumblr_ab724334c896fee8abeb7e948fe53e03_1ac9e543_400.gif',
             height: 370.0,
           ),
         ),
@@ -92,7 +110,7 @@ class _CronoPageState extends State<CronoPage> {
             fit: BoxFit.none,
             child: Text(
               _stopwatchText,
-              style: TextStyle(fontSize: 72),
+              style: TextStyle(fontSize: 50),
             ),
           ),
         ),
@@ -122,4 +140,6 @@ class _CronoPageState extends State<CronoPage> {
       ],
     );
   }
+
+
 }
