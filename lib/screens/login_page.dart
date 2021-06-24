@@ -41,14 +41,14 @@ class _LoginPageState extends State<LoginPage> {
 
     if (datauser.length == 0) {
       setState(() {
-        msg = "Usuario o contrseña incorrectos";
+        msg = "Usuario o contraseña incorrectos";
       });
     } else {
       Users user = Users.fromJson(datauser.first);
       // controllerEmail.text = user.name + " "  + user.ap1 + " " + user.ap2;
-      userPreference.userName = user.name;
-      userPreference.userApe1 = user.ap1;
-      userPreference.userApe2 = user.ap2;
+      userPreference.userNameDrawer = user.name;
+      userPreference.userAp1Drawer = user.ap1;
+      userPreference.userAp2Drawer = user.ap2;
 
       // Navigator.pushReplacementNamed(context, '/home');
       Navigator.push(context, MaterialPageRoute(builder: (context) => Home()));

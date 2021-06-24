@@ -31,11 +31,17 @@ class _PerfilPageState extends State<PerfilPage> {
               SizedBox(
                 height: 15.0,
               ),
-              Text(userPreference.userName +
-                  ' ' +
-                  userPreference.userApe1 +
-                  ' ' +
-                  userPreference.userApe2),
+              new ListTile(
+                leading: const Icon(
+                  Icons.person,
+                  color: Colors.black,
+                ),
+                title: new Text(userPreference.userNameDrawer +
+                    ' ' +
+                    userPreference.userAp1Drawer +
+                    ' ' +
+                    userPreference.userAp2Drawer),
+              ),
               SizedBox(
                 height: 0.5,
               ),

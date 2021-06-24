@@ -16,6 +16,30 @@ class UserPreference {
     return true;
   }
 
+  set userNameDrawer(String value) {
+    _prefs.setString('user_name_drawer', value);
+  }
+
+  String get userNameDrawer {
+    return _prefs.getString('user_name_drawer');
+  }
+
+  set userAp1Drawer(String value) {
+    _prefs.setString('user_ap1_drawer', value);
+  }
+
+  String get userAp1Drawer {
+    return _prefs.getString('user_ap1_drawer');
+  }
+
+  set userAp2Drawer(String value) {
+    _prefs.setString('user_ap2_drawer', value);
+  }
+
+  String get userAp2Drawer {
+    return _prefs.getString('user_ap2_drawer');
+  }
+
   set userName(String value) {
     _prefs.setString('user_name', value);
   }
@@ -38,5 +62,13 @@ class UserPreference {
 
   String get userApe2 {
     return _prefs.getString('user_ap2');
+  }
+
+  set userEmail(String value) {
+    _prefs.setString('user_email', value);
+  }
+
+  String get userEmail {
+    return _prefs.getString('user_email');
   }
 }
