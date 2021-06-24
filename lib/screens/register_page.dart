@@ -159,11 +159,11 @@ class RegistroPage extends State<RegisterPage> {
                       title: new TextFormField(
                         controller: controllerAltura,
                         validator: (value) {
-                          if (value.isEmpty) return "Campo ALtura vacio";
+                          if (value.isEmpty) return "Campo Atura vacio";
                         },
                         decoration: new InputDecoration(
                           hintText: "Ejemplo: 165",
-                          labelText: "ALtura en centimetros",
+                          labelText: "Altura en centimetros",
                         ),
                       ),
                     ),
