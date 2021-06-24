@@ -20,7 +20,7 @@ class _RegisActPageState extends State<RegisActPage> {
   String msj = '';
 
   // ignore: non_constant_identifier_names
-  verificarpermisos_camara() async{
+  verificarpermisos_camara() async {
     var estatusCamara = await Permission.camera.status;
     var almacen = await Permission.storage.status;
     print(estatusCamara);
@@ -50,10 +50,11 @@ class _RegisActPageState extends State<RegisActPage> {
     //       }
     if (qrValue == 'Iniciar') {
       Navigator.pushReplacementNamed(context, '/Crono');
-    }else{
-        setState(() {
-      msj = 'El codigo QR no es valido, por favor verifique e intente de nuevo.';
-    });
+    } else {
+      setState(() {
+        msj =
+            'El codigo QR no es valido, por favor verifique e intente de nuevo.';
+      });
       // final snackBar = SnackBar(content: Text(msj));
     }
   }
@@ -113,34 +114,30 @@ class _RegisActPageState extends State<RegisActPage> {
               fit: BoxFit.cover,
             ),
             ListTile(
-             
               subtitle: Text('4 - El cronometro comenzará automáticamente. \n'),
             ),
             ListTile(
-              subtitle: Text('5 - Para finalizar presiona "terminar" y escanea el código "QR" que se encuentra al final del recorrido. \n'),
+              subtitle: Text(
+                  '5 - Para finalizar presiona "terminar" y escanea el código "QR" que se encuentra al final del recorrido. \n'),
             ),
-            Row(  
+            Row(
               mainAxisAlignment: MainAxisAlignment.center,
-                
               children: <Widget>[
-                
-                TextButton( 
-                  
-                  child: Text('Comenzar' ,style: TextStyle(color:Colors.white),),
+                TextButton(
+                  child: Text(
+                    'Comenzar',
+                    style: TextStyle(color: Colors.white),
+                  ),
                   style: TextButton.styleFrom(
                     backgroundColor: Colors.blue,
-                    
-                  
                   ),
                   onPressed: () => verificarpermisos_camara(),
-                  
                 ),
               ],
             )
           ],
         ),
-        SizedBox(width: 5.0),
-      ],
-    );
+      );
+    });
   }
 }
