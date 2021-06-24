@@ -26,15 +26,10 @@ class BuscarCompaPage extends StatefulWidget {
 }
 
 class _BuscarCompaPageState extends State<BuscarCompaPage> {
-  void setStateVacio() {
-    userPreference.userName = '';
-    userPreference.userApe1 = '';
-    userPreference.userApe2 = '';
-    userPreference.userEmail = '';
-  }
+  UserPreference userPreference = UserPreference();
 
   TextEditingController controllerCorreo = new TextEditingController();
-  UserPreference userPreference = UserPreference();
+
   String msg = '';
   // ignore: missing_return
 
@@ -208,7 +203,6 @@ class _BuscarCompaPageState extends State<BuscarCompaPage> {
           color: Colors.blueAccent,
           onPressed: () {
             addData();
-            setStateVacio();
             Navigator.pushReplacementNamed(context, '/Compas');
           });
     });

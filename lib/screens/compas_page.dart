@@ -4,6 +4,7 @@ import 'package:runningup/models/compas-api.dart';
 import 'package:runningup/models/compas.dart';
 import 'package:runningup/models/user-api.dart';
 import 'package:runningup/models/user.dart';
+import 'package:runningup/prefences/user_preference.dart';
 import 'package:runningup/widgets/drawer.dart';
 
 import 'package:runningup/widgets/navbar.dart';
@@ -16,6 +17,20 @@ class CompasPage extends StatefulWidget {
 }
 
 class _CompasPageState extends State<CompasPage> {
+  UserPreference userPreference = UserPreference();
+
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) => setStateVacio());
+  }
+
+  void setStateVacio() {
+    userPreference.userName = '';
+    userPreference.userApe1 = '';
+    userPreference.userApe2 = '';
+    userPreference.userEmail = '';
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
