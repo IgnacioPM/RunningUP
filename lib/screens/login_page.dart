@@ -49,6 +49,10 @@ class _LoginPageState extends State<LoginPage> {
       userPreference.userNameDrawer = user.name;
       userPreference.userAp1Drawer = user.ap1;
       userPreference.userAp2Drawer = user.ap2;
+      userPreference.userPesoKilosDrawer = user.pesoKilos;
+      userPreference.userAlturaCentimetrosDrawer = user.alturaCentimetros;
+      userPreference.userSexoDrawer = user.sexo;
+      userPreference.useremailDrawer = user.email;
 
       // Navigator.pushReplacementNamed(context, '/home');
       Navigator.push(context, MaterialPageRoute(builder: (context) => Home()));

@@ -40,6 +40,36 @@ class UserPreference {
     return _prefs.getString('user_ap2_drawer');
   }
 
+  set userPesoKilosDrawer(String value) {
+    _prefs.setString('user_Peso_Kilos_drawer', value);
+  }
+
+  String get userPesoKilosDrawer {
+    return _prefs.getString('user_Peso_Kilos_drawer');
+  }
+   set userSexoDrawer(String value) {
+    _prefs.setString('user_Sexo_drawer', value);
+  }
+
+  String get userSexoDrawer {
+    return _prefs.getString('user_Sexo_drawer');
+  }
+   set useremailDrawer(String value) {
+    _prefs.setString('user_email_drawer', value);
+  }
+
+  String get useremailDrawer {
+    return _prefs.getString('user_email_drawer');
+  }
+
+  
+   set userAlturaCentimetrosDrawer(String value) {
+    _prefs.setString('user_AlturaCentimetros_drawer', value);
+  }
+
+  String get userAlturaCentimetrosDrawer {
+    return _prefs.getString('user_AlturaCentimetros_drawer');
+  }
   set userName(String value) {
     _prefs.setString('user_name', value);
   }
