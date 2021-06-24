@@ -4,15 +4,15 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 import 'package:runningup/constants/Theme.dart';
-import 'package:runningup/models/compas-api.dart';
-import 'package:runningup/models/compas.dart';
+// import 'package:runningup/models/compas-api.dart';
+// import 'package:runningup/models/compas.dart';
 import 'package:runningup/models/user.dart';
 import 'package:runningup/prefences/user_preference.dart';
 import 'package:runningup/widgets/drawer.dart';
 import 'dart:async';
 
-import 'compas_page.dart';
-import 'home.dart';
+// import 'compas_page.dart';
+// import 'home.dart';
 
 String email;
 

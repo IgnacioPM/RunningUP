@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 import 'package:runningup/constants/Theme.dart';
 import 'package:runningup/screens/login_page.dart';
 // import 'package:runningup/widgets/drawer.dart';
@@ -45,9 +47,17 @@ class RegistroPage extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: AppBar(
+            centerTitle: true,
+            title: Text('Registro de usuario'),
+            leading: new IconButton(
+                icon: new Icon(Icons.arrow_back_rounded),
+                onPressed: () {
+                  Navigator.pushReplacementNamed(context, '/Login');
+                })),
         backgroundColor: MaterialColors.bgColorScreen,
         // key: _scaffoldKey,
-        drawer: MaterialDrawer(currentPage: "AgregarCompa_Page"),
+        // drawer: MaterialDrawer(currentPage: "AgregarCompa_Page"),
         body: Form(
           key: _formkey,
           child: Padding(
@@ -57,10 +67,8 @@ class RegistroPage extends State<RegisterPage> {
                 new Column(
                   children: <Widget>[
                     new ListTile(
-                      leading: const Icon(
-                        Icons.email_outlined,
-                        color: Colors.black,
-                      ),
+                      leading: const Icon(FontAwesomeIcons.envelope,
+                          color: Colors.black),
                       title: new TextFormField(
                         controller: controllerEmail,
                         validator: (value) {
@@ -74,10 +82,8 @@ class RegistroPage extends State<RegisterPage> {
                       ),
                     ),
                     new ListTile(
-                      leading: const Icon(
-                        Icons.lock_open_outlined,
-                        color: Colors.black,
-                      ),
+                      leading: const Icon(FontAwesomeIcons.lock,
+                          color: Colors.black),
                       title: new TextFormField(
                         controller: controllerPassword,
                         validator: (value) {
@@ -90,10 +96,8 @@ class RegistroPage extends State<RegisterPage> {
                       ),
                     ),
                     new ListTile(
-                      leading: const Icon(
-                        Icons.person,
-                        color: Colors.black,
-                      ),
+                      leading: const Icon(FontAwesomeIcons.userAlt,
+                          color: Colors.black),
                       title: new TextFormField(
                         controller: controllerName,
                         validator: (value) {
@@ -106,10 +110,8 @@ class RegistroPage extends State<RegisterPage> {
                       ),
                     ),
                     new ListTile(
-                      leading: const Icon(
-                        Icons.person_outline,
-                        color: Colors.black,
-                      ),
+                      leading: const Icon(FontAwesomeIcons.userAlt,
+                          color: Colors.black),
                       title: new TextFormField(
                         controller: controllerAp1,
                         validator: (value) {
@@ -123,10 +125,8 @@ class RegistroPage extends State<RegisterPage> {
                       ),
                     ),
                     new ListTile(
-                      leading: const Icon(
-                        Icons.person_outline,
-                        color: Colors.black,
-                      ),
+                      leading: const Icon(FontAwesomeIcons.userAlt,
+                          color: Colors.black),
                       title: new TextFormField(
                         controller: controllerAP2,
                         validator: (value) {
@@ -140,10 +140,8 @@ class RegistroPage extends State<RegisterPage> {
                       ),
                     ),
                     new ListTile(
-                      leading: const Icon(
-                        Icons.person_outline,
-                        color: Colors.black,
-                      ),
+                      leading: const Icon(FontAwesomeIcons.weight,
+                          color: Colors.black),
                       title: new TextFormField(
                         controller: controllerPeso,
                         validator: (value) {
@@ -156,26 +154,22 @@ class RegistroPage extends State<RegisterPage> {
                       ),
                     ),
                     new ListTile(
-                      leading: const Icon(
-                        Icons.person_outline,
-                        color: Colors.black,
-                      ),
+                      leading: const Icon(FontAwesomeIcons.rulerVertical,
+                          color: Colors.black),
                       title: new TextFormField(
                         controller: controllerAltura,
                         validator: (value) {
-                          if (value.isEmpty) return "Campo ALtura vacio";
+                          if (value.isEmpty) return "Campo Atura vacio";
                         },
                         decoration: new InputDecoration(
                           hintText: "Ejemplo: 165",
-                          labelText: "ALtura en centimetros",
+                          labelText: "Altura en centimetros",
                         ),
                       ),
                     ),
                     new ListTile(
-                      leading: const Icon(
-                        Icons.person_outline,
-                        color: Colors.black,
-                      ),
+                      leading: const Icon(FontAwesomeIcons.venusMars,
+                          color: Colors.black),
                       title: new TextFormField(
                         controller: controllerSexo,
                         validator: (value) {
@@ -194,7 +188,7 @@ class RegistroPage extends State<RegisterPage> {
                       padding: const EdgeInsets.all(10.0),
                     ),
                     new ElevatedButton(
-                      child: new Text("Registrarse"),
+                      child:new Text("Registrarse"),
                       style: ElevatedButton.styleFrom(
                         primary: Colors.black,
                       ),
@@ -205,7 +199,6 @@ class RegistroPage extends State<RegisterPage> {
                               context,
                               MaterialPageRoute(
                                   builder: (context) => LoginPage(registro)));
-                          // Navigator.pop(context);
                         }
                       },
                     )
