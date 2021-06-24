@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:material_kit_flutter/constants/Theme.dart';
+import 'package:runningup/constants/Theme.dart';
 
 class CardHorizontal extends StatelessWidget {
   CardHorizontal(

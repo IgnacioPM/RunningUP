@@ -1,4 +1,4 @@
-name: material_kit_flutter
+name: runningup
 description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
@@ -26,6 +26,8 @@ dependencies:
   scrollable_positioned_list: ^0.1.7
   carousel_slider: ^2.2.1
   font_awesome_flutter: ^8.8.1
+  # change_app_package_name: ^1.0.0
+
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -34,10 +36,19 @@ dependencies:
   http: any
   qrscan: ^0.2.22
   stop_watch_timer: ^1.2.0+1
+  mysql1: ^0.17.1
+  shared_preferences: ^2.0.6
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+  flutter_launcher_icons: "^0.8.0"
+
+flutter_icons:
+  image_path: "assets/img/runninguplogo.jpeg"
+  android: true
+  ios: true
   # http: <latest_version>
 
 # For information on the generic Dart part of this file, see the
@@ -59,6 +70,14 @@ flutter:
     - assets/img/logo-android.png
     - assets/img/logo-ios.png
     - assets/img/logo.png
+    - assets/img/runninguplogo.jpeg
+    - assets/img/cargando.gif
+    - assets/img/Portada-Blogpost.webp
+    - assets/img/ESTADISTICA.webp
+    - assets/img/EphnIa2XMAM8lLm.jpg large.webp
+    - assets/img/
+
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-import 'package:material_kit_flutter/constants/Theme.dart';
+import 'package:runningup/constants/Theme.dart';
 
 //widgets
-import 'package:material_kit_flutter/widgets/navbar.dart';
-import 'package:material_kit_flutter/widgets/table-cell.dart';
+import 'package:runningup/widgets/navbar.dart';
+import 'package:runningup/widgets/table-cell.dart';
 
-import 'package:material_kit_flutter/widgets/drawer.dart';
+import 'package:runningup/widgets/drawer.dart';
 
 class Settings extends StatefulWidget {
   @override
