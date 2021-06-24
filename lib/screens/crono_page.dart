@@ -30,22 +30,22 @@ class _CronoPageState extends State<CronoPage> {
   final _stopWatch = new Stopwatch();
   final _timeout = const Duration(milliseconds: 1);
   String qrValue = "Codigo Qr";
-  String xd = 'hola';
+  String xd = '';
   String msj = '';
-  String fecha = 'dfd';
+  // DateTime fecha = DateTime.now();
+  String fecha='';
   int id = 1;
-  
 
-void addData(){
-controllerTiempo.text = xd;
-controllerFecha.text = fecha;
+  void addData() {
+    controllerTiempo.text = xd;
+    // controllerFecha.text = fecha;
 
-    var url = Uri.parse("https://runningup.000webhostapp.com/Addtiempo_reco.php");
-     http.post(url, body: {
-        "tiempo": controllerTiempo,
-        "fecha": controllerFecha,
-      });
-}
+    var url =
+        Uri.parse("https://runningup.000webhostapp.com/Addtiempo_reco.php");
+    http.post(url, body: {
+      "tiempo": controllerTiempo,
+    });
+  }
 
   void scanQr() async {
     String cameraScanResult = await scanner.scan();
@@ -60,7 +60,17 @@ controllerFecha.text = fecha;
     if (qrValue == 'Finalizar') {
       _stopWatch.stop();
       xd = _stopwatchText;
-      addData();
+      // fecha = DateTime.now().toString() ;
+      
+      // addData();
+      // controllerTiempo.text = xd;
+      // controllerFecha.text = fecha;
+      var url =
+          Uri.parse("https://runningup.000webhostapp.com/Addtiempo_reco.php");
+      http.post(url, body: {
+        "tiempo": xd,
+        "Fecha": xd,
+      });
       Navigator.push(context,
           MaterialPageRoute(builder: (context) => EstadisticaPage(xd)));
     } else {

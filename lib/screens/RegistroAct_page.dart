@@ -17,8 +17,8 @@ class RegisActPage extends StatefulWidget {
 class _RegisActPageState extends State<RegisActPage> {
   String qrValue = "Codigo Qr";
   String msj = '';
-  verificarpermisos_camara() async{
-        var estatusCamara = await Permission.camera.status;
+   verificarpermisos_camara() async{
+    var estatusCamara = await Permission.camera.status;
     var almacen = await Permission.storage.status;
     print(estatusCamara);
     print(almacen);
@@ -44,16 +44,12 @@ class _RegisActPageState extends State<RegisActPage> {
     setState(() {
       qrValue = cameraScanResult;
     });
-    // if (cameraScanResult.length > 0) {
-    //         Navigator.pushReplacementNamed(context, '/Crono');
-    //       }
     if (qrValue == 'Iniciar') {
       Navigator.pushReplacementNamed(context, '/Crono');
     }else{
         setState(() {
       msj = 'El codigo QR no es valido, por favor verifique e intente de nuevo.';
     });
-      // final snackBar = SnackBar(content: Text(msj));
     }
   }
 
@@ -70,13 +66,6 @@ class _RegisActPageState extends State<RegisActPage> {
         drawer: MaterialDrawer(currentPage: "RegisAct_Page"),
         body: Center(
           child: Container(
-              // child: Text(
-              //   qrValue,
-              //   textAlign: TextAlign.center,
-              //   style: TextStyle(
-              //     fontSize: 18,
-              //     ),
-              // ),
               child: Text(msj, style: TextStyle(fontSize: 25.0, color: Colors.red)),
               
               ),
