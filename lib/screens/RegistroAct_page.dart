@@ -15,10 +15,7 @@ class RegisActPage extends StatefulWidget {
 
 class _RegisActPageState extends State<RegisActPage> {
   String qrValue = "Codigo Qr";
-<<<<<<< HEAD
   String msj = '';
-=======
->>>>>>> d1a871bb89e80d87c506cb0f56e5f2247b7f9671
 
   void scanQr() async {
     String cameraScanResult = await scanner.scan();
