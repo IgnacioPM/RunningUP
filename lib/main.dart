@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+// import 'package:permission_handler/permission_handler.dart';
 import 'package:runningup/screens/RegistroAct_page.dart';
 import 'package:runningup/screens/agregarCompas_page.dart';
 import 'package:runningup/screens/buscarCompas_page.dart';
