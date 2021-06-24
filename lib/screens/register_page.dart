@@ -45,11 +45,6 @@ class RegistroPage extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        // extendBodyBehindAppBar: true,
-        appBar: AppBar(
-          centerTitle: true,
-          title: Text('Registro de Compas'),
-        ),
         backgroundColor: MaterialColors.bgColorScreen,
         // key: _scaffoldKey,
         drawer: MaterialDrawer(currentPage: "AgregarCompa_Page"),
