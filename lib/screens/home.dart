@@ -53,7 +53,6 @@ class Home extends StatelessWidget {
           title: Text('Inicio'),
         ),
         backgroundColor: MaterialColors.bgColorScreen,
-        // key: _scaffoldKey,
         drawer: MaterialDrawer(currentPage: "Home"),
         body: ListView(
           padding: EdgeInsets.all(10.0),
@@ -69,6 +68,10 @@ class Home extends StatelessWidget {
             _cardTipo5(),
             SizedBox(height: 15.0),
             _cardTipo6(),
+             SizedBox(height: 15.0),
+            _cardTipo7(),
+             SizedBox(height: 15.0),
+            _cardTipo8(),
           ],
         ));
   }
@@ -257,6 +260,7 @@ class Home extends StatelessWidget {
   }
 
   Widget _cardTipo6() {
+
     final card = Container(
       child: Column(
         children: <Widget>[
@@ -298,4 +302,84 @@ class Home extends StatelessWidget {
       ),
     );
   }
+
+  Widget _cardTipo7() {
+    return StreamBuilder(
+        builder: (BuildContext context, AsyncSnapshot snapshot) {
+      return Card(
+        elevation: 10.0,
+        shape:
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+        child: Column(
+          children: <Widget>[
+            ListTile(
+              leading: Icon(Icons.assistant_photo_rounded, color: Colors.blue),
+              title: Text('Sección de amigos'),
+              subtitle: Text(
+                  'Obtén una mejor experiencia agregando a tus amigos y visualiza sus estadísticas'),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: <Widget>[
+                TextButton(
+                  child: Text('ir'),
+                  onPressed: () {
+                      Navigator.pushReplacementNamed(context, '/Compas');
+                  },
+                )
+              ],
+            )
+          ],
+        ),
+      );
+    });
+  }
+
+  Widget _cardTipo8() {
+
+    final card = Container(
+      child: Column(
+        children: <Widget>[
+          FadeInImage(
+            image: AssetImage('assets/img/amigos.jpg'),
+            // image: NetworkImage(
+            //     'https://www.eliteonlinemedia.com/hubfs/Portada-Blogpost.jpg'),
+            placeholder: AssetImage('assets/img/cargando.gif'),
+            fadeInDuration: Duration(milliseconds: 200),
+            height: 250.0,
+            fit: BoxFit.cover,
+          ),
+
+          // Image(
+          // image: NetworkImage('https://pbs.twimg.com/media/EphnIa2XMAM8lLm.jpg:large'),
+          // ),
+          Container(
+              padding: EdgeInsets.all(10.0),
+              child: Text('Todo es mejor con tus amigos'))
+        ],
+      ),
+    );
+
+    return Container(
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10.0),
+          color: Colors.white,
+          //color: Colors.black26
+          boxShadow: <BoxShadow>[
+            BoxShadow(
+                color: Colors.black26,
+                blurRadius: 10.0,
+                spreadRadius: 2.0,
+                offset: Offset(2.0, 10.0))
+          ]),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(10.0),
+        child: card,
+      ),
+    );
+  }
+
+
+
+
 }
