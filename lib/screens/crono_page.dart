@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 // import 'package:runningup/widgets/drawer.dart';
 import 'package:qrscan/qrscan.dart' as scanner;
 
+import 'estadisticas_page.dart';
+
 // ignore: must_be_immutable
 class CronoPage extends StatefulWidget {
   static String id = 'crono_page';
@@ -23,10 +25,10 @@ class _CronoPageState extends State<CronoPage> {
   final _stopWatch = new Stopwatch();
   final _timeout = const Duration(milliseconds: 1);
   String qrValue = "Codigo Qr";
-  String xd ='';
+  String xd = '';
+  String msj = '';
 
-
-void scanQr() async {
+  void scanQr() async {
     String cameraScanResult = await scanner.scan();
     setState(() {
       qrValue = cameraScanResult;
@@ -34,16 +36,18 @@ void scanQr() async {
     // if (cameraScanResult.length > 0) {
     //         Navigator.pushReplacementNamed(context, '/Crono');
     //       }
-    if(qrValue == 'Finalizar'){
-
+    if (qrValue == 'Finalizar') {
       _stopWatch.stop();
       xd = _stopwatchText;
-    //  Navigator.pushReplacementNamed(context, '/Estadisticas');
-
+      // Navigator.pushReplacementNamed(context, '/Estadisticas');
+      Navigator.push(context,
+          MaterialPageRoute(builder: (context) => EstadisticaPage(xd)));
+    } else {
+      setState(() {
+        msj = 'Codigo QR erroneo';
+      });
     }
-    
   }
-
 
   void _startTimeout() {
     new Timer(_timeout, _handleTimeout);
@@ -115,25 +119,24 @@ void scanQr() async {
             fit: BoxFit.none,
             child: Text(
               _stopwatchText,
-              // style: TextStyle(fontSize: 72),
-            ), 
-            
+              style: TextStyle(fontSize: 72),
+            ),
           ),
         ),
         Center(
           child: Column(
             children: <Widget>[
-              Text(xd, style: TextStyle(fontSize: 25.0, color: Colors.red)),
-              ElevatedButton(
-                child: Icon( Icons.play_arrow),
-                onPressed: _startStopButtonPressed,
-              ),
+              // Text(xd, style: TextStyle(fontSize: 25.0, color: Colors.red)),
+              Text(msj, style: TextStyle(fontSize: 25.0, color: Colors.redAccent[700])),
+              // ElevatedButton(
+              //   child: Icon( Icons.play_arrow),
+              //   onPressed: _startStopButtonPressed,
+              // ),
               // ignore: deprecated_member_use
               ElevatedButton.icon(
-                label: Text('Detener actividad') ,
-                icon: Icon(Icons.stop_rounded) ,
+                label: Text('Detener actividad'),
+                icon: Icon(Icons.stop_rounded),
                 onPressed: () => scanQr(),
-                
               ),
               ElevatedButton(
                 child: Icon(

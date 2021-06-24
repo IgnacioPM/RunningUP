@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:runningup/constants/Theme.dart';
 import 'package:runningup/models/compas-api.dart';
 import 'package:runningup/models/compas.dart';
-import 'package:runningup/models/user-api.dart';
-import 'package:runningup/models/user.dart';
+// import 'package:runningup/models/user-api.dart';
+// import 'package:runningup/models/user.dart';
 import 'package:runningup/prefences/user_preference.dart';
 import 'package:runningup/widgets/drawer.dart';
 
-import 'package:runningup/widgets/navbar.dart';
+// import 'package:runningup/widgets/navbar.dart';
 
 class CompasPage extends StatefulWidget {
   static String id = 'Compas_Page';
