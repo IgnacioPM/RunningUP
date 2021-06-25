@@ -27,7 +27,7 @@ class _EstadisticaPageState extends State<EstadisticaPage> {
       drawer: MaterialDrawer(currentPage: "Estadísticas"),
       body: Center(
         child: FutureBuilder(
-          future: fetchEstadisticas(),
+          future: fetchEstadisticas(userPreference.userIdDrawer),
           builder: (context, AsyncSnapshot<List<Estadisticas>> snapshot) {
             if (snapshot.hasData) {
               return ListView.builder(
