@@ -38,15 +38,29 @@ class _MaterialDrawerState extends State<MaterialDrawer> {
         DrawerHeader(
             decoration: BoxDecoration(color: MaterialColors.drawerHeader),
             child: Container(
-                // padding: EdgeInsets.symmetric(horizontal: 28.0),
+                
                 child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                        Flexible(
+          child: Image.asset(
+            'assets/img/3100405.png',
+            height: 370.0,
+          ),),
+                
+                
                 Padding(
                   padding: const EdgeInsets.only(bottom: 8.0, top: 16.0),
-                  child: Text(userPreference.userNameDrawer,
+                  child: Text(userPreference.userNameDrawer  + ' ' + userPreference.userAp1Drawer + ' ' + userPreference.userAp2Drawer,
                       style: TextStyle(color: Colors.white, fontSize: 21)),
+                      
+                ),
+                  Padding(
+                  padding: const EdgeInsets.only(bottom: 8.0, top: 1.0),
+                  child: Text(userPreference.useremailDrawer,
+                      style: TextStyle(color: Colors.black, fontSize: 15 )),
+                      
                 ),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 2.0),
