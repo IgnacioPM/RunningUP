@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:runningup/screens/RegistroAct_page.dart';
+import 'package:runningup/screens/about_us_page.dart';
 import 'package:runningup/screens/agregarCompas_page.dart';
 import 'package:runningup/screens/buscarCompas_page.dart';
 import 'package:runningup/screens/compas_page.dart';
@@ -42,6 +43,8 @@ class MaterialKitPROFlutter extends StatelessWidget {
           "/AddCompa": (BuildContext context) => new AgregarCompasPage(),
           "/SearchCompa": (BuildContext context) => new BuscarCompaPage(),
           "/perfilCompas": (BuildContext context) => new PerfilCompasPage(),
+          "/about": (BuildContext context) => new AboutPage(),
+
 
 
 

@@ -89,7 +89,7 @@ class _MaterialDrawerState extends State<MaterialDrawer> {
                 isSelected:
                     widget.currentPage == "RegisAct_Page" ? true : false),
             DrawerTile(
-                icon: Icons.run_circle_outlined,
+                icon: Icons.tour_rounded,
                 onTap: () {
                   if (widget.currentPage != "SalonFama_Page")
                     Navigator.pushReplacementNamed(context, '/SalonFama');
@@ -108,7 +108,7 @@ class _MaterialDrawerState extends State<MaterialDrawer> {
                 title: "Compas",
                 isSelected: widget.currentPage == "Compas_Page" ? true : false),
             DrawerTile(
-                icon: Icons.assistant_photo,
+                icon: Icons.analytics_outlined,
                 onTap: () {
                   if (widget.currentPage != "Estadistica_Page")
                     Navigator.pushReplacementNamed(context, '/Estadisticas');
@@ -117,6 +117,17 @@ class _MaterialDrawerState extends State<MaterialDrawer> {
                 title: "Estadisticas",
                 isSelected:
                     widget.currentPage == "Estadistica_Page" ? true : false),
+
+            DrawerTile(
+                icon: Icons.info_outline,
+                onTap: () {
+                  if (widget.currentPage != "About_Page")
+                    Navigator.pushReplacementNamed(context, '/about');
+                },
+                iconColor: Colors.black,
+                title: "Sobre RunningUP",
+                isSelected: widget.currentPage == "About_Page" ? true : false),
+
             DrawerTile(
                 icon: Icons.logout,
                 onTap: () {
