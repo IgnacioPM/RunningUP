@@ -8,4 +8,3 @@ Future<List<Compas>> fetchCompas(String idUser) async {
   );
   return compasFromJson(response.body);
 }
-

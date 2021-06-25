@@ -25,20 +25,35 @@ class _EstadisticaPageState extends State<EstadisticaPage> {
       ),
       backgroundColor: MaterialColors.bgColorScreen,
       drawer: MaterialDrawer(currentPage: "Estadísticas"),
-      body: Center(
-        child: FutureBuilder(
-          future: fetchEstadisticas(),
+     body: ListView(
+        shrinkWrap: true,
+        padding: EdgeInsets.all(10.0),
+        children: <Widget>[
+          SizedBox(height: 15.0),
+          _cardTipo2(),
+        ],
+      ),
+    );
+  }
+
+  
+  Widget _cardTipo2() {
+    return Card(
+      elevation: 10.0,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+     child: FutureBuilder(
+          future: fetchEstadisticas(userPreference.userIdDrawer),
           builder: (context, AsyncSnapshot<List<Estadisticas>> snapshot) {
             if (snapshot.hasData) {
               return ListView.builder(
+                 shrinkWrap: true,  physics: ClampingScrollPhysics(),
                 itemCount: snapshot.data.length,
-                shrinkWrap: true,
                 itemBuilder: (BuildContext context, index) {
                   Estadisticas estadisticas = snapshot.data[index];
                   return ListTile(
                     leading: CircleAvatar(
                       backgroundImage: NetworkImage(
-                          "https://images.unsplash.com/photo-1553544923-37efbe6ff816?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=368&q=80"),
+                          "https://images.emojiterra.com/mozilla/512px/1f3c3.png"),
                     ),
                     title: Text(
                         '${estadisticas.fecha}'),
@@ -51,7 +66,9 @@ class _EstadisticaPageState extends State<EstadisticaPage> {
             return CircularProgressIndicator();
           },
         ),
-      ),
     );
   }
+
+
+
 }

@@ -134,8 +134,8 @@ class _CronoPageState extends State<CronoPage> {
         centerTitle: true,
         title: Text('Cronometro'),
       ),
-      backgroundColor: MaterialColors.bgColorScreen,
-      drawer: MaterialDrawer(currentPage: "Crono"),
+       backgroundColor: MaterialColors.bgColorScreen,
+        drawer: MaterialDrawer(currentPage: "Crono"),
       body: _buildBody(),
     );
   }
