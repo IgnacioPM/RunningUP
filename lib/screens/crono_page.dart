@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 import 'package:qrscan/qrscan.dart' as scanner;
+import 'package:runningup/prefences/user_preference.dart';
 
 import 'estadisticas_page.dart';
 
@@ -16,6 +17,7 @@ class CronoPage extends StatefulWidget {
 }
 
 class _CronoPageState extends State<CronoPage> {
+  UserPreference userPreference = UserPreference();
   TextEditingController controllerTiempo = new TextEditingController();
   TextEditingController controllerFecha = new TextEditingController();
 
@@ -36,17 +38,7 @@ class _CronoPageState extends State<CronoPage> {
   String fecha = '';
   int id = 1;
 
-  void addData() {
-    controllerTiempo.text = xd;
-    // controllerFecha.text = fecha;
-
-    var url =
-        Uri.parse("https://runningup.000webhostapp.com/Addtiempo_reco.php");
-    http.post(url, body: {
-      "tiempo": controllerTiempo,
-    });
-  }
-
+  
   void scanQr() async {
     String cameraScanResult = await scanner.scan();
 
@@ -60,7 +52,7 @@ class _CronoPageState extends State<CronoPage> {
     if (qrValue == 'Finalizar') {
       _stopWatch.stop();
       xd = _stopwatchText;
-      fecha = DateTime.now().toString() ;
+      fecha = DateTime.now().toString();
 
       // addData();
       // controllerTiempo.text = xd;
@@ -69,16 +61,18 @@ class _CronoPageState extends State<CronoPage> {
       print('xd xd xd');
       print(xd);
       print(fecha.substring(0, 19));
+      print(userPreference.userIdDrawer);
 
       var url =
           Uri.parse("https://runningup.000webhostapp.com/Addtiempo_reco.php");
       http.post(url, body: {
         "tiempo": xd,
         "Fecha": fecha.substring(0, 19),
-        "recorrido_idrecorrido": "1"
+        "recorrido_idrecorrido": "1",
+        "user_iduser": userPreference.userIdDrawer
       });
       Navigator.push(context,
-          MaterialPageRoute(builder: (context) => EstadisticaPage(xd)));
+          MaterialPageRoute(builder: (context) => EstadisticaPage()));
     } else {
       setState(() {
         msj = 'Codigo QR erroneo';

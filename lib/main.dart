@@ -35,7 +35,7 @@ class MaterialKitPROFlutter extends StatelessWidget {
           "/RegisAct": (BuildContext context) => new RegisActPage(),
           "/SalonFama": (context)=> SalonFamaPage(),
           "/Compas": (BuildContext context) => new CompasPage(),
-          "/Estadisticas": (BuildContext context) => new EstadisticaPage(''),
+          "/Estadisticas": (BuildContext context) => new EstadisticaPage(),
           "/Logout": (BuildContext context) => new CompasPage(),
           "/Registro": (BuildContext context) => new RegisterPage(),
           "/Crono": (BuildContext context) => new CronoPage(),
