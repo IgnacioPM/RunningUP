@@ -4,6 +4,7 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 import 'package:runningup/constants/Theme.dart';
+import 'package:runningup/models/compas-api.dart';
 // import 'package:runningup/models/compas-api.dart';
 // import 'package:runningup/models/compas.dart';
 import 'package:runningup/models/user.dart';
@@ -67,6 +68,8 @@ class _BuscarCompaPageState extends State<BuscarCompaPage> {
   }
 
   void addData() {
+
+    
     var url = Uri.parse("https://runningup.000webhostapp.com/agregarCompa.php");
 
     http.post(url, body: {
