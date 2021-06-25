@@ -38,17 +38,7 @@ class _CronoPageState extends State<CronoPage> {
   String fecha = '';
   int id = 1;
 
-  void addData() {
-    controllerTiempo.text = xd;
-    // controllerFecha.text = fecha;
-
-    var url =
-        Uri.parse("https://runningup.000webhostapp.com/Addtiempo_reco.php");
-    http.post(url, body: {
-      "tiempo": controllerTiempo,
-    });
-  }
-
+  
   void scanQr() async {
     String cameraScanResult = await scanner.scan();
 
@@ -71,16 +61,18 @@ class _CronoPageState extends State<CronoPage> {
       print('xd xd xd');
       print(xd);
       print(fecha.substring(0, 19));
+      print(userPreference.userIdDrawer);
 
       var url =
           Uri.parse("https://runningup.000webhostapp.com/Addtiempo_reco.php");
       http.post(url, body: {
         "tiempo": xd,
         "Fecha": fecha.substring(0, 19),
-        "recorrido_idrecorrido": "1"
+        "recorrido_idrecorrido": "1",
+        "user_iduser": userPreference.userIdDrawer
       });
       Navigator.push(context,
-          MaterialPageRoute(builder: (context) => EstadisticaPage(xd)));
+          MaterialPageRoute(builder: (context) => EstadisticaPage()));
     } else {
       setState(() {
         msj = 'Codigo QR erroneo';
