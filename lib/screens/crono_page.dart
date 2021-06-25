@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 import 'package:qrscan/qrscan.dart' as scanner;
+import 'package:runningup/prefences/user_preference.dart';
 
 import 'estadisticas_page.dart';
 
@@ -16,6 +17,7 @@ class CronoPage extends StatefulWidget {
 }
 
 class _CronoPageState extends State<CronoPage> {
+  UserPreference userPreference = UserPreference();
   TextEditingController controllerTiempo = new TextEditingController();
   TextEditingController controllerFecha = new TextEditingController();
 
@@ -60,7 +62,7 @@ class _CronoPageState extends State<CronoPage> {
     if (qrValue == 'Finalizar') {
       _stopWatch.stop();
       xd = _stopwatchText;
-      fecha = DateTime.now().toString() ;
+      fecha = DateTime.now().toString();
 
       // addData();
       // controllerTiempo.text = xd;
