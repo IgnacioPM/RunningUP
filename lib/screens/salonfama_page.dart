@@ -19,7 +19,7 @@ class _SalonFamaPageState extends State<SalonFamaPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      extendBodyBehindAppBar: true,
+    
       appBar: AppBar(
         centerTitle: true,
         title: Text('Salon de la Fama'),
@@ -54,20 +54,13 @@ class _SalonFamaPageState extends State<SalonFamaPage> {
                 return ListTile(
                   leading: CircleAvatar(
                     backgroundImage: NetworkImage(
-                        "https://images.emojiterra.com/mozilla/512px/1f3c3.png"),
+                        "https://www.emojiall.com/images/animations/joypixels/128px/trophy.gif"),
                   ),
-                  title: Text('${estadisticas.fecha}'),
+                  title: Text(
+                  '${estadisticas.fecha}  ${estadisticas.tiempo}'), 
+                  subtitle: Text('${estadisticas.userName}'),
                   // if (estadisticas.recorridoIdrecorrido == userPreference.userIdDrawer){
-                  subtitle: Text(() {
-                    fetchUsers();
-
-                    // if (estadisticas.useriduser ==
-                    //     userPreference.userIdDrawer) {
-                    //   return "${userPreference.userNameDrawer}";
-                    // }
-
-                    return "${estadisticas.recorridoIdrecorrido}";
-                  }()),
+              
 
                   // },
                 );
@@ -75,7 +68,7 @@ class _SalonFamaPageState extends State<SalonFamaPage> {
             );
           }
 
-          return CircularProgressIndicator();
+          return LinearProgressIndicator();
         },
       ),
     );
