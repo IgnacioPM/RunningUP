@@ -5,7 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 import 'package:qrscan/qrscan.dart' as scanner;
+import 'package:runningup/constants/Theme.dart';
 import 'package:runningup/prefences/user_preference.dart';
+import 'package:runningup/widgets/drawer.dart';
 
 import 'estadisticas_page.dart';
 
@@ -132,6 +134,8 @@ class _CronoPageState extends State<CronoPage> {
       appBar: AppBar(
         title: Text('Cronometro'),
       ),
+       backgroundColor: MaterialColors.bgColorScreen,
+        drawer: MaterialDrawer(currentPage: "Crono"),
       body: _buildBody(),
     );
   }
@@ -141,7 +145,7 @@ class _CronoPageState extends State<CronoPage> {
       children: <Widget>[
         Flexible(
           child: Image.asset(
-            'assets/img/logo.png',
+            'assets/img/rayman_running.gif',
             height: 370.0,
           ),
         ),
@@ -150,7 +154,7 @@ class _CronoPageState extends State<CronoPage> {
             fit: BoxFit.none,
             child: Text(
               _stopwatchText,
-              style: TextStyle(fontSize: 72),
+              style: TextStyle(fontSize: 60),
             ),
           ),
         ),
