@@ -60,16 +60,22 @@ class _CronoPageState extends State<CronoPage> {
     if (qrValue == 'Finalizar') {
       _stopWatch.stop();
       xd = _stopwatchText;
-      // fecha = DateTime.now().toString() ;
+      fecha = DateTime.now().toString() ;
 
       // addData();
       // controllerTiempo.text = xd;
       // controllerFecha.text = fecha;
+
+      print('xd xd xd');
+      print(xd);
+      print(fecha.substring(0, 19));
+
       var url =
           Uri.parse("https://runningup.000webhostapp.com/Addtiempo_reco.php");
       http.post(url, body: {
         "tiempo": xd,
-        "Fecha": xd,
+        "Fecha": fecha.substring(0, 19),
+        "recorrido_idrecorrido": "1"
       });
       Navigator.push(context,
           MaterialPageRoute(builder: (context) => EstadisticaPage(xd)));

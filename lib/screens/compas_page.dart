@@ -50,18 +50,20 @@ class _CompasPageState extends State<CompasPage> {
                 itemCount: snapshot.data.length,
                 shrinkWrap: true,
                 itemBuilder: (BuildContext context, index) {
-                  Compas users = snapshot.data[index];
+                  Compas compa = snapshot.data[index];
                   return ListTile(
                     onTap: () {
-                      Navigator.pushReplacementNamed(context, '/Perfil');
+                      print('compa.emailC compa.emailC compa.emailC');
+                      print(compa.emailC);
+                      Navigator.pushReplacementNamed(context, '/perfilCompas', arguments: { 'emailCompa' : compa.emailC });
                     },
                     leading: CircleAvatar(
                       backgroundImage: NetworkImage(
                           "https://images.unsplash.com/photo-1553544923-37efbe6ff816?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=368&q=80"),
                     ),
                     title: Text(
-                        '${users.nombre} ${users.apellidoPaterno} ${users.apellidoMaterno}'),
-                    subtitle: Text('${users.emailC}'),
+                        '${compa.nombre} ${compa.apellidoPaterno} ${compa.apellidoMaterno}'),
+                    subtitle: Text('${compa.emailC}'),
                   );
                 },
               );
