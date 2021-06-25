@@ -55,7 +55,8 @@ class _CompasPageState extends State<CompasPage> {
                     onTap: () {
                       print('compa.emailC compa.emailC compa.emailC');
                       print(compa.emailC);
-                      Navigator.pushReplacementNamed(context, '/perfilCompas', arguments: { 'emailCompa' : compa.emailC });
+                      Navigator.pushReplacementNamed(context, '/perfilCompas',
+                          arguments: {'emailCompa': compa.emailC});
                     },
                     leading: CircleAvatar(
                       backgroundImage: NetworkImage(
@@ -71,50 +72,11 @@ class _CompasPageState extends State<CompasPage> {
 
             return CircularProgressIndicator();
           },
-          // children: [
-          //   SizedBox(
-          //     height: 15.0,
-          //   ),
-          //   _nameTextField(),
-          //   SizedBox(
-          //     height: 15.0,
-          //   ),
-          //   _apellido1TextField(),
-          //   SizedBox(
-          //     height: 20.0,
-          //   ),
-          //   _bottonBuscar(),
-          //   SizedBox(
-          //     height: 15.0,
-          //   ),
-          //   Text(msg, style: TextStyle(fontSize: 25.0, color: Colors.red)),
-          //   // Text(widget.registro,
-          //   //     style: TextStyle(fontSize: 25.0, color: Colors.green)),
-          // ],
         ),
       ),
       floatingActionButton: _buscarCompa(),
     );
   }
-
-//    Widget _crearBotones() {
-//     return Row(
-//       mainAxisAlignment: MainAxisAlignment.end,
-//       children: <Widget>[
-//         SizedBox(width: 30),
-//         FloatingActionButton(
-//             backgroundColor: Colors.green[900],
-//             onPressed: () {    Navigator.pushReplacementNamed(context, '/AddCompa');
-// },
-//             child: Icon(
-//               Icons.camera_alt_outlined,
-//             ),
-//           ),
-//         SizedBox(width: 5.0),
-
-//       ],
-//     );
-//   }
 
   Widget _buscarCompa() {
     return Row(
