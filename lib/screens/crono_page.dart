@@ -5,9 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 import 'package:qrscan/qrscan.dart' as scanner;
-import 'package:runningup/constants/Theme.dart';
 import 'package:runningup/prefences/user_preference.dart';
-import 'package:runningup/widgets/drawer.dart';
 
 import 'estadisticas_page.dart';
 
@@ -40,6 +38,7 @@ class _CronoPageState extends State<CronoPage> {
   String fecha = '';
   int id = 1;
 
+  
   void scanQr() async {
     String cameraScanResult = await scanner.scan();
 
@@ -72,8 +71,8 @@ class _CronoPageState extends State<CronoPage> {
         "recorrido_idrecorrido": "1",
         "user_iduser": userPreference.userIdDrawer
       });
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => EstadisticaPage()));
+      Navigator.push(context,
+          MaterialPageRoute(builder: (context) => EstadisticaPage()));
     } else {
       setState(() {
         msj = 'Codigo QR erroneo';
@@ -131,11 +130,8 @@ class _CronoPageState extends State<CronoPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        centerTitle: true,
         title: Text('Cronometro'),
       ),
-      backgroundColor: MaterialColors.bgColorScreen,
-      drawer: MaterialDrawer(currentPage: "Crono"),
       body: _buildBody(),
     );
   }
@@ -145,7 +141,7 @@ class _CronoPageState extends State<CronoPage> {
       children: <Widget>[
         Flexible(
           child: Image.asset(
-            'assets/img/rayman_running.gif',
+            'assets/img/logo.png',
             height: 370.0,
           ),
         ),
@@ -154,16 +150,22 @@ class _CronoPageState extends State<CronoPage> {
             fit: BoxFit.none,
             child: Text(
               _stopwatchText,
-              style: TextStyle(fontSize: 60),
+              style: TextStyle(fontSize: 72),
             ),
           ),
         ),
         Center(
           child: Column(
             children: <Widget>[
+              // Text(xd, style: TextStyle(fontSize: 25.0, color: Colors.red)),
               Text(msj,
                   style:
                       TextStyle(fontSize: 25.0, color: Colors.redAccent[700])),
+              // ElevatedButton(
+              //   child: Icon( Icons.play_arrow),
+              //   onPressed: _startStopButtonPressed,
+              // ),
+              // ignore: deprecated_member_use
               ElevatedButton.icon(
                 label: Text('Detener actividad'),
                 icon: Icon(Icons.stop_rounded),
@@ -183,38 +185,4 @@ class _CronoPageState extends State<CronoPage> {
       ],
     );
   }
-  Widget _cardTipo1() {
-    return StreamBuilder(
-        builder: (BuildContext context, AsyncSnapshot snapshot) {
-      return Card(
-        elevation: 10.0,
-        shape:
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
-        child: Column(
-          children: <Widget>[
-            ListTile(
-              leading: Icon(Icons.accessibility_new, color: Colors.blue),
-              title: Text('Bienvenido a Running App'),
-              subtitle:
-                  Text('El app que a revolucionado el control de tus rutinas'),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: <Widget>[
-                TextButton(
-                  child: Text('Comenzar'),
-                  onPressed: () {
-                    Navigator.pushReplacementNamed(context, '/RegisAct');
-                  },
-                )
-              ],
-            )
-          ],
-        ),
-      );
-    });
-  }
-
-
-
 }
