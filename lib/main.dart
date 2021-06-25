@@ -44,10 +44,6 @@ class MaterialKitPROFlutter extends StatelessWidget {
           "/SearchCompa": (BuildContext context) => new BuscarCompaPage(),
           "/perfilCompas": (BuildContext context) => new PerfilCompasPage(),
           "/about": (BuildContext context) => new AboutPage(),
-
-
-
-
           "/Login": (context)=> LoginPage('')
         });
   }
