@@ -21,7 +21,7 @@ class _EstadisticaPageState extends State<EstadisticaPage> {
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         centerTitle: true,
-        title: Text('Compas'),
+        title: Text('Estadisticas'),
       ),
       backgroundColor: MaterialColors.bgColorScreen,
       drawer: MaterialDrawer(currentPage: "Estadísticas"),

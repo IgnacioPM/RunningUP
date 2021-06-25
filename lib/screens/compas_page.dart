@@ -56,7 +56,7 @@ class _CompasPageState extends State<CompasPage> {
       elevation: 10.0,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
       child: FutureBuilder(
-        future: fetchCompas(),
+        future: fetchCompas(userPreference.userIdDrawer),
         builder: (context, AsyncSnapshot<List<Compas>> snapshot) {
           if (snapshot.hasData) {
             return ListView.builder(

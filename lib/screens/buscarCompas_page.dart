@@ -74,6 +74,7 @@ class _BuscarCompaPageState extends State<BuscarCompaPage> {
       "Apellido_Paterno": userPreference.userApe1,
       "Apellido_Materno": userPreference.userApe2,
       "email_c": userPreference.userEmail,
+      "idUser" : userPreference.userIdDrawer
     });
   }
 

@@ -3,6 +3,7 @@ import 'package:runningup/constants/Theme.dart';
 // import 'package:runningup/widgets/drawer.dart';
 
 import 'package:http/http.dart' as http;
+import 'package:runningup/prefences/user_preference.dart';
 
 import 'compas_page.dart';
 class AgregarCompasPage extends StatefulWidget {
@@ -13,6 +14,7 @@ class AgregarCompasPage extends StatefulWidget {
 }
 
 class AddCompaPageState extends State<AgregarCompasPage> {
+  UserPreference userPreference = UserPreference();
   TextEditingController controllerNombre = new TextEditingController();
   TextEditingController controllerApellidoPaterno = new TextEditingController();
   TextEditingController controllerApellidoMaterno = new TextEditingController();
@@ -22,6 +24,9 @@ class AddCompaPageState extends State<AgregarCompasPage> {
   var _formkey = GlobalKey<FormState>();
 
 void addData(){
+ print('xd xd xd');
+ print(userPreference.userIdDrawer);
+ 
    var url = Uri.parse("https://runningup.000webhostapp.com/agregarCompa.php");
 
    http.post(url, body:{
@@ -29,6 +34,8 @@ void addData(){
      "Apellido_Paterno" : controllerApellidoPaterno.text,
      "Apellido_Materno" : controllerApellidoMaterno.text,
      "email_c" : controlleremailc.text,
+     "idUser" : userPreference.userIdDrawer
+
    });
 }
 
@@ -39,7 +46,7 @@ void addData(){
     return  Scaffold(
         // extendBodyBehindAppBar: true,
         appBar: AppBar(
-        title: Text('Registro de Compas'),
+        title: Text(userPreference.userIdDrawer),
       ),
         backgroundColor: MaterialColors.bgColorScreen,
         body: Form(
