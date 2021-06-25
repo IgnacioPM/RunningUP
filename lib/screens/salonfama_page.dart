@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:runningup/constants/Theme.dart';
-import 'package:runningup/models/compas.dart';
+import 'package:runningup/models/estadisticas-api.dart';
+import 'package:runningup/models/estadisticas.dart';
+import 'package:runningup/models/user-api.dart';
 import 'package:runningup/prefences/user_preference.dart';
 import 'package:runningup/widgets/drawer.dart';
-import 'package:runningup/models/compas-api.dart';
-import 'package:runningup/models/compas.dart';
+
 class SalonFamaPage extends StatefulWidget {
   static String id = 'SalonFama_Page';
 
@@ -13,32 +14,18 @@ class SalonFamaPage extends StatefulWidget {
 }
 
 class _SalonFamaPageState extends State<SalonFamaPage> {
-
   UserPreference userPreference = UserPreference();
-
-  void initState() {
-    super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) => setStateVacio());
-  }
-
-  void setStateVacio() {
-    userPreference.userName = '';
-    userPreference.userApe1 = '';
-    userPreference.userApe2 = '';
-    userPreference.userEmail = '';
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
       appBar: AppBar(
         centerTitle: true,
-        title: Text('Compas'),
+        title: Text('Salon de la Fama'),
       ),
-      
       backgroundColor: MaterialColors.bgColorScreen,
-      drawer: MaterialDrawer(currentPage: "Compas_Page"),
-      
+      drawer: MaterialDrawer(currentPage: "Salon de la Fama"),
       body: ListView(
         shrinkWrap: true,
         padding: EdgeInsets.all(10.0),
@@ -47,7 +34,6 @@ class _SalonFamaPageState extends State<SalonFamaPage> {
           _cardTipo2(),
         ],
       ),
-      floatingActionButton: _buscarCompa(),
     );
   }
 
@@ -56,55 +42,42 @@ class _SalonFamaPageState extends State<SalonFamaPage> {
       elevation: 10.0,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
       child: FutureBuilder(
-        future: fetchCompas(userPreference.userIdDrawer),
-        builder: (context, AsyncSnapshot<List<Compas>> snapshot) {
+        future: fetchFama(),
+        builder: (context, AsyncSnapshot<List<Estadisticas>> snapshot) {
           if (snapshot.hasData) {
-            
             return ListView.builder(
-              shrinkWrap: true,  physics: ClampingScrollPhysics(),
+              shrinkWrap: true,
+              physics: ClampingScrollPhysics(),
               itemCount: snapshot.data.length,
-              
               itemBuilder: (BuildContext context, index) {
-                Compas compa = snapshot.data[index];
+                Estadisticas estadisticas = snapshot.data[index];
                 return ListTile(
-                  onTap: () {
-               
-                    Navigator.pushReplacementNamed(context, '/perfilCompas',
-                        arguments: {'emailCompa': compa.emailC});
-                  },
                   leading: CircleAvatar(
                     backgroundImage: NetworkImage(
-                        "https://e7.pngegg.com/pngimages/639/61/png-clipart-computer-icons-mobile-phones-contact-free-others-miscellaneous-head.png"),
+                        "https://images.emojiterra.com/mozilla/512px/1f3c3.png"),
                   ),
-                  title: Text(
-                      '${compa.nombre} ${compa.apellidoPaterno} ${compa.apellidoMaterno}'),
-                  subtitle: Text('${compa.emailC}'),
+                  title: Text('${estadisticas.fecha}'),
+                  // if (estadisticas.recorridoIdrecorrido == userPreference.userIdDrawer){
+                  subtitle: Text(() {
+                    fetchUsers();
+
+                    // if (estadisticas.useriduser ==
+                    //     userPreference.userIdDrawer) {
+                    //   return "${userPreference.userNameDrawer}";
+                    // }
+
+                    return "${estadisticas.recorridoIdrecorrido}";
+                  }()),
+
+                  // },
                 );
               },
             );
           }
+
           return CircularProgressIndicator();
         },
       ),
-    );
-  }
-
-  Widget _buscarCompa() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.end,
-      children: <Widget>[
-        SizedBox(width: 30),
-        FloatingActionButton(
-          backgroundColor: Colors.blue,
-          onPressed: () {
-            Navigator.pushReplacementNamed(context, '/SearchCompa');
-          },
-          child: Icon(
-            Icons.search_rounded,
-          ),
-        ),
-        SizedBox(width: 5.0),
-      ],
     );
   }
 }
