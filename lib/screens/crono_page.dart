@@ -70,7 +70,9 @@ class _CronoPageState extends State<CronoPage> {
         "tiempo": xd,
         "Fecha": fecha.substring(0, 19),
         "recorrido_idrecorrido": "1",
-        "user_iduser": userPreference.userIdDrawer
+        "user_iduser": userPreference.userIdDrawer,
+        "user_name": userPreference.userNameDrawer
+        
       });
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => EstadisticaPage()));

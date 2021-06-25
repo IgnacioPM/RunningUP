@@ -18,7 +18,7 @@ class _EstadisticaPageState extends State<EstadisticaPage> {
   @override
  Widget build(BuildContext context) {
     return Scaffold(
-      extendBodyBehindAppBar: true,
+    
       appBar: AppBar(
         centerTitle: true,
         title: Text('Estadisticas'),
@@ -56,14 +56,15 @@ class _EstadisticaPageState extends State<EstadisticaPage> {
                           "https://images.emojiterra.com/mozilla/512px/1f3c3.png"),
                     ),
                     title: Text(
-                        '${estadisticas.fecha}'),
-                    subtitle: Text('${estadisticas.recorridoIdrecorrido}'),
+                        '${estadisticas.fecha}  ${estadisticas.tiempo}'), 
+                    subtitle: Text('${estadisticas.userName}'),
+                    
                   );
                 },
               );
             }
 
-            return CircularProgressIndicator();
+            return LinearProgressIndicator();
           },
         ),
     );
