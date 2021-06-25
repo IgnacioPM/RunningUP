@@ -38,7 +38,7 @@ class _CompasPageState extends State<CompasPage> {
         centerTitle: true,
         title: Text('Compas'),
       ),
-      extendBodyBehindAppBar: true,
+     
       backgroundColor: MaterialColors.bgColorScreen,
       drawer: MaterialDrawer(currentPage: "Compas_Page"),
       
@@ -86,7 +86,7 @@ class _CompasPageState extends State<CompasPage> {
               },
             );
           }
-          return CircularProgressIndicator();
+          return LinearProgressIndicator();
         },
       ),
     );
