@@ -89,6 +89,16 @@ class _MaterialDrawerState extends State<MaterialDrawer> {
                 isSelected:
                     widget.currentPage == "RegisAct_Page" ? true : false),
             DrawerTile(
+                icon: Icons.run_circle_outlined,
+                onTap: () {
+                  if (widget.currentPage != "SalonFama_Page")
+                    Navigator.pushReplacementNamed(context, '/SalonFama');
+                },
+                iconColor: Colors.black,
+                title: "Salon de la Fama",
+                isSelected:
+                    widget.currentPage == "SalonFama_Page" ? true : false),
+            DrawerTile(
                 icon: Icons.contact_page,
                 onTap: () {
                   if (widget.currentPage != "Compas_Page")

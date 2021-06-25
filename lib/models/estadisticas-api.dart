@@ -8,3 +8,9 @@ Future<List<Estadisticas>> fetchEstadisticas(String useriduser) async {
       body: {'user_iduser': useriduser});
   return estadisticasFromJson(response.body);
 }
+
+Future<List<Estadisticas>> fetchFama() async {
+  final response = await http.get(
+      Uri.parse('https://runningup.000webhostapp.com/fama.php'));
+  return estadisticasFromJson(response.body);
+}

@@ -14,18 +14,24 @@ class Estadisticas {
         this.tiempo,
         this.fecha,
         this.recorridoIdrecorrido,
+        this.useriduser,
+
     });
 
     String idtiempoReco;
     String tiempo;
     String fecha;
     String recorridoIdrecorrido;
+    String useriduser;
+
 
     factory Estadisticas.fromJson(Map<String, dynamic> json) => Estadisticas(
         idtiempoReco: json["idtiempo_reco"],
         tiempo: json["tiempo"],
         fecha: json["Fecha"],
         recorridoIdrecorrido: json["recorrido_idrecorrido"],
+        useriduser: json["user_iduser"],
+
     );
 
     Map<String, dynamic> toJson() => {
@@ -33,5 +39,7 @@ class Estadisticas {
         "tiempo": tiempo,
         "Fecha": fecha,
         "recorrido_idrecorrido": recorridoIdrecorrido,
+        "user_iduser": useriduser,
+
     };
 }
