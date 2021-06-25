@@ -38,9 +38,12 @@ class _CompasPageState extends State<CompasPage> {
         centerTitle: true,
         title: Text('Compas'),
       ),
+      
       backgroundColor: MaterialColors.bgColorScreen,
       drawer: MaterialDrawer(currentPage: "Compas_Page"),
+      
       body: ListView(
+        shrinkWrap: true,
         padding: EdgeInsets.all(10.0),
         children: <Widget>[
           SizedBox(height: 15.0),
@@ -59,15 +62,16 @@ class _CompasPageState extends State<CompasPage> {
         future: fetchCompas(userPreference.userIdDrawer),
         builder: (context, AsyncSnapshot<List<Compas>> snapshot) {
           if (snapshot.hasData) {
+            
             return ListView.builder(
+              shrinkWrap: true,  physics: ClampingScrollPhysics(),
               itemCount: snapshot.data.length,
-              shrinkWrap: true,
+              
               itemBuilder: (BuildContext context, index) {
                 Compas compa = snapshot.data[index];
                 return ListTile(
                   onTap: () {
-                    print('compa.emailC compa.emailC compa.emailC');
-                    print(compa.emailC);
+               
                     Navigator.pushReplacementNamed(context, '/perfilCompas',
                         arguments: {'emailCompa': compa.emailC});
                   },
