@@ -46,6 +46,7 @@ class _LoginPageState extends State<LoginPage> {
     } else {
       Users user = Users.fromJson(datauser.first);
       // controllerEmail.text = user.name + " "  + user.ap1 + " " + user.ap2;
+      userPreference.userIdDrawer = user.iduser;
       userPreference.userNameDrawer = user.name;
       userPreference.userAp1Drawer = user.ap1;
       userPreference.userAp2Drawer = user.ap2;

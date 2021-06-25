@@ -16,6 +16,14 @@ class UserPreference {
     return true;
   }
 
+   set userIdDrawer(String value) {
+    _prefs.setString('user_id_drawer', value);
+  }
+
+  String get userIdDrawer {
+    return _prefs.getString('user_id_drawer');
+  }
+
   set userNameDrawer(String value) {
     _prefs.setString('user_name_drawer', value);
   }
