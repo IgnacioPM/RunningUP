@@ -28,7 +28,7 @@ class _PerfilCompasPageState extends State<PerfilCompasPage> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text('Mi Perfil'),
+        title: Text('Perfil de compa'),
       ),
       backgroundColor: MaterialColors.bgColorScreen,
       drawer: MaterialDrawer(currentPage: "Perfil_Page"),
@@ -71,7 +71,7 @@ class _PerfilCompasPageState extends State<PerfilCompasPage> {
               Icons.av_timer_outlined,
               color: Colors.black,
             ),
-            title: new Text('Peso en kg: '),
+            title: new Text( 'Peso en kg: ' + compa.pesoKilos),
           ),
           SizedBox(
             height: 15.0,
@@ -81,7 +81,7 @@ class _PerfilCompasPageState extends State<PerfilCompasPage> {
               Icons.height_rounded,
               color: Colors.black,
             ),
-            title: new Text('Altura en cm: '),
+            title: new Text('Altura en cm: ' + compa.alturaCentimetros),
           ),
           SizedBox(
             height: 15.0,
@@ -91,7 +91,7 @@ class _PerfilCompasPageState extends State<PerfilCompasPage> {
               Icons.accessibility_new,
               color: Colors.black,
             ),
-            title: new Text(""),
+            title: new Text(compa.sexo),
           ),
           SizedBox(
             height: 15.0,
@@ -101,7 +101,7 @@ class _PerfilCompasPageState extends State<PerfilCompasPage> {
               Icons.email_outlined,
               color: Colors.black,
             ),
-            title: new Text(''),
+            title: new Text(compa.email),
           ),
         ],
       ),
@@ -127,7 +127,7 @@ class _PerfilCompasPageState extends State<PerfilCompasPage> {
           // ),
           Container(
             padding: EdgeInsets.all(7.0),
-            child: Text(compa.name),
+            child: Text(compa.name + ' ' + compa.ap1 + ' ' + compa.ap2),
           ),
         ],
       ),

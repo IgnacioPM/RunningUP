@@ -34,87 +34,59 @@ class _CompasPageState extends State<CompasPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      extendBodyBehindAppBar: true,
       appBar: AppBar(
         centerTitle: true,
         title: Text('Compas'),
       ),
       backgroundColor: MaterialColors.bgColorScreen,
       drawer: MaterialDrawer(currentPage: "Compas_Page"),
-      body: Center(
-        child: FutureBuilder(
-          future: fetchCompas(),
-          builder: (context, AsyncSnapshot<List<Compas>> snapshot) {
-            if (snapshot.hasData) {
-              return ListView.builder(
-                itemCount: snapshot.data.length,
-                shrinkWrap: true,
-                itemBuilder: (BuildContext context, index) {
-                  Compas compa = snapshot.data[index];
-                  return ListTile(
-                    onTap: () {
-                      print('compa.emailC compa.emailC compa.emailC');
-                      print(compa.emailC);
-                      Navigator.pushReplacementNamed(context, '/perfilCompas', arguments: { 'emailCompa' : compa.emailC });
-                    },
-                    leading: CircleAvatar(
-                      backgroundImage: NetworkImage(
-                          "https://images.unsplash.com/photo-1553544923-37efbe6ff816?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=368&q=80"),
-                    ),
-                    title: Text(
-                        '${compa.nombre} ${compa.apellidoPaterno} ${compa.apellidoMaterno}'),
-                    subtitle: Text('${compa.emailC}'),
-                  );
-                },
-              );
-            }
-
-            return CircularProgressIndicator();
-          },
-          // children: [
-          //   SizedBox(
-          //     height: 15.0,
-          //   ),
-          //   _nameTextField(),
-          //   SizedBox(
-          //     height: 15.0,
-          //   ),
-          //   _apellido1TextField(),
-          //   SizedBox(
-          //     height: 20.0,
-          //   ),
-          //   _bottonBuscar(),
-          //   SizedBox(
-          //     height: 15.0,
-          //   ),
-          //   Text(msg, style: TextStyle(fontSize: 25.0, color: Colors.red)),
-          //   // Text(widget.registro,
-          //   //     style: TextStyle(fontSize: 25.0, color: Colors.green)),
-          // ],
-        ),
+      body: ListView(
+        padding: EdgeInsets.all(10.0),
+        children: <Widget>[
+          SizedBox(height: 15.0),
+          _cardTipo2(),
+        ],
       ),
       floatingActionButton: _buscarCompa(),
     );
   }
 
-//    Widget _crearBotones() {
-//     return Row(
-//       mainAxisAlignment: MainAxisAlignment.end,
-//       children: <Widget>[
-//         SizedBox(width: 30),
-//         FloatingActionButton(
-//             backgroundColor: Colors.green[900],
-//             onPressed: () {    Navigator.pushReplacementNamed(context, '/AddCompa');
-// },
-//             child: Icon(
-//               Icons.camera_alt_outlined,
-//             ),
-//           ),
-//         SizedBox(width: 5.0),
-
-//       ],
-//     );
-//   }
+  Widget _cardTipo2() {
+    return Card(
+      elevation: 10.0,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+      child: FutureBuilder(
+        future: fetchCompas(),
+        builder: (context, AsyncSnapshot<List<Compas>> snapshot) {
+          if (snapshot.hasData) {
+            return ListView.builder(
+              itemCount: snapshot.data.length,
+              shrinkWrap: true,
+              itemBuilder: (BuildContext context, index) {
+                Compas compa = snapshot.data[index];
+                return ListTile(
+                  onTap: () {
+                    print('compa.emailC compa.emailC compa.emailC');
+                    print(compa.emailC);
+                    Navigator.pushReplacementNamed(context, '/perfilCompas',
+                        arguments: {'emailCompa': compa.emailC});
+                  },
+                  leading: CircleAvatar(
+                    backgroundImage: NetworkImage(
+                        "https://e7.pngegg.com/pngimages/639/61/png-clipart-computer-icons-mobile-phones-contact-free-others-miscellaneous-head.png"),
+                  ),
+                  title: Text(
+                      '${compa.nombre} ${compa.apellidoPaterno} ${compa.apellidoMaterno}'),
+                  subtitle: Text('${compa.emailC}'),
+                );
+              },
+            );
+          }
+          return CircularProgressIndicator();
+        },
+      ),
+    );
+  }
 
   Widget _buscarCompa() {
     return Row(
@@ -122,7 +94,7 @@ class _CompasPageState extends State<CompasPage> {
       children: <Widget>[
         SizedBox(width: 30),
         FloatingActionButton(
-          backgroundColor: Colors.green[900],
+          backgroundColor: Colors.blue,
           onPressed: () {
             Navigator.pushReplacementNamed(context, '/SearchCompa');
           },
