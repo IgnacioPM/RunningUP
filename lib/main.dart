@@ -10,6 +10,7 @@ import 'package:runningup/screens/estadisticas_page.dart';
 // screens
 import 'package:runningup/screens/home.dart';
 import 'package:runningup/screens/login_page.dart';
+import 'package:runningup/screens/perfil_compas_page.dart';
 import 'package:runningup/screens/perfil_page.dart';
 import 'package:runningup/screens/register_page.dart';
 // import 'package:runningup/screens/profile.dart';
@@ -40,6 +41,7 @@ class MaterialKitPROFlutter extends StatelessWidget {
           "/Crono": (BuildContext context) => new CronoPage(),
           "/AddCompa": (BuildContext context) => new AgregarCompasPage(),
           "/SearchCompa": (BuildContext context) => new BuscarCompaPage(),
+          "/perfilCompas": (BuildContext context) => new PerfilCompasPage(),
 
 
 
